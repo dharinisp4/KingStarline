@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:background="@android:color/white"
+        android:layout_marginTop="5dp">
+
+
+    <TextView
+                android:id="@+id/notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textSize="14dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginLeft="0dp"
+                android:text="OPEN-BIDS-11:28 am I Close-BIDS-12:28"/>
+
+            <TextView
+                android:id="@+id/notification_time"
+                android:layout_below="@id/notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:text="02:02 am"
+                android:textSize="8dp"
+                android:textColor="@color/greenColor"
+                />
+        <TextView
+            android:id="@+id/notification_ID"
+            android:layout_below="@id/notification"
+            android:layout_toRightOf="@id/notification_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:text="02:02 am"
+            android:textSize="8dp"
+            android:visibility="invisible"
+            android:textColor="@color/greenColor"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

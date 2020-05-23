@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@color/colorPrimaryDark"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/_10sdp"
+
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:id="@+id/rlicon"
+            android:visibility="gone"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimaryDark">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:id="@+id/icon"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+
+               android:background="@drawable/jm_icon"
+
+                />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/profile_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:text="User Name"
+
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>

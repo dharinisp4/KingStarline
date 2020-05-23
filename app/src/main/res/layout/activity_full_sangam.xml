@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".FullSangamActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txtBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_keyboard_backspace_black_24dp"/>
+
+            <TextView
+                android:id="@+id/board"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Dhani Night -Single Digits Board"
+                android:layout_toRightOf="@id/txtBack"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textSize="17dp"
+                android:textColor="@color/textColor"/>
+
+            <TextView
+                android:id="@+id/w_image"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/ic_account_balance_wallet_black_24dp"
+                android:layout_toLeftOf="@+id/wallet_amount"
+                android:layout_marginRight="2dp"
+                android:backgroundTint="@color/textColor"
+                android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/wallet_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/textColor"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <include layout="@layout/timer_layout"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_below="@+id/rel_timer"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnBetStatus"
+                android:layout_width="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_height="30dp"
+                android:background="@drawable/shape2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="26/06/2019 - FRIDAY - BET OPEN"
+                android:textSize="9dp"
+                android:textColor="@color/white"/>
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnBetType"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/gradient_button"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_alignParentEnd="true"
+                android:text="Select Type"
+                android:textAlignment="center"
+                android:paddingLeft="5dp"
+                android:textSize="12dp"
+                android:textColor="@color/colorPrimaryDark"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relativeLayout2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout4"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                >
+                <TextView
+                    android:id="@+id/txtSingleDigit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/open_pana"
+                    android:textColor="@color/textColor"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dp"
+                    android:textSize="14dp"/>
+                <AutoCompleteTextView
+                    android:id="@+id/et_OpenPanna"
+                    android:layout_width="180dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:textColor="@color/textColor"
+                    android:maxLength="3"
+                    android:hint="@string/open_pana"
+                    android:textColorHint="@color/textColor"
+                    android:textSize="14dp"
+                    android:completionThreshold="1"
+                    android:background="@drawable/shape2"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout11"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_below="@id/relativeLayout4"
+                >
+                <TextView
+                    android:id="@+id/txtSingleDigit1"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/close_pana"
+                    android:textColor="@color/textColor"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dp"
+
+                    android:textSize="14dp"/>
+                <AutoCompleteTextView
+                    android:id="@+id/et_ClosePanna"
+                    android:layout_width="180dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:hint="@string/close_pana"
+                    android:textColorHint="@color/textColor"
+                    android:textSize="14dp"
+                    android:completionThreshold="1"
+                    android:textColor="@color/textColor"
+                    android:background="@drawable/shape2"/>
+
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout5"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_below="@id/relativeLayout11"
+                >
+                <TextView
+                    android:id="@+id/txtSinglePoints"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POINTS    "
+                    android:textColor="@color/textColor"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="10dp"
+                    android:textSize="14dp"/>
+                <EditText
+                    android:id="@+id/etPoints"
+                    android:layout_width="180dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:textSize="14dp"
+                    android:hint="Points"
+                    android:textColorHint="@color/textColor"
+                    android:textColor="@color/textColor"
+                    android:background="@drawable/shape2"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/relativeLayout6"
+                android:layout_below="@id/relativeLayout5"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                >
+                <Button
+                    android:id="@+id/digit_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:backgroundTint="@color/white"
+                    android:background="@drawable/gradient_button"
+                    android:textAllCaps="false"
+                    android:text="Add"
+                    android:textSize="16dp"
+                    android:textColor="@color/colorPrimaryDark"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+            <include layout="@layout/all_games_layout"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

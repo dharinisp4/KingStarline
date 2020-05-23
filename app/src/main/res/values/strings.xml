@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Online Matka</string>
+    <string name="title_activity_home">Online Matka</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="bid_closed">Bid is closed for today</string>
+    <string name="pana">Pana</string>
+    <string name="single_pana">Single Pana</string>
+    <string name="red_bracket">Red Brackets</string>
+    <string name="double_pana">Double Pana</string>
+    <string name="triple_pana">Triple Pana</string>
+    <string name="jodi_digit">Jodi Digit</string>
+    <string name="sp_motor">SP Motor</string>
+    <string name="dp_motor">DP Motor</string>
+    <string name="cycle_pana">Cycle Pana</string>
+    <string name="group_panel">Group Panel</string>
+    <string name="group_jodi">Group Jodi</string>
+    <string name="open_digit">Open Digit</string>
+    <string name="close_pana">Close Pana</string>
+    <string name="open_pana">Open Pana</string>
+    <string name="close_digit">Close Digit</string>
+    <string name="digit">Digit</string>
+    <string name="tab_digit">Digit</string>
+    <string name="tab_pana">Pana</string>
+    <string name="tab_jodi">Jodi</string>
+
+
+    <string name="txt_qr_code" translatable="false">QR Code</string>
+    <string name="txt_qr_text" translatable="false">Scan and make payment</string>
+    <string name="txt_trans_id" translatable="false">Transaction Id</string>
+    <string name="txt_trans_amt" translatable="false">Transaction Amount</string>
+    <string name="txt_choose_screenshot" translatable="false">Upload transaction screenshot</string>
+    <string name="btn_upload" translatable="false">Upload</string>
+    <string name="btn_uploaded" translatable="false">Uploaded</string>
+    <string name="btn_choose" translatable="false">Choose</string>
+    <string name="btn_cancel" translatable="false">Cancel</string>
+    <string name="btn_save" translatable="false">Save</string>
+    <string name="tv_demo" translatable="false">Demo Videos</string>
+    <string name="txt_trans_details" translatable="false">Transaction Details..</string>
+    <string name="already_uploaded" translatable="false">This Document already uploaded</string>
+    <string name="required_trans" translatable="false">Enter Transaction Or Upload Screenshot</string>
+    <string name="required_trans_amt" translatable="false">Enter Transaction Amount</string>
+    <string name="invalid_trans_id" translatable="false">Invalid Transaction Id</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tagline">" विश्वास"</string>
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotificationActivity"
+
+  >
+    <include layout="@layout/background_layout"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/txt_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_keyboard_backspace_black_24dp"
+            android:textSize="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:textSize="22dp"
+            android:textColor="@color/textColor"
+            android:textStyle="italic"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="40dp"/>
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar">
+        <TextView
+            android:id="@+id/m_noti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Main Notifications"
+            android:textSize="20dp"
+            android:textColor="@color/textColor"
+            android:textStyle="bold|italic"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:id="@+id/text_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/m_noti"
+            android:text="OFF"
+            android:textSize="20dp"
+            android:textColor="@color/textColor"
+            android:textStyle="bold|italic"
+            android:gravity="center_horizontal"
+            android:layout_marginLeft="40dp"/>
+
+        <Switch
+            android:id="@+id/notification_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/textColor"
+            android:layout_toRightOf="@id/text_notification"
+            android:layout_marginLeft="20dp"
+            android:checked="false"
+            />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_below="@id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="@dimen/_150sdp"
+        android:gravity="center"
+        android:layout_margin="5dp"
+
+        android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount :-"
+                android:textSize="22dp"
+                android:textColor="@color/white"
+
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/wallet_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/re"
+                android:textColor="@color/white"
+                android:text="10000 INR"
+                android:textSize="22dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"/>
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/wallet_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:background="@drawable/dialog_buttons"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+
+            android:layout_marginBottom="10dp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

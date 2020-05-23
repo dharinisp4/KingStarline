@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+
+    >
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@drawable/background_page"-->
+<!--        android:alpha=".5"/>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/background"-->
+<!--        android:alpha=".6"/>-->
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    app:cardBackgroundColor="@color/white"
+    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:padding="10dp"
+
+
+      >
+
+
+        <TextView
+            android:id="@+id/txtFundId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:textColor="@color/iconColor"/>
+        <TextView
+            android:id="@+id/fund_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+
+            android:layout_toRightOf="@id/txtFundId"
+            android:layout_marginLeft="80dp"
+            android:textStyle="italic"
+            android:textColor="@color/iconColor"/>
+
+        <TextView
+            android:id="@+id/txtFund_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txtFundId"
+            android:text="Fund Amount "
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/iconColor"/>
+        <TextView
+            android:id="@+id/fund_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+            android:layout_toRightOf="@id/txtFundId"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"
+            android:layout_below="@id/txtFundId"
+            android:textColor="@color/iconColor"/>
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txtFund_amount"
+            android:text="Status"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/iconColor"/>
+        <TextView
+            android:id="@+id/fund_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="5dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+            android:layout_toRightOf="@id/txtFundId"
+            android:layout_marginLeft="80dp"
+            android:textStyle="italic"
+            android:layout_below="@id/txtFund_amount"
+            android:textColor="@color/textColor"/>
+
+        <TextView
+            android:id="@+id/txtDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_below="@id/txtStatus"
+            android:text="Date
+"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/iconColor"/>
+        <TextView
+            android:id="@+id/fund_Date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="5dp"
+            android:text="Fund Id "
+            android:textSize="15dp"
+            android:layout_toRightOf="@id/txtFundId"
+            android:layout_marginLeft="80dp"
+            android:textStyle="italic"
+            android:layout_below="@id/txtStatus"
+            android:textColor="@color/iconColor"/>
+
+
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+
+</RelativeLayout>

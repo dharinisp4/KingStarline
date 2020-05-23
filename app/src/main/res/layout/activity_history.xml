@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HistoryActivity"
+
+  >
+    <include layout="@layout/background_layout"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/txt_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_keyboard_backspace_black_24dp"
+            android:textSize="23dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                android:textSize="22dp"
+                android:textColor="@color/textColor"
+                android:textStyle="italic"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+
+                />
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvBidHistory"
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+     app:cardBackgroundColor="@android:color/transparent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:elevation="16dp"
+        >
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/star1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/bid_history_icon"
+
+                />
+            <TextView
+                android:id="@+id/sNmae"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/star1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Bid History"
+                android:textSize="25dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvFund_req_history"
+        android:layout_below="@id/cvTrans_history"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:elevation="16dp"
+        >
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/star2"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/fund_request_history"
+
+                />
+            <TextView
+                android:id="@+id/sNmae2"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/star2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Fund Request History"
+                android:textSize="25dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvTrans_history"
+        android:layout_below="@id/cvGoogle"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:elevation="16dp"
+        >
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/star3"
+
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/transaction_history"
+
+                />
+            <TextView
+                android:id="@+id/sNmae3"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/star3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Transaction History"
+                android:textSize="23dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvGoogle"
+        android:layout_below="@id/cvBidHistory"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:elevation="16dp"
+        android:visibility="gone"
+        >
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/star4"
+
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/starline_bid_history"
+
+                />
+            <TextView
+                android:id="@+id/sNmae4"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/star4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Starline History"
+                android:textSize="23dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvWithdraw_req"
+        android:layout_below="@id/cvFund_req_history"
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="50dp"
+        android:elevation="16dp"
+        >
+        <RelativeLayout
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/star5"
+
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/withdraw_req"
+
+                />
+            <TextView
+                android:id="@+id/sNmae5"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/star5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Withdraw Request History"
+                android:textSize="23dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/colorPrimary"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        android:gravity="center"
+
+        android:layout_margin="5dp"
+        android:padding="10dp">
+
+
+
+
+           <ImageView
+               android:id="@+id/logo"
+               android:layout_width="100dp"
+               android:layout_height="100dp"
+               android:layout_centerHorizontal="true"
+               android:layout_marginBottom="10dp"
+
+               android:background="@drawable/location"/>
+         <EditText
+             android:id="@+id/etAddress"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_below="@id/logo"
+             android:background="@drawable/input_design_reg"
+             android:textSize="18dp"
+             android:padding="9dp"
+             android:hint="Address"
+             android:gravity="left"
+             android:textColorHint="@color/white"
+             android:textColor="@color/white"
+             android:inputType="textMultiLine"
+
+             />
+
+            <EditText
+                android:id="@+id/etCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etAddress"
+                android:background="@drawable/input_design_reg"
+                android:layout_marginTop="5dp"
+                android:textSize="18dp"
+                android:padding="9dp"
+                android:hint="City"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+
+                android:inputType="text"/>
+
+            <EditText
+                android:id="@+id/etPin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etCity"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/input_design_reg"
+                android:textSize="17dp"
+                android:padding="9dp"
+                android:maxLength="6"
+                android:hint="PinCode"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="number"
+
+                />
+
+
+
+        <Button
+            android:id="@+id/add_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Address"
+            android:textAllCaps="false"
+            android:background="@drawable/gradient_button"
+
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18dp"
+
+            android:layout_marginTop="20dp"
+
+            />
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

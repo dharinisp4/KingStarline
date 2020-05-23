@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".GameActivity">
+<include layout="@layout/background_layout"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark">
+        <TextView
+            android:id="@+id/txtBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_keyboard_backspace_black_24dp"/>
+
+        <TextView
+            android:id="@+id/board"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Dhani Night -Single Digits Board"
+            android:layout_toRightOf="@id/txtBack"
+            android:layout_marginLeft="20dp"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textSize="17dp"
+            android:textColor="@color/textColor"/>
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/position"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="Postion"
+        android:visibility="invisible"
+        android:layout_below="@+id/toolbar"/>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="5dp"
+                android:orientation="vertical"
+                android:paddingRight="20dp">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent">
+
+                    <TextView
+                        android:id="@+id/gameOddEven"
+
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Odd \n Even"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                         />
+
+                    <TextView
+                        android:id="@+id/gameSingleDigit"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Single \n Digit"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                      />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout8"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/gameJodiDigit"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Jodi \n Digit"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                       />
+
+                    <TextView
+                        android:id="@+id/gameRedBracket"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Red \n Brakets"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        />
+                </RelativeLayout>
+
+
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout9">
+
+                    <TextView
+                        android:id="@+id/singlePanna"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Single\n Pana"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                        android:layout_centerHorizontal="true"
+
+                        android:visibility="visible"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout1"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/gameDoublePana"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Double \n Pana"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                       />
+
+                    <TextView
+                        android:id="@+id/gameTriplePana"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Triple \n Pana"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                         />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout2"
+                    android:layout_marginTop="20dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/gameSpMotor"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Sp \n Motor"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                      />
+
+                    <TextView
+                        android:id="@+id/gameDpMotor"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Dp \n Motor"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relativeLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout5"
+                    android:layout_marginTop="20dp"
+                    android:visibility="visible">
+                    <TextView
+                        android:id="@+id/CpPanna"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="20dp"
+                        android:text="Cycle \n Pana"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+
+                        android:visibility="visible"/></RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/relativeLayout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout5"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:id="@+id/gamePanelGroup"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Panel \n Group"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                       />
+
+
+                    <TextView
+                        android:id="@+id/gameGroupJodi"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:text="Group \n Jodi"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle" />
+
+                    <TextView
+                        android:id="@+id/singlePanna2"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/single_pana"
+                        android:visibility="invisible"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/relativeLayout5"
+                    android:layout_marginTop="20dp"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/gamehalfSangam"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:text="Half \n Sangam"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle" />
+
+                    <TextView
+                        android:id="@+id/gameFullSangam"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:text="Full \n Sangam"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle" />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>

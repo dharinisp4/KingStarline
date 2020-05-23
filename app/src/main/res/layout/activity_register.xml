@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bakcground"
+    tools:context=".RegisterActivity"
+   >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:background="@drawable/gradients_background"-->
+<!--            android:alpha=".4"-->
+<!--          />-->
+
+
+
+        <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark">
+
+        <TextView
+            android:id="@+id/txt_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/ic_keyboard_backspace_black_24dp"
+            android:textSize="30dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registration "
+                android:textSize="20dp"
+                android:textColor="@color/textColor"
+                android:textStyle="italic"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerHorizontal="true"
+         android:text="*Note: All Fields Are Mandatory*"
+         android:layout_below="@+id/toolbar"
+         android:textColor="@color/textColor"
+         android:textStyle="italic"
+         android:layout_marginTop="15dp"
+         android:textSize="18dp"
+         android:fontFamily="sans-serif-black"/>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            >
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+
+
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserNameIcon"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+android:visibility="gone"
+                    android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+                <EditText
+                    android:id="@+id/etUserName"
+                    android:layout_width="match_parent"
+                    android:textStyle="italic"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@id/imageViewUserNameIcon"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+                    android:layout_toRightOf="@id/imageViewUserNameIcon"
+                    android:background="@drawable/gradient_button"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:drawablePadding="10dp"
+                    android:hint="User Name"
+                    android:textSize="17dp"
+                    android:singleLine="true"
+                    android:textColor="@color/iconColor"
+                    android:textColorHint="@android:color/darker_gray"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/relativeLayout_1"
+
+
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserIcon"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_account_circle_black_24dp"
+                    android:visibility="gone"
+                    android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@id/imageViewUserIcon"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+                    android:layout_toRightOf="@id/imageViewUserIcon"
+                    android:background="@drawable/gradient_button"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_account_circle_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:drawablePadding="10dp"
+                    android:hint="Name"
+                    android:textStyle="italic"
+                    android:textSize="17dp"
+                    android:singleLine="true"
+                    android:textColor="@color/iconColor"
+                    android:textColorHint="@android:color/darker_gray"/>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+android:visibility="gone"
+                android:layout_below="@id/relativeLayout2"
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserIcon2"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_email_black_24dp"
+                    android:visibility="gone"
+                    android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+<!--                <EditText-->
+<!--                    android:id="@+id/etEmail"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:background="@drawable/gradient_button"-->
+<!--                    android:backgroundTint="@color/white"-->
+<!--                    android:drawableLeft="@drawable/ic_email_black_24dp"-->
+<!--                    android:drawableTint="@color/colorAccent"-->
+<!--                    android:drawablePadding="10dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_alignBottom="@id/imageViewUserIcon2"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:layout_marginTop="0dp"-->
+<!--                    android:textSize="16dp"-->
+<!--                    android:textStyle="italic"-->
+<!--                    android:layout_marginLeft="-2dp"-->
+<!--                    android:layout_toRightOf="@id/imageViewUserIcon2"-->
+
+<!--                    android:hint="Email Address"-->
+<!--                    android:textColor="@color/iconColor"-->
+<!--                    android:inputType="textEmailAddress"-->
+<!--                    android:textColorHint="@android:color/darker_gray"/>-->
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:layout_below="@id/relativeLayout4"
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserIcon3"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_call_black_24dp"
+                    android:visibility="gone"
+                    android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_toRightOf="@id/imageViewUserIcon3"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/txt91"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:text="+91 "
+                        android:textSize="18dp"
+                        android:visibility="gone"
+                        android:textColor="@color/textColor"
+                        android:background="@android:color/transparent"
+                        android:layout_centerVertical="true"
+                        android:paddingTop="7dp"
+                        android:paddingLeft="5dp"/>
+                    <EditText
+                        android:id="@+id/etMobile"
+                        android:layout_toRightOf="@id/txt91"
+                        android:layout_width="match_parent"
+
+                        android:layout_height="40dp"
+
+                        android:paddingLeft="10dp"
+                        android:layout_marginTop="0dp"
+
+                        android:textStyle="italic"
+                        android:background="@drawable/gradient_button"
+                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/ic_call_black_24dp"
+                        android:drawableTint="@color/colorAccent"
+                        android:drawablePadding="10dp"
+                        android:hint="Mobile Number"
+                        android:textSize="17dp"
+                        android:maxLength="10"
+                        android:inputType="number"
+                        android:textColor="@color/iconColor"
+                        android:textColorHint="@android:color/darker_gray"/>
+
+                </RelativeLayout>
+                       </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:layout_below="@id/relativeLayout5"
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserIcon4"
+                    android:layout_width="40dp"
+
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_lock_black_24dp"
+                    android:visibility="gone"
+                    android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+                <EditText
+                    android:id="@+id/etPass"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/gradient_button"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:drawablePadding="10dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@id/imageViewUserIcon4"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+                    android:layout_toRightOf="@id/imageViewUserIcon4"
+
+                    android:hint="Password"
+                    android:textSize="17dp"
+                    android:textStyle="italic"
+                    android:singleLine="true"
+                    android:inputType="textPassword"
+                    android:textColor="@color/iconColor"
+                    android:textColorHint="@android:color/darker_gray"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:layout_below="@id/relativeLayout6"
+                android:padding="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+
+
+                >
+                <ImageView
+                    android:id="@+id/imageViewUserIcon5"
+                    android:layout_width="40dp"
+android:visibility="gone"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_lock_black_24dp"
+                                        android:padding="5dp"
+                    android:tint="@android:color/white"/>
+
+                <EditText
+                    android:id="@+id/etConPass"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"
+                    android:textSize="17dp"
+                    android:textStyle="italic"
+                    android:inputType="textPassword"
+                    android:layout_height="40dp"
+                    android:layout_alignBottom="@id/imageViewUserIcon5"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+                    android:layout_toRightOf="@id/imageViewUserIcon5"
+
+                    android:hint="Confirm Password"
+                    android:background="@drawable/gradient_button"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:drawableTint="@color/colorAccent"
+                    android:drawablePadding="10dp"
+                    android:textColor="@color/iconColor"
+                    android:textColorHint="@android:color/darker_gray"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativeLayout7"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/relativeLayout8">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/checkbox"
+                    android:textStyle="italic"
+                    android:textSize="16dp"
+                    android:textColor="@color/textColor"
+                    android:text="Accept Terms And Contidions"
+                    android:buttonTint="@color/textColor"
+                    android:layout_marginTop="20dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/t1"
+                    android:layout_toRightOf="@+id/checkbox"
+                    android:layout_marginTop="21dp"
+                    android:textSize="18dp"
+                    android:visibility="gone"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/iconColor"
+                    android:text="I Accept"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/t2"
+                    android:layout_toRightOf="@+id/t1"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="18dp"
+                    android:textStyle="italic"
+                    android:visibility="gone"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Terms And Conditions"
+                    android:textColor="@color/iconColor"/>
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:layout_below="@id/relativeLayout8"
+                android:layout_margin="25dp"
+                android:layout_marginTop="30dp"
+                android:textSize="20dp"
+                android:elevation="5dp"
+                android:textStyle="italic"
+                android:textColor="@color/colorPrimaryDark"
+                android:background="@drawable/gradient_button"
+               />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

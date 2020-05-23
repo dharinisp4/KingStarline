@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#43000D</color>
+    <color name="colorPrimaryDark">#431000</color>
+    <color name="colorAccent">#A01C2F</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="btnColor">#C58384</color>
+<!--    <color name="iconColor">#000000</color>-->
+    <color name="white">#FFFFFF</color>
+    <color name="lowColor">#d82e43</color>
+    <color name="greenColor">#316D35</color>
+    <color name="iconColor">#3D355C</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#009C27B0</color>
+    <color name="bg">#40FFFFFF</color>
+    <color name="lowmidColor">#C58384</color>
+    <color name="homebg">#B7A44546</color>
+    <color name="tbrowColor">#B7B6B0B0</color>
+   <color name="startColor">#0E3F66</color>
+    <color name="centerColor">#2196F3</color>
+    <color name="endColor">#80C6FF</color>
+    <color name="play2">#00BFA5</color>
+    <color name="play3">#AEEA00</color>
+    <color name="play4">#FF6D00</color>
+    <color name="play1">#C51162</color>
+    <color name="blue">#040342</color>
+    <color name="green">#053004</color>
+<!--    <color name="background">#f6e1c4</color>-->
+</resources>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.games.OnlineMatka">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="in.games.OnlineMatka.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name="in.games.OnlineMatka.DemoActivity" />
+        <activity android:name="in.games.OnlineMatka.Withdraw_history" />
+        <activity android:name="in.games.OnlineMatka.MainActivity" />
+        <activity android:name="in.games.OnlineMatka.Starline_Activity" />
+        <activity android:name="in.games.OnlineMatka.TransactionHistory" />
+        <activity android:name="in.games.OnlineMatka.Fund_RequestActivity" />
+        <activity android:name="in.games.OnlineMatka.FundsActivity" />
+        <activity android:name="in.games.OnlineMatka.HistoryActivity" />
+        <activity android:name="in.games.OnlineMatka.BidActivity" />
+        <activity android:name="in.games.OnlineMatka.WithdrawalActivity" />
+        <activity android:name="in.games.OnlineMatka.RequestActivity" />
+        <activity android:name="in.games.OnlineMatka.UploadScreenshotActivity" />
+        <activity android:name="in.games.OnlineMatka.CyclePana" />
+        <activity
+            android:name="in.games.OnlineMatka.SpMotorActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.OddEvenActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.GroupJodiActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.JodiDigitActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.GroupPanelActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.TriplePanaActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.DoublePanaActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.FullSangamActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.HalfSangamActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.RedBracketsActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.DPMotorActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity
+            android:name="in.games.OnlineMatka.SinglePannaActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity android:name="in.games.OnlineMatka.RegisterActivity" />
+        <activity
+            android:name="in.games.OnlineMatka.SingleDigitActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
+        <activity android:name="in.games.OnlineMatka.LoginWithMpinActivity" />
+        <activity android:name="in.games.OnlineMatka.DrawerNoticeBoardActivity" />
+        <activity android:name="in.games.OnlineMatka.DrawerGameRates" />
+        <activity android:name="in.games.OnlineMatka.DrawerHowToPlayActivity" />
+        <activity android:name="in.games.OnlineMatka.DrawerGenMpinActivity" />
+        <activity android:name="in.games.OnlineMatka.DrawerProfileActivity" />
+        <activity android:name="in.games.OnlineMatka.NotificationActivity" />
+        <activity android:name="in.games.OnlineMatka.DoubleDigitActivity" />
+        <activity android:name="in.games.OnlineMatka.PlayGameActivity" />
+        <activity
+            android:name="in.games.OnlineMatka.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="in.games.OnlineMatka.GameActivity" />
+        <activity android:name="in.games.OnlineMatka.splash_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name="in.games.OnlineMatka.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="in.games.OnlineMatka.NetworkStateChangeReciever"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

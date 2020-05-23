@@ -1,0 +1,196 @@
+{
+  "project_info": {
+    "project_number": "70465158014",
+    "firebase_url": "https://jannat-c82ed.firebaseio.com",
+    "project_id": "jannat-c82ed",
+    "storage_bucket": "jannat-c82ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70465158014:android:db45e6fcaed9aeb159112f",
+        "android_client_info": {
+          "package_name": "com.mad.android.parkingtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70465158014-jhpk3rg9leqo52c30861sp1ejt2a6l66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mad.android.parkingtracker",
+            "certificate_hash": "8a015fd3998f3bdf54f3fdfb439bad5f80488bd8"
+          }
+        },
+        {
+          "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEahsLpnjt7aIIp1hRRnh980HNKxlMQUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70465158014:android:0f5784a7a0af222059112f",
+        "android_client_info": {
+          "package_name": "in.games.OnlineMatka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70465158014-2hcp98rlbo80pn36lon6ctglldhuvd5r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.games.OnlineMatka",
+            "certificate_hash": "1f7a21d1af31096927e98a4780ea71907c2784de"
+          }
+        },
+        {
+          "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEahsLpnjt7aIIp1hRRnh980HNKxlMQUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70465158014:android:2c3331b566fa7f4a59112f",
+        "android_client_info": {
+          "package_name": "in.games.dpBoss"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70465158014-cr1jq9bmbhqe54o70ta7eok474mq3o4g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.games.dpBoss",
+            "certificate_hash": "1f7a21d1af31096927e98a4780ea71907c2784de"
+          }
+        },
+        {
+          "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEahsLpnjt7aIIp1hRRnh980HNKxlMQUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70465158014:android:81ca72b0eea7968959112f",
+        "android_client_info": {
+          "package_name": "in.games.jannat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70465158014-hcbss699oreifts24kkeumb075v5qiib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.games.jannat",
+            "certificate_hash": "a4c42a2af2b5b31c452c84e4f718543febbaa5fb"
+          }
+        },
+        {
+          "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEahsLpnjt7aIIp1hRRnh980HNKxlMQUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:70465158014:android:4a0490923d4f6c1859112f",
+        "android_client_info": {
+          "package_name": "in.games.nidhimatka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "70465158014-t1m0vsffahsqrort3aq7hudmta19sacd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.games.nidhimatka",
+            "certificate_hash": "1f7a21d1af31096927e98a4780ea71907c2784de"
+          }
+        },
+        {
+          "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEahsLpnjt7aIIp1hRRnh980HNKxlMQUk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "70465158014-pb5evrap37ts2mdqkmk2fk29ae7hd4r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
