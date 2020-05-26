@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class FundsActivity extends MyBaseActivity {
 
-    CardView cvAdd_Funds,cvWithDraw_Funds,cvFundReq_history;
+    RelativeLayout cvAdd_Funds,cvWithDraw_Funds,cvFundReq_history;
     TextView bt_back ,tv_title;
     String type ;
     @Override

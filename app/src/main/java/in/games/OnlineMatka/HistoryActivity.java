@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class HistoryActivity extends MyBaseActivity {
 
-    CardView cvBid_history,cv_Fund_req_history,cv_Trans_hitory,cv_Starline_history,cv_Withdraw_req;
+   RelativeLayout cvBid_history,cv_Fund_req_history,cv_Trans_hitory,cv_Starline_history,cv_Withdraw_req;
     TextView bt_back;
     String type ;
     @Override

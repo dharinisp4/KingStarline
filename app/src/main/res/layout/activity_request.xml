@@ -115,7 +115,8 @@
             android:layout_below="@+id/addpointsimage"
             android:layout_marginTop="7dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/fund"
+            android:background="@drawable/icons8_money_bag_rupee_240px"
+            android:backgroundTint="@color/colorPrimaryDark"
             android:layout_alignTop="@+id/etRequstPoints"
             />
 

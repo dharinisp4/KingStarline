@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this,RegisterActivity.class);
+                intent.putExtra("type","r");
                 startActivity(intent);
 
             }
@@ -158,38 +159,40 @@ public class MainActivity extends AppCompatActivity {
         btnForPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog=new Dialog(MainActivity.this);
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.dialog_forget_pass_layout);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                btnForgetPassword=(Button)dialog.findViewById(R.id.forget_password);
-                edtEmail=(EditText)dialog.findViewById(R.id.etForget_email);
-
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.show();
-
-
-                btnForgetPassword.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-
-                        if(TextUtils.isEmpty(edtEmail.getText().toString()))
-                        {
-                            edtEmail.setError("Enter registered Email Id");
-                            edtEmail.requestFocus();
-                            return;
-                        }
-                        else
-                        {
-                            String mail=edtEmail.getText().toString().trim();
-                            getPassword(mail);
-                        }
-
-                    }
-                });
-
-
+        //                dialog=new Dialog(MainActivity.this);
+        //                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //                dialog.setContentView(R.layout.dialog_forget_pass_layout);
+        //                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+        //                btnForgetPassword=(Button)dialog.findViewById(R.id.forget_password);
+        //                edtEmail=(EditText)dialog.findViewById(R.id.etForget_email);
+        //
+        //                dialog.setCanceledOnTouchOutside(false);
+        //                dialog.show();
+        //
+        //
+        //                btnForgetPassword.setOnClickListener(new View.OnClickListener() {
+        //                    @Override
+        //                    public void onClick(View v) {
+        //
+        //
+        //                        if(TextUtils.isEmpty(edtEmail.getText().toString()))
+        //                        {
+        //                            edtEmail.setError("Enter registered Email Id");
+        //                            edtEmail.requestFocus();
+        //                            return;
+        //                        }
+        //                        else
+        //                        {
+        //                            String mail=edtEmail.getText().toString().trim();
+        //                            getPassword(mail);
+        //                        }
+        //
+        //                    }
+        //                });
+        //
+                Intent intent = new Intent(MainActivity.this,VerificationActivity.class);
+                intent.putExtra("type","f");
+                startActivity(intent);
             }
         });
 

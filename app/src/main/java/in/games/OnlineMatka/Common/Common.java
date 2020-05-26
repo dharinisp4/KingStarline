@@ -40,6 +40,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import in.games.OnlineMatka.Adapter.ListItemAdapter;
@@ -1696,6 +1697,20 @@ public class Common {
 
     }
 
+    public String getRandomKey(int i)
+    {
+        final String characters="0123456789";
+        StringBuilder stringBuilder=new StringBuilder();
+        while (i>0)
+        {
+            Random ran=new Random();
+            stringBuilder.append(characters.charAt(ran.nextInt(characters.length())));
+            i--;
+        }
+        return stringBuilder.toString();
+    }
 
 
 }
+
+

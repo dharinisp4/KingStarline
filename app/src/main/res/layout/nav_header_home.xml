@@ -34,7 +34,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="5dp"
 
-               android:background="@drawable/jm_icon"
+               android:background="@drawable/logo"
 
                 />
 

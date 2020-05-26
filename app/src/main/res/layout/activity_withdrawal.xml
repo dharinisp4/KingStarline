@@ -106,7 +106,7 @@
             android:id="@+id/imageview"
             android:layout_below="@+id/textview4"
             android:layout_marginTop="5dp"
-            android:background="@drawable/telephoneicon"
+
             android:backgroundTint="@color/greenColor"
             android:visibility="gone"
             android:layout_marginLeft="100dp" />
@@ -197,7 +197,8 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/fund"
+                android:background="@drawable/icons8_money_bag_rupee_240px"
+
                 android:backgroundTint="@color/textColor"/>
 
         </RelativeLayout>

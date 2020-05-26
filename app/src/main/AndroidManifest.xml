@@ -34,6 +34,8 @@
         <activity android:name="in.games.OnlineMatka.RequestActivity" />
         <activity android:name="in.games.OnlineMatka.UploadScreenshotActivity" />
         <activity android:name="in.games.OnlineMatka.CyclePana" />
+        <activity android:name="in.games.OnlineMatka.VerificationActivity" />
+        <activity android:name="in.games.OnlineMatka.UpdatePasswordActivity" />
         <activity
             android:name="in.games.OnlineMatka.SpMotorActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />

@@ -90,9 +90,7 @@
                     android:layout_centerVertical="true"
 
 
-
-
-                    android:src="@drawable/profile" />
+                    />
             </RelativeLayout>
 
 

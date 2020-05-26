@@ -241,7 +241,7 @@ tv_timer = findViewById(R.id.tv_timer);
                 }
                 else {
                     int pints = Integer.parseInt(etPoints.getText().toString().trim());
-                    if (pints < 1) {
+                    if (pints < 10) {
                         //  Toast.makeText(OddEvenActivity.this,"",Toast.LENGTH_LONG).show();
 
                         etPoints.setError("Minimum Biding amount is 1");

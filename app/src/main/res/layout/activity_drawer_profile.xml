@@ -7,7 +7,8 @@
     tools:context=".DrawerProfileActivity">
     <include layout="@layout/background_layout"/>
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,11 +17,11 @@
 <!--            android:layout_height="match_parent"-->
 <!--            android:background="@drawable/background_page"-->
 <!--            android:alpha=".5"/>-->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
 
-            android:alpha=".5"/>
+<!--            android:alpha=".5"/>-->
 
 
     <android.support.v7.widget.Toolbar
@@ -61,23 +62,31 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvAddress"
-        android:layout_below="@id/toolbar"
-        android:layout_width="match_parent"
+<!--    <android.support.v7.widget.CardView-->
+<!--      -->
+<!--        android:layout_below="@id/toolbar"-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="50dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:elevation="16dp"
-        >
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        android:elevation="16dp"-->
+<!--        android:clipToPadding="true"-->
+<!--        >-->
         <RelativeLayout
-            android:layout_margin="2dp"
+            android:id="@+id/cvAddress"
+           android:background="@drawable/shape2"
+
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/star1"
                 android:layout_width="45dp"
@@ -102,25 +111,32 @@
 
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+<!--    </android.support.v7.widget.CardView>-->
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvBank"
-        android:layout_below="@id/cvAddress"
-        android:layout_width="match_parent"
+<!--    <android.support.v7.widget.CardView-->
+<!--      -->
+<!--        android:layout_below="@id/cvAddress"-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="50dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:elevation="16dp"
-        >
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        android:elevation="16dp"-->
+<!--        >-->
         <RelativeLayout
-            android:layout_margin="2dp"
+            android:id="@+id/cvBank"
+
+            android:background="@drawable/shape2"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/star2"
                 android:layout_width="45dp"
@@ -145,25 +161,32 @@
 
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+<!--    </android.support.v7.widget.CardView>-->
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvPaytm"
-        android:layout_below="@id/cvBank"
-        android:layout_width="match_parent"
+<!--    <android.support.v7.widget.CardView-->
+<!--        android:id="@+id/cvPaytm"-->
+<!--        android:layout_below="@id/cvBank"-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="50dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:elevation="16dp"
-        >
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        android:elevation="16dp"-->
+<!--        >-->
         <RelativeLayout
-            android:layout_margin="2dp"
+            android:id="@+id/cvPaytm"
+
+            android:background="@drawable/shape2"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/star3"
                 android:layout_width="45dp"
@@ -188,25 +211,32 @@
 
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+<!--    </android.support.v7.widget.CardView>-->
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvGoogle"
-        android:layout_below="@id/cvPaytm"
-        android:layout_width="match_parent"
+<!--    <android.support.v7.widget.CardView-->
+<!--      -->
+<!--        android:layout_below="@id/cvPaytm"-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="50dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:elevation="16dp"
-        >
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        android:elevation="16dp"-->
+<!--        >-->
         <RelativeLayout
-            android:layout_margin="2dp"
+            android:id="@+id/cvGoogle"
+
+            android:background="@drawable/shape2"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/star4"
                 android:layout_width="45dp"
@@ -231,26 +261,33 @@
 
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
+<!--    </android.support.v7.widget.CardView>-->
 
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cvPhone"
-        android:layout_below="@id/cvGoogle"
-        android:layout_width="match_parent"
+<!--    <android.support.v7.widget.CardView-->
+<!--       -->
+<!--        android:layout_below="@id/cvGoogle"-->
+<!--        android:layout_width="match_parent"-->
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:cardCornerRadius="50dp"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        android:elevation="16dp"
-        >
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:cardBackgroundColor="@android:color/transparent"-->
+<!--        android:elevation="16dp"-->
+<!--        >-->
         <RelativeLayout
-            android:layout_margin="2dp"
+            android:id="@+id/cvPhone"
+
+            android:background="@drawable/shape2"
+            android:padding="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/star5"
                 android:layout_width="45dp"
@@ -275,6 +312,6 @@
 
 
         </RelativeLayout>
-    </android.support.v7.widget.CardView>
-    </RelativeLayout>
+<!--    </android.support.v7.widget.CardView>-->
+    </LinearLayout>
 </RelativeLayout>

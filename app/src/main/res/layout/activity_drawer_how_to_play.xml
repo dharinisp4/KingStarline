@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             android:layout_margin="10dp"
-            app:cardBackgroundColor="@android:color/transparent"
+
             android:layout_below="@id/toolbar"
             android:layout_marginTop="10dp"
             >
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="How to play"
                     android:layout_centerHorizontal="true"
                     android:textStyle="italic|bold"/>
@@ -79,7 +79,7 @@
                     android:layout_below="@id/w1"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/black"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -94,7 +94,7 @@
                     android:textSize="18dp"
                     android:textAlignment="center"
                     android:text="Withdraw will be accepted from 10:00am till 3:00pm and amount will be credited within 24hrs. Withdrawal is not available on Sunday and on Bank Holidays.\n For Funds Withdrawal Query Contact"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textStyle="italic"/>
 
 
@@ -105,7 +105,7 @@
                     android:layout_below="@id/w2"
                     android:textSize="18dp"
                     android:layout_marginTop="15dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimaryDark"
                     android:text="Youtube Link"
                     android:layout_centerHorizontal="true"
                     android:textStyle="italic|bold"/>
@@ -115,7 +115,7 @@
                     android:layout_below="@id/w3"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/black"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
@@ -150,7 +150,7 @@
                         android:layout_centerVertical="true"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textStyle="italic"
                         android:paddingLeft="10dp"
 

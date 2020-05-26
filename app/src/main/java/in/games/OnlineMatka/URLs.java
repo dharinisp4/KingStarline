@@ -20,6 +20,11 @@ public class URLs {
     public static final String URL_BID_HISTORY=BASE_URL+"getBidHistory";
     public static final String URL_WITHDRAW_REQUEST=BASE_URL+"insert_withdraw_request";
     public static final String URL_MATKA_WITH_ID=BASE_URL+"get_matka_with_id";
+    public static final String URL_UPDATE_PASS=BASE_URL+"forgot_password";
+    public static final String URL_COMMON_PANA_SP="http://dpbosssai.com/restApi/common_pana.php";
+    public static final String URL_COMMON_PANA_DP="http://dpbosssai.com/restApi/common_pana.php";
+    public static final String URL_GENERATE_OTP=BASE_URL+"generate_otp";
+    public static final String URL_VERIFICATION=BASE_URL+"mobile_verification";
 
 
     public static String URL_MPIN="https://nidhionlinematka.in/restApi/randstring.php";

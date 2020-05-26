@@ -29,7 +29,7 @@
              android:background="@drawable/shape2"
              android:textSize="18dp"
              android:padding="10dp"
-             android:hint="Enter your email address"
+             android:hint="Enter Mobile Number"
              android:gravity="left"
              android:textColorHint="@color/white"
              android:textColor="@color/white"

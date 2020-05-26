@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,18 +38,18 @@ public class DrawerProfileActivity extends MyBaseActivity {
     ProgressBar pb;
     String wrong="Something Went Wrong";
     private TextView btn_back;
-    private CardView cvAddress,cvBank,cvPaytm,cvGoogle,cvPhone;
+    private RelativeLayout cvAddress,cvBank,cvPaytm,cvGoogle,cvPhone;
     private Button btnDAddress,btnDBank,btnDPaytm,btnDGoogle,btnDPhone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer_profile);
         common=new Common(DrawerProfileActivity.this);
-        cvAddress=(CardView)findViewById(R.id.cvAddress);
-        cvBank=(CardView)findViewById(R.id.cvBank);
-        cvPaytm=(CardView)findViewById(R.id.cvPaytm);
-        cvGoogle=(CardView)findViewById(R.id.cvGoogle);
-        cvPhone=(CardView)findViewById(R.id.cvPhone);
+        cvAddress=findViewById(R.id.cvAddress);
+        cvBank=findViewById(R.id.cvBank);
+        cvPaytm=findViewById(R.id.cvPaytm);
+        cvGoogle=findViewById(R.id.cvGoogle);
+        cvPhone=findViewById(R.id.cvPhone);
         btn_back=(TextView)findViewById(R.id.txt_back);
         progressDialog=new LoadingBar(DrawerProfileActivity.this);
 
