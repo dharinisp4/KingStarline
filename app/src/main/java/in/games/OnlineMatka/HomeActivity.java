@@ -231,7 +231,9 @@ public class HomeActivity extends MyBaseActivity
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(HomeActivity.this,PlayGameActivity.class);
+
                 startActivity(intent);
+                CustomIntent.customType(HomeActivity.this, "up-to-bottom");
 
              //matkaAdapter.notifyItemRemoved();
             }

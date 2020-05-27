@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import in.games.OnlineMatka.BidActivity;
 import in.games.OnlineMatka.Model.MatkasObjects;
 import in.games.OnlineMatka.R;
+import maes.tech.intentanim.CustomIntent;
 
 public class MatkaCategoryAdapter extends RecyclerView.Adapter<MatkaCategoryAdapter.ViewHolder> {
 
@@ -42,6 +43,7 @@ public class MatkaCategoryAdapter extends RecyclerView.Adapter<MatkaCategoryAdap
                 String matka_id=viewHolder.txtId.getText().toString().trim();
                 Intent intent=new Intent(context, BidActivity.class);
                 intent.putExtra("matka_id",matka_id);
+//                CustomIntent.customType(context,"top-to-bottom");
                 context.startActivity(intent);
 
             }

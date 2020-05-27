@@ -60,6 +60,7 @@ import in.games.OnlineMatka.URLs;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
 import in.games.OnlineMatka.utils.LoadingBar;
 import in.games.OnlineMatka.utils.Module;
+import maes.tech.intentanim.CustomIntent;
 
 /**
  * Developed by Binplus Technologies pvt. ltd.  on 20,May,2020
@@ -1579,6 +1580,7 @@ public class Common {
                 dialog.dismiss();
                 intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 context.startActivity(intent1);
+                CustomIntent.customType(context, "up-to-bottom");
 
 
             }
@@ -1624,6 +1626,7 @@ public class Common {
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
                         context.startActivity(intent);
+                        CustomIntent.customType(context, "up-to-bottom");
                         Toast.makeText(context,"Bid Added Successfully.",Toast.LENGTH_LONG).show();
                     }
                     else if(status.equals("failed"))

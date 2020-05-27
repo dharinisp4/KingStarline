@@ -38,26 +38,33 @@
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+   android:layout_margin="@dimen/_10sdp"
+    android:layout_below="@+id/toolbar"
+    android:layout_height="wrap_content">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relativelayout"
-        android:layout_marginTop="120dp"
-        android:paddingRight="20dp"
+
+        android:padding="20dp"
         android:gravity="center"
-      android:layout_centerInParent="true"
+
         android:orientation="vertical"
-        android:paddingLeft="20dp">
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textview1"
-            android:text="JANNAT ONLINE GAMES"
-            android:textSize="32dp"
+            android:text="Withdraw"
+            android:textSize="20dp"
             android:textStyle="italic"
-            android:textColor="@color/textColor"
+
+            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:fontFamily="sans-serif-black"/>
 
@@ -67,12 +74,12 @@
             android:id="@+id/withdrw_msg"
             android:layout_below="@+id/textview1"
             android:text="Withdrawal Requesting Time Is 10:00am To 3:00pm. The Amount Will Be Credited To Your Bank Account In Between 10:00am To 5:00pm Within 24hrs From Request. "
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="italic"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
             android:fontFamily="sans-serif"
-            android:textColor="@color/white"/>
+            android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -142,7 +149,7 @@
             android:fontFamily="sans-serif-black"/>
 
     </LinearLayout>
-
+</android.support.v7.widget.CardView>
 
     <RelativeLayout
         android:id="@+id/relWallet_1"
@@ -158,7 +165,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/dialog_buttons"
             android:backgroundTint="@color/white"
-
+            android:visibility="gone"
             android:layout_centerHorizontal="true"
             android:padding="8dp">
 
@@ -189,6 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relWallet"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -219,7 +227,8 @@
             android:textAlignment="center"
             android:layout_marginRight="10dp"
             android:layout_below="@id/relWallet"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:visibility="gone"/>
         <Button
             android:id="@+id/add_Request"
             android:layout_width="match_parent"
@@ -232,6 +241,7 @@
             android:textSize="18dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
 
             />
     </RelativeLayout>

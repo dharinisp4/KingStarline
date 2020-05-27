@@ -39,15 +39,110 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout
-        android:layout_below="@id/toolbar"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="15dp"
+        app:cardCornerRadius="15dp"
         android:layout_height="wrap_content">
+
+
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+        <LinearLayout
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:scrollbars="horizontal"
+            android:background="@drawable/outline"
+            android:backgroundTint="@android:color/darker_gray"
+            android:weightSum="10"
+
+
+            >
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/outline"
+                android:backgroundTint="@android:color/darker_gray"
+                android:text="Game"
+                android:textSize="15dp"
+                android:layout_below="@id/txtStatus"
+                android:textColor="@color/black"/>
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:background="@drawable/outline"
+                android:backgroundTint="@android:color/darker_gray"
+                android:text="Game Type"
+
+                android:textSize="15dp"
+
+
+                android:textColor="@color/black"/>
+
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text=" "
+                android:textSize="15dp"
+
+                android:background="@drawable/outline"
+                android:backgroundTint="@android:color/darker_gray"
+
+                android:textColor="@color/black"/>
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+
+                android:text=" "
+                android:textSize="15dp"
+
+                android:textColor="@color/black"/>
+
+
+
+
+
+
+
+        </LinearLayout>
         <ListView
+            android:layout_below="@+id/heading"
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            ></ListView>
+            ></ListView></ScrollView></HorizontalScrollView>
     </RelativeLayout>
+  </android.support.v7.widget.CardView>
 
     </RelativeLayout>

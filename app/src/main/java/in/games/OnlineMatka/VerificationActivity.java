@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 
 import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
+import maes.tech.intentanim.CustomIntent;
 
 
 public class VerificationActivity extends AppCompatActivity implements View.OnClickListener {
@@ -128,6 +129,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                            startActivity(intent);
+                           CustomIntent.customType(VerificationActivity.this, "up-to-bottom");
                            finish();
                        }
                        else
@@ -138,6 +140,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                            startActivity(intent);
+                           CustomIntent.customType(VerificationActivity.this, "up-to-bottom");
                            finish();
                        }
                   }

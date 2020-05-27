@@ -56,6 +56,7 @@ import in.games.OnlineMatka.Model.UsersObjects;
 import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
 import in.games.OnlineMatka.utils.CustomVolleyJsonArrayRequest;
+import maes.tech.intentanim.CustomIntent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -341,6 +342,7 @@ public class MainActivity extends AppCompatActivity {
                                 intent.putExtra("username", jsonObject.getString("username").toString());
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
+                                CustomIntent.customType(MainActivity.this, "up-to-bottom");
                                 progressDialog.dismiss();
                                 finish();
                             } else {
@@ -672,6 +674,7 @@ public class MainActivity extends AppCompatActivity {
                       intent.putExtra("username", jsonObject.getString("username").toString());
                       intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                       startActivity(intent);
+                      CustomIntent.customType(MainActivity.this, "up-to-bottom");
                       progressDialog.dismiss();
                       finish();
                   } else {

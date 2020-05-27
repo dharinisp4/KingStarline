@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
+import maes.tech.intentanim.CustomIntent;
 
 import static in.games.OnlineMatka.URLs.URL_UPDATE_PASS;
 
@@ -62,6 +63,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            CustomIntent.customType(UpdatePasswordActivity.this, "up-to-bottom");
             finish();
         }
         else if(view.getId() == R.id.btn_update)
@@ -117,6 +119,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
                      intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                      startActivity(intent);
+                     CustomIntent.customType(UpdatePasswordActivity.this, "up-to-bottom");
                      finish();
                  }
                  else

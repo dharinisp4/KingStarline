@@ -11,6 +11,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
+import maes.tech.intentanim.CustomIntent;
+
 
 public class MyBaseActivity extends Activity {
 
@@ -47,6 +49,7 @@ public class MyBaseActivity extends Activity {
                  //   dialog.dismiss();
                     intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent1);
+                    CustomIntent.customType(MyBaseActivity.this, "up-to-bottom");
                     dialog.cancel();
 
                 }
