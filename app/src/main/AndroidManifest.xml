@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name="in.games.OnlineMatka.AppController"
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,76 +21,77 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="in.games.OnlineMatka.DemoActivity" />
-        <activity android:name="in.games.OnlineMatka.Withdraw_history" />
-        <activity android:name="in.games.OnlineMatka.MainActivity" />
-        <activity android:name="in.games.OnlineMatka.Starline_Activity" />
-        <activity android:name="in.games.OnlineMatka.TransactionHistory" />
-        <activity android:name="in.games.OnlineMatka.Fund_RequestActivity" />
-        <activity android:name="in.games.OnlineMatka.FundsActivity" />
-        <activity android:name="in.games.OnlineMatka.HistoryActivity" />
-        <activity android:name="in.games.OnlineMatka.BidActivity" />
-        <activity android:name="in.games.OnlineMatka.WithdrawalActivity" />
-        <activity android:name="in.games.OnlineMatka.RequestActivity" />
-        <activity android:name="in.games.OnlineMatka.UploadScreenshotActivity" />
-        <activity android:name="in.games.OnlineMatka.CyclePana" />
-        <activity android:name="in.games.OnlineMatka.VerificationActivity" />
-        <activity android:name="in.games.OnlineMatka.UpdatePasswordActivity" />
+        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".DemoActivity" />
+        <activity android:name=".Withdraw_history" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Starline_Activity" />
+        <activity android:name=".TransactionHistory" />
+        <activity android:name=".Fund_RequestActivity" />
+        <activity android:name=".FundsActivity" />
+        <activity android:name=".HistoryActivity" />
+        <activity android:name=".BidActivity" />
+        <activity android:name=".WithdrawalActivity" />
+        <activity android:name=".RequestActivity" />
+        <activity android:name=".UploadScreenshotActivity" />
+        <activity android:name=".CyclePana" />
+        <activity android:name=".VerificationActivity" />
+        <activity android:name=".UpdatePasswordActivity" />
         <activity
-            android:name="in.games.OnlineMatka.SpMotorActivity"
+            android:name=".SpMotorActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.OddEvenActivity"
+            android:name=".OddEvenActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.GroupJodiActivity"
+            android:name=".GroupJodiActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.JodiDigitActivity"
+            android:name=".JodiDigitActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.GroupPanelActivity"
+            android:name=".GroupPanelActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.TriplePanaActivity"
+            android:name=".TriplePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.DoublePanaActivity"
+            android:name=".DoublePanaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.FullSangamActivity"
+            android:name=".FullSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.HalfSangamActivity"
+            android:name=".HalfSangamActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.RedBracketsActivity"
+            android:name=".RedBracketsActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.DPMotorActivity"
+            android:name=".DPMotorActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
         <activity
-            android:name="in.games.OnlineMatka.SinglePannaActivity"
+            android:name=".SinglePannaActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity android:name="in.games.OnlineMatka.RegisterActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity
-            android:name="in.games.OnlineMatka.SingleDigitActivity"
+            android:name=".SingleDigitActivity"
             android:windowSoftInputMode="stateAlwaysVisible|adjustResize|adjustPan" />
-        <activity android:name="in.games.OnlineMatka.LoginWithMpinActivity" />
-        <activity android:name="in.games.OnlineMatka.DrawerNoticeBoardActivity" />
-        <activity android:name="in.games.OnlineMatka.DrawerGameRates" />
-        <activity android:name="in.games.OnlineMatka.DrawerHowToPlayActivity" />
-        <activity android:name="in.games.OnlineMatka.DrawerGenMpinActivity" />
-        <activity android:name="in.games.OnlineMatka.DrawerProfileActivity" />
-        <activity android:name="in.games.OnlineMatka.NotificationActivity" />
-        <activity android:name="in.games.OnlineMatka.DoubleDigitActivity" />
-        <activity android:name="in.games.OnlineMatka.PlayGameActivity" />
+        <activity android:name=".LoginWithMpinActivity" />
+        <activity android:name=".DrawerNoticeBoardActivity" />
+        <activity android:name=".DrawerGameRates" />
+        <activity android:name=".DrawerHowToPlayActivity" />
+        <activity android:name=".DrawerGenMpinActivity" />
+        <activity android:name=".DrawerProfileActivity" />
+        <activity android:name=".NotificationActivity" />
+        <activity android:name=".DoubleDigitActivity" />
+        <activity android:name=".PlayGameActivity" />
         <activity
-            android:name="in.games.OnlineMatka.HomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="in.games.OnlineMatka.GameActivity" />
-        <activity android:name="in.games.OnlineMatka.splash_activity">
+        <activity android:name=".GameActivity" />
+        <activity android:name=".splash_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -98,14 +99,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name="in.games.OnlineMatka.MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
         <receiver
-            android:name="in.games.OnlineMatka.NetworkStateChangeReciever"
+            android:name=".NetworkStateChangeReciever"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />

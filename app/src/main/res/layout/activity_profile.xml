@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+    <include layout="@layout/background_layout"/>
+
+
+
+
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimaryDark">
+
+            <TextView
+                android:id="@+id/txt_back"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/ic_keyboard_backspace_black_24dp"
+                android:textSize="30dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile "
+                    android:textSize="20dp"
+                    android:textColor="@color/textColor"
+                    android:textStyle="italic"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+
+            </RelativeLayout>
+
+
+
+        </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="-2dp"
+            android:layout_marginTop="-513dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:orientation="vertical"
+
+                    android:padding="10dp">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_25sdp"
+                        android:gravity="center"
+                        android:text="Profile "
+                        android:textColor="@color/textColor"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Mobile "
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etMobile"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:gravity="left"
+                        android:hint="mobile number"
+                        android:inputType="textEmailAddress"
+                        android:padding="5dp"
+
+                        android:textColor="@color/black"
+
+
+                        />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="Email "
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/et_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:gravity="left"
+                        android:hint="email "
+                        android:inputType="textEmailAddress"
+                        android:padding="5dp"
+
+                        android:textColor="@color/black"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="Date of Birth"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etForget_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:gravity="left"
+                        android:hint="Date of Birth"
+                        android:inputType="textEmailAddress"
+                        android:padding="5dp"
+
+                        android:textColor="@color/black"
+
+
+                        />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:background="@drawable/gradient_button"
+                        android:text="Update"
+                        android:textColor="@color/colorPrimaryDark" />
+
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/colorPrimary"
+
+                app:cardCornerRadius="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_25sdp"
+                        android:gravity="center"
+                        android:text="Address"
+                        android:textColor="@color/textColor"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <ImageView
+
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/location"
+                        android:visibility="gone" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Address"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:gravity="left"
+                        android:hint="Address"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp"
+
+                        android:textColor="@color/colorPrimaryDark"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="City"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+
+                        android:hint="City"
+                        android:inputType="text"
+                        android:padding="5dp"
+
+                        android:textColor="@color/colorPrimaryDark"
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="Pincode"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etPin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:hint="PinCode"
+                        android:inputType="number"
+                        android:maxLength="6"
+                        android:padding="5dp"
+
+                        android:textColor="@color/colorPrimaryDark"
+
+
+                        />
+
+
+                    <Button
+                        android:id="@+id/add_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="@dimen/_10sdp"
+
+                        android:background="@drawable/gradient_button"
+
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+
+                        android:text="Add Address"
+                        android:textColor="@color/colorPrimaryDark"
+
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_25sdp"
+                        android:gravity="center"
+                        android:text="Bank Details"
+                        android:textColor="@color/textColor"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <ImageView
+
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bank"
+                        android:visibility="gone" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:text="Account Number"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+
+                    <EditText
+                        android:id="@+id/etAccNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:gravity="left"
+                        android:hint="Account No."
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/colorPrimaryDark"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="Bank Name"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etBankName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/etAccNo"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:hint="Bank Name"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp"
+                        android:textColor="@color/colorPrimaryDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="IFSC Code"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etIfsc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:hint="IFSC Code"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+
+
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="10dp"
+                        android:text="Account Holders Name"
+                        android:textColor="@color/textColor"
+
+
+                        />
+
+                    <EditText
+                        android:id="@+id/etHName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape2"
+                        android:backgroundTint="@color/white"
+                        android:hint="Account Holder Name"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="@color/white"
+
+
+                        />
+
+
+                    <Button
+                        android:id="@+id/add_bank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:background="@drawable/gradient_button"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:text="Add Bank Details"
+                        android:textColor="@color/colorPrimaryDark"
+
+
+                        />
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="350dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="5dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/paytm" />
+
+                    <EditText
+                        android:id="@+id/etPaytmNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/logo"
+                        android:background="@drawable/shape2"
+                        android:gravity="center"
+                        android:hint="Enter Paytm number"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="18dp"
+
+                        />
+
+
+                    <Button
+                        android:id="@+id/add_paytm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/gradient_button"
+                        android:text="Save"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorPrimaryDark"
+
+                        android:textSize="18dp"
+
+                        />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

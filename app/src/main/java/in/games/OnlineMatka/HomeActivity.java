@@ -387,7 +387,8 @@ public class HomeActivity extends MyBaseActivity
 
         if (id == R.id.nav_profile) {
             // Handle the camera action
-            Intent intent=new Intent(HomeActivity.this, DrawerProfileActivity.class);
+//            Intent intent=new Intent(HomeActivity.this, DrawerProfileActivity.class);
+            Intent intent=new Intent(HomeActivity.this, ProfileActivity.class);
             startActivity(intent);
       }
         else if (id == R.id.nav_home)
