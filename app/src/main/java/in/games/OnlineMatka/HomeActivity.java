@@ -48,6 +48,7 @@ import in.games.OnlineMatka.Model.MatkaObject;
 import in.games.OnlineMatka.Model.MatkasObjects;
 import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.utils.LoadingBar;
+import maes.tech.intentanim.CustomIntent;
 
 import static in.games.OnlineMatka.splash_activity.home_text;
 import static in.games.OnlineMatka.splash_activity.tagline;
@@ -256,6 +257,7 @@ public class HomeActivity extends MyBaseActivity
                     intent.putExtra("start_time",objects.getBid_start_time());
                   //  intent.putExtra("bet","cb");
                     startActivity(intent);
+                CustomIntent.customType(HomeActivity.this, "up-to-bottom");
 
 
             }
