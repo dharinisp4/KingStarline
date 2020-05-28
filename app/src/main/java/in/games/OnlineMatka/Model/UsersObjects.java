@@ -2,12 +2,12 @@ package in.games.OnlineMatka.Model;
 
 public class UsersObjects {
 
-    String id,name,username,mobileno,email,address,city,pincode,password,accountno,bank_name,ifsc_code,account_holder_name,paytm_no,tez_no,phonepay_no;
+    String id,name,username,mobileno,email,address,city,pincode,password,accountno,bank_name,ifsc_code,account_holder_name,paytm_no,tez_no,phonepay_no ,dob;
 
     public UsersObjects() {
     }
 
-    public UsersObjects(String id, String name, String username, String mobileno, String email, String address, String city, String pincode, String password, String accountno, String bank_name, String ifsc_code, String account_holder_name, String paytm_no, String tez_no, String phonepay_no) {
+    public UsersObjects(String id, String name, String username, String mobileno, String email, String address, String city, String pincode, String password, String accountno, String bank_name, String ifsc_code, String account_holder_name, String paytm_no, String tez_no, String phonepay_no, String dob) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -24,6 +24,15 @@ public class UsersObjects {
         this.paytm_no = paytm_no;
         this.tez_no = tez_no;
         this.phonepay_no = phonepay_no;
+        this.dob = dob;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getId() {

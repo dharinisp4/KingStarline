@@ -4,7 +4,7 @@ public class URLs {
 
 //    public static final String BASE_URL="https://nidhionlinematka.in/restApi/api.php?api=";
 
-    public static final String BASE_URL="https://dpbosssai.com/restApi/api.php?api=";
+    public static final String BASE_URL="http://bharatstarline.anshuwap.com/restApi/api.php?api=";
     public static final String URL_CHECK1=BASE_URL+"getMatkas";
     public static final String URL_CHECK2=BASE_URL+"getStarline";
     public static final String URL_USER_LOGIN=BASE_URL+"user_login";
@@ -29,36 +29,36 @@ public class URLs {
 
     public static String URL_MPIN="https://nidhionlinematka.in/restApi/randstring.php";
 
-   public static final String URL_Login = "https://dpbosssai.com/restApi/users/usersdata.php";
-   public static final String URL_Forgot_Password = "https://dpbosssai.com/restApi/forgotpassword.php";
-   public static final String URL_Forgot_UserId = "https://dpbosssai.com/restApi/forgotusername.php";
-   public static final String URL_REGIST="https://dpbosssai.com/restApi/users.php";
-    public static final String Url_Wallet="https://dpbosssai.com/restApi/wallet_amount.php";
-    public static final String Url_OddEven="https://dpbosssai.com/restApi/OddEven/oddeven_insert.php";
-    public static final String Url_Wallet_Update="https://dpbosssai.com/restApi/walletamountupdate.php";
-    public static final String Url_bid_history="https://dpbosssai.com/restApi/BidHistory.php";
-    public static final String Url_SingleDigit_insert="https://dpbosssai.com/restApi/SaveDataApis/SingleDigit_insert.php";
-    public static final String Url_data_insert="https://dpbosssai.com/restApi/SaveDataApis/insert_data.php";
-    public static final String Url_matka_with_id="https://dpbosssai.com/restApi/matka_with_id.php";
-    public static final String URL_Matka = "https://dpbosssai.com/restApi/matka.php";
-    public static final String URL_StarLine = "https://dpbosssai.com/restApi/starline.php";
-    public static final String URL_StarLine_id = "https://dpbosssai.com/restApi/starline_data.php";
-    public static final String URL_DpMotor = "https://dpbosssai.com/restApi/dpmotor.php";
-    public static final String URL_SpMotor = "https://dpbosssai.com/restApi/spmotor.php";
-    public static final String Url_data_insert_sangum="https://dpbosssai.com/restApi/SaveDataApis/sangum_data_insert.php";
-    public static final String Url_data_insert_req="https://dpbosssai.com/restApi/Request/request_points.php";
-    public static final String Url_data_insert_with_req="https://dpbosssai.com/restApi/Request/withdraw_request.php";
-    public static final String Url_req_history="https://dpbosssai.com/restApi/Request/request_history.php";
-    public static final String Url_wthdraw_req_history="https://dpbosssai.com/restApi/Request/withdraw_history.php";
-    public static final String Url_req_notification="https://dpbosssai.com/restApi/notification_data.php";
-    public static final String Url_notification="https://dpbosssai.com/restApi/Notification/notifications.php";
-    public static final String Url_transaction_history="https://dpbosssai.com/restApi/Transaction/transaction.php";
-    public static final String Url_forgot_mpin="https://dpbosssai.com/restApi/forgotmpin.php";
+   public static final String URL_Login = "https://bharatstarline.anshuwap.com/restApi/users/usersdata.php";
+   public static final String URL_Forgot_Password = "https://bharatstarline.anshuwap.com/restApi/forgotpassword.php";
+   public static final String URL_Forgot_UserId = "https://bharatstarline.anshuwap.com/restApi/forgotusername.php";
+   public static final String URL_REGIST="https://bharatstarline.anshuwap.com/restApi/users.php";
+    public static final String Url_Wallet="https://bharatstarline.anshuwap.com/restApi/wallet_amount.php";
+    public static final String Url_OddEven="https://bharatstarline.anshuwap.com/restApi/OddEven/oddeven_insert.php";
+    public static final String Url_Wallet_Update="https://bharatstarline.anshuwap.com/restApi/walletamountupdate.php";
+    public static final String Url_bid_history="https://bharatstarline.anshuwap.com/restApi/BidHistory.php";
+    public static final String Url_SingleDigit_insert="https://bharatstarline.anshuwap.com/restApi/SaveDataApis/SingleDigit_insert.php";
+    public static final String Url_data_insert="https://bharatstarline.anshuwap.com/restApi/SaveDataApis/insert_data.php";
+    public static final String Url_matka_with_id="https://bharatstarline.anshuwap.com/restApi/matka_with_id.php";
+    public static final String URL_Matka = "https://bharatstarline.anshuwap.com/restApi/matka.php";
+    public static final String URL_StarLine = "https://bharatstarline.anshuwap.com/restApi/starline.php";
+    public static final String URL_StarLine_id = "https://bharatstarline.anshuwap.com/restApi/starline_data.php";
+    public static final String URL_DpMotor = "https://bharatstarline.anshuwap.com/restApi/dpmotor.php";
+    public static final String URL_SpMotor = "https://bharatstarline.anshuwap.com/restApi/spmotor.php";
+    public static final String Url_data_insert_sangum="https://bharatstarline.anshuwap.com/restApi/SaveDataApis/sangum_data_insert.php";
+    public static final String Url_data_insert_req="https://bharatstarline.anshuwap.com/restApi/Request/request_points.php";
+    public static final String Url_data_insert_with_req="https://bharatstarline.anshuwap.com/restApi/Request/withdraw_request.php";
+    public static final String Url_req_history="https://bharatstarline.anshuwap.com/restApi/Request/request_history.php";
+    public static final String Url_wthdraw_req_history="https://bharatstarline.anshuwap.com/restApi/Request/withdraw_history.php";
+    public static final String Url_req_notification="https://bharatstarline.anshuwap.com/restApi/notification_data.php";
+    public static final String Url_notification="https://bharatstarline.anshuwap.com/restApi/Notification/notifications.php";
+    public static final String Url_transaction_history="https://bharatstarline.anshuwap.com/restApi/Transaction/transaction.php";
+    public static final String Url_forgot_mpin="https://bharatstarline.anshuwap.com/restApi/forgotmpin.php";
 
 //    public static String ADMIN_ACC_DETALS = "https://dpbosssai.com/restApi/index.php/api/get_account_details";
     public static String ADMIN_ACC_DETALS = BASE_URL+"get_account_details";
-    public static String ADMIN_SS_URL = "https://dpbosssai.com/uploads/";
-    public static String API_SERVER_URL = "https://dpbosssai.com/restApi/";
+    public static String ADMIN_SS_URL = "https://bharatstarline.anshuwap.com/uploads/";
+    public static String API_SERVER_URL = "https://bharatstarline.anshuwap.com/restApi/";
     public static String URL_ADD_TRANSACTION =BASE_URL+ "addTransactions";
 
 }

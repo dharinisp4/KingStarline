@@ -414,7 +414,7 @@ public class HomeActivity extends MyBaseActivity
         }
         else if (id == R.id.nav_point_history) {
 
-            Intent intent=new Intent(HomeActivity.this, HistoryActivity.class);
+            Intent intent=new Intent(HomeActivity.this,Withdraw_history.class);
             intent.putExtra("type","points");
             startActivity(intent);
         }
