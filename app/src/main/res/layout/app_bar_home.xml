@@ -51,6 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/txtWallet"
                         android:layout_marginLeft="10dp"
+                        android:visibility="gone"
                         android:layout_centerVertical="true"
                         android:backgroundTint="@color/white"
                         android:background="@drawable/ic_notifications_active_black_24dp"

@@ -80,7 +80,7 @@ private int val_p=0;
    LoadingBar progressDialog;
     private TextView txtWallet_amount;
     private String game_id;
-    private String m_id ,end_time,start_time;
+    private String m_id ,end_time,start_time ,bet_type;
     private Dialog dialog;
     private TextView txtOpen,txtClose ,txt_timer,tv_timer;
 
@@ -93,6 +93,7 @@ private int val_p=0;
         final String dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
         m_id=getIntent().getStringExtra("m_id");
+        bet_type=getIntent().getStringExtra("m_type");
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
         list=new ArrayList<>();
@@ -121,6 +122,7 @@ private int val_p=0;
         txtMatka.setSelected(true);
         txtMatka.setText(dashName.toString()+"- Jodi Digit Board");
 
+
 //        btnGameType.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -139,7 +141,7 @@ private int val_p=0;
             Date c_date = format.parse(cur_time);
             common.setCounterTimer( common.getTimeDifference(start_time),txt_timer);
             common.setEndCounterTimer( common.getTimeDifference(end_time),tv_timer);
-//
+
             if (c_date.before(s_date))
             {
                 if(txt_timer.getVisibility()==View.VISIBLE)
@@ -174,36 +176,36 @@ private int val_p=0;
             e.printStackTrace();
         }
 
-        rd_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton radioButton=(RadioButton)radioGroup.findViewById(i);
-                String getValue=radioButton.getText().toString();
-//                if(getValue.equalsIgnoreCase("Open"))
-//                {
-//                    if(txt_timer.getVisibility()==View.GONE)
+//        rd_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                RadioButton radioButton=(RadioButton)radioGroup.findViewById(i);
+//                String getValue=radioButton.getText().toString();
+////                if(getValue.equalsIgnoreCase("Open"))
+////                {
+////                    if(txt_timer.getVisibility()==View.GONE)
+////                    {
+////                        txt_timer.setVisibility(View.VISIBLE);
+////                    }
+////                    if(tv_timer.getVisibility()==View.VISIBLE)
+////                    {
+////                        tv_timer.setVisibility(View.GONE);
+////                    }
+////                }
+////                else if(getValue.equalsIgnoreCase("Close"))
+////                {
+//                    if(txt_timer.getVisibility()==View.VISIBLE)
 //                    {
-//                        txt_timer.setVisibility(View.VISIBLE);
+//                        txt_timer.setVisibility(View.GONE);
 //                    }
-//                    if(tv_timer.getVisibility()==View.VISIBLE)
+//                    if(tv_timer.getVisibility()==View.GONE)
 //                    {
-//                        tv_timer.setVisibility(View.GONE);
+//                        tv_timer.setVisibility(View.VISIBLE);
 //                    }
-//                }
-//                else if(getValue.equalsIgnoreCase("Close"))
-//                {
-                    if(txt_timer.getVisibility()==View.VISIBLE)
-                    {
-                        txt_timer.setVisibility(View.GONE);
-                    }
-                    if(tv_timer.getVisibility()==View.GONE)
-                    {
-                        tv_timer.setVisibility(View.VISIBLE);
-                    }
-//                }
-
-            }
-        });
+////                }
+//
+//            }
+//        });
 
 
         bt_back.setOnClickListener(new View.OnClickListener() {
@@ -339,33 +341,34 @@ private int val_p=0;
                 Date c_dat=new Date();
                 SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
                 String s_dt=dateFormat.format(c_dat);
-                if(e_diff>0)
-                {
+                btnGameType.setText(s_dt+" Bet " +bet_type.toUpperCase());
+//                if(e_diff>0)
+//                {
+//
+//                    btnGameType.setText(s_dt+" Bet Open");
+//                }
+//                else
+//                {
+//                    btnGameType.setText(s_dt+" Bet Close");
+//                }
 
-                    btnGameType.setText(s_dt+" Bet Open");
-                }
-                else
-                {
-                    btnGameType.setText(s_dt+" Bet Close");
-                }
-
-                if(s_diff>0)
-                {
-                    rd_close.setChecked(true);
-                }
-                else if(s_diff<0 && e_diff>0)
-                {
-                    rd_open.setChecked(false);
-                    rd_open.setEnabled(false);
-                    rd_close.setChecked(true);
-                }
-                else
-                {
-                    rd_open.setChecked(false);
-                    rd_open.setEnabled(false);
-                    rd_close.setChecked(false);
-                    rd_close.setEnabled(false);
-                }
+//                if(s_diff>0)
+//                {
+//                    rd_close.setChecked(true);
+//                }
+//                else if(s_diff<0 && e_diff>0)
+//                {
+//                    rd_open.setChecked(false);
+//                    rd_open.setEnabled(false);
+//                    rd_close.setChecked(true);
+//                }
+//                else
+//                {
+//                    rd_open.setChecked(false);
+//                    rd_open.setEnabled(false);
+//                    rd_close.setChecked(false);
+//                    rd_close.setEnabled(false);
+//                }
                 progressDialog.dismiss();
             }
         });
@@ -373,135 +376,6 @@ private int val_p=0;
 
     }
 
-    public void getBetDateDay(final String m_id)
-    {
-        String json_request_tag="matka_with_id";
-        HashMap<String,String> params=new HashMap<String, String>();
-        params.put("id",m_id);
-        progressDialog.show();
 
-        CustomJsonRequest customJsonRequest=new CustomJsonRequest( Request.Method.POST, URLs.URL_MATKA_WITH_ID, params, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                progressDialog.dismiss();
-                try
-                {
-                    String status=response.getString("status");
-                    if(status.equals("success"))
-                    {
-                        JSONObject jsonObject=response.getJSONObject("data");
-                        MatkasObjects matkasObjects = new MatkasObjects();
-                        matkasObjects.setId(jsonObject.getString("id"));
-                        matkasObjects.setName(jsonObject.getString("name"));
-                        matkasObjects.setStart_time(jsonObject.getString("start_time"));
-                        matkasObjects.setEnd_time(jsonObject.getString("end_time"));
-                        matkasObjects.setStarting_num(jsonObject.getString("starting_num"));
-                        matkasObjects.setNumber(jsonObject.getString("number"));
-                        matkasObjects.setEnd_num(jsonObject.getString("end_num"));
-                        matkasObjects.setBid_start_time(jsonObject.getString("bid_start_time"));
-                        matkasObjects.setBid_end_time(jsonObject.getString("bid_end_time"));
-                        matkasObjects.setCreated_at(jsonObject.getString("created_at"));
-                        matkasObjects.setUpdated_at(jsonObject.getString("updated_at"));
-                        matkasObjects.setSat_start_time(jsonObject.getString("sat_start_time"));
-                        matkasObjects.setSat_end_time(jsonObject.getString("sat_end_time"));
-                        matkasObjects.setStatus(jsonObject.getString("status"));
-
-                        String dt=new SimpleDateFormat("EEEE").format(new Date());
-                        String bid_start = "";
-                        String bid_end="";
-//                        String bid_start = matkasObjects.getBid_start_time();
-//                        String bid_end=matkasObjects.getBid_end_time().toString();
-
-                        if(dt.equals("Sunday"))
-                        {
-                            bid_start=matkasObjects.getStart_time();
-                            bid_end=matkasObjects.getEnd_time();
-                        }
-                        else if(dt.equals("Saturday"))
-                        {
-                            bid_start=matkasObjects.getSat_start_time();
-                            bid_end=matkasObjects.getSat_end_time();
-
-                        }
-                        else
-                        {
-                            bid_start=matkasObjects.getBid_start_time();
-                            bid_end=matkasObjects.getBid_end_time();
-
-                        }
-                        String time1 = bid_start.toString();
-                        String time2 = bid_end.toString();
-                        Date cdate=new Date();
-                        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-                        String time3=format.format(cdate);
-                        Date date1 = null;
-                        Date date2=null;
-                        Date date3=null;
-                        try {
-                            date1 = format.parse(time1);
-                            date2 = format.parse(time2);
-                            date3=format.parse(time3);
-                        } catch (ParseException e1) {
-                            e1.printStackTrace();
-                        }
-
-                        long difference = date3.getTime() - date1.getTime();
-                        long as=(difference/1000)/60;
-
-                        long diff_close=date3.getTime()-date2.getTime();
-                        long c=(diff_close/1000)/60;
-
-                        Date c_dat=new Date();
-                        SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
-                        String s_dt=dateFormat.format(c_dat);
-                        String n_dt= common.getNextDate(s_dt);
-                        String a_dt= common.getNextDate(n_dt);
-                       // Toast.makeText(JodiDigitActivity.this,""+as,Toast.LENGTH_LONG).show();
-                        if(as>0)
-                        {progressDialog.dismiss();
-                            btnGameType.setText(s_dt+" Bet Close");
-
-
-                             //Toast.makeText(OddEvenActivity.this,""+s_dt+"  Close",Toast.LENGTH_LONG).show();
-                        }
-                        else
-                        {
-                            progressDialog.dismiss();
-                            btnGameType.setText(s_dt+" Bet Open");
-
-                        }
-
-
-//                        }
-
-
-                    } else {
-                        progressDialog.dismiss();
-                        Toast.makeText(JodiDigitActivity.this,"Something wrong",Toast.LENGTH_LONG).show();
-
-
-                    }
-
-
-
-                    //Toast.makeText(context,""+response,Toast.LENGTH_LONG).show();
-                }
-                catch (Exception ex)
-                {
-                    ex.printStackTrace();
-                    Toast.makeText(JodiDigitActivity.this,"something went wrong ",Toast.LENGTH_LONG).show();
-                }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(JodiDigitActivity.this,""+error.getMessage(),Toast.LENGTH_LONG).show();
-            }
-        });
-        AppController.getInstance().addToRequestQueue(customJsonRequest,json_request_tag);
-    }
 
 }

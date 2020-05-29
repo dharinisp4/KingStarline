@@ -178,6 +178,7 @@ public class RequestActivity extends MyBaseActivity {
                 params.put("user_id",user_id);
                 params.put("points",points);
                 params.put("request_status",st);
+                params.put("type","Add");
 
                 // params.put("phonepay",phonepaynumber);
 

@@ -39,8 +39,18 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
         Withdraw_requwset_obect postion=list.get(i);
 
         viewHolder.txtId.setText(postion.getId());
-        viewHolder.txtAmount.setText(postion.getWithdraw_points());
+
         viewHolder.txtdate.setText(postion.getTime());
+
+        String type = postion.getType().trim();
+        if (type.equals("Add"))
+        {
+            viewHolder.txtAmount.setText("+ "+postion.getWithdraw_points());
+        }
+        else if (type.equals("Withdraw"))
+        {
+            viewHolder.txtAmount.setText("- "+postion.getWithdraw_points());
+        }
 
         String st=postion.getWithdraw_status().toString().trim();
         if(st.equals("pending"))

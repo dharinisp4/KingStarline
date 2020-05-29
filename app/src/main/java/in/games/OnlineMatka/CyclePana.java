@@ -111,7 +111,7 @@ public class CyclePana extends AppCompatActivity {
    LoadingBar progressDialog;
     // private ListView lstView;
     AutoCompleteTextView editText;
-    private String game_id;
+    private String game_id ,bet_type;
     private String m_id;
     private String start_time,end_time;
 
@@ -127,6 +127,7 @@ public class CyclePana extends AppCompatActivity {
         final String dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
         m_id=getIntent().getStringExtra("m_id");
+        bet_type=getIntent().getStringExtra("m_type");
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
         etPoints=(EditText)findViewById(R.id.etPoints);
@@ -158,7 +159,7 @@ public class CyclePana extends AppCompatActivity {
 //        final AutoCompleteTextView editText=findViewById(R.id.etSingleDigit);
         final ArrayAdapter<String> adapter=new ArrayAdapter<String>(CyclePana.this,android.R.layout.simple_list_item_1, sp_input_data.cycle_pana_array);
         editText.setAdapter(adapter);
-        txtMatka.setText(dashName.toString()+"- Cycle Pana Board");
+        txtMatka.setText(dashName.toString()+"- Cycle Patti Board");
 
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +169,28 @@ public class CyclePana extends AppCompatActivity {
             }
         });
 
-//
+        if(bet_type.equalsIgnoreCase("Open"))
+        {
+            if(txt_timer.getVisibility()==View.GONE)
+            {
+                txt_timer.setVisibility(View.VISIBLE);
+            }
+            if(tv_timer.getVisibility()==View.VISIBLE)
+            {
+                tv_timer.setVisibility(View.GONE);
+            }
+        }
+        else if(bet_type.equalsIgnoreCase("Close"))
+        {
+            if(txt_timer.getVisibility()==View.VISIBLE)
+            {
+                txt_timer.setVisibility(View.GONE);
+            }
+            if(tv_timer.getVisibility()==View.GONE)
+            {
+                tv_timer.setVisibility(View.VISIBLE);
+            }
+        }
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 
@@ -181,60 +203,60 @@ public class CyclePana extends AppCompatActivity {
             common.setCounterTimer( common.getTimeDifference(start_time),txt_timer);
             common.setEndCounterTimer( common.getTimeDifference(end_time),tv_timer);
 //
-            if (c_date.before(s_date))
-            {
-
-                tv_timer.setVisibility(View.GONE);
-                txt_timer.setVisibility(View.VISIBLE);
-
-            }
-            else if (c_date.before(e_date) && c_date.after(s_date))
-            {
-                tv_timer.setVisibility(View.VISIBLE);
-                txt_timer.setVisibility(View.GONE);
-
-            }
-            else if (c_date.after(e_date))
-            {
-                txt_timer.setText("Bid Closed");
-            }
-            Log.e("date",s_date +"\n"+e_date +"\n"+c_date);
+//            if (c_date.before(s_date))
+//            {
+//
+//                tv_timer.setVisibility(View.GONE);
+//                txt_timer.setVisibility(View.VISIBLE);
+//
+//            }
+//            else if (c_date.before(e_date) && c_date.after(s_date))
+//            {
+//                tv_timer.setVisibility(View.VISIBLE);
+//                txt_timer.setVisibility(View.GONE);
+//
+//            }
+//            else if (c_date.after(e_date))
+//            {
+//                txt_timer.setText("Bid Closed");
+//            }
+//            Log.e("date",s_date +"\n"+e_date +"\n"+c_date);
 
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
 
-        rd_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                RadioButton radioButton=(RadioButton)radioGroup.findViewById(i);
-                String getValue=radioButton.getText().toString();
-                if(getValue.equalsIgnoreCase("Open"))
-                {
-                    if(txt_timer.getVisibility()==View.GONE)
-                    {
-                        txt_timer.setVisibility(View.VISIBLE);
-                    }
-                    if(tv_timer.getVisibility()==View.VISIBLE)
-                    {
-                        tv_timer.setVisibility(View.GONE);
-                    }
-                }
-                else if(getValue.equalsIgnoreCase("Close"))
-                {
-                    if(txt_timer.getVisibility()==View.VISIBLE)
-                    {
-                        txt_timer.setVisibility(View.GONE);
-                    }
-                    if(tv_timer.getVisibility()==View.GONE)
-                    {
-                        tv_timer.setVisibility(View.VISIBLE);
-                    }
-                }
-
-            }
-        });
+//        rd_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                RadioButton radioButton=(RadioButton)radioGroup.findViewById(i);
+//                String getValue=radioButton.getText().toString();
+//                if(getValue.equalsIgnoreCase("Open"))
+//                {
+//                    if(txt_timer.getVisibility()==View.GONE)
+//                    {
+//                        txt_timer.setVisibility(View.VISIBLE);
+//                    }
+//                    if(tv_timer.getVisibility()==View.VISIBLE)
+//                    {
+//                        tv_timer.setVisibility(View.GONE);
+//                    }
+//                }
+//                else if(getValue.equalsIgnoreCase("Close"))
+//                {
+//                    if(txt_timer.getVisibility()==View.VISIBLE)
+//                    {
+//                        txt_timer.setVisibility(View.GONE);
+//                    }
+//                    if(tv_timer.getVisibility()==View.GONE)
+//                    {
+//                        tv_timer.setVisibility(View.VISIBLE);
+//                    }
+//                }
+//
+//            }
+//        });
 
 
         btnType.setOnClickListener(new View.OnClickListener() {
@@ -271,15 +293,16 @@ public class CyclePana extends AppCompatActivity {
             public void onClick(View v) {
 
                 list.clear();
-                String bet="Select Type";
-                if(rd_close.isChecked())
-                {
-                    bet="close";
-                }
-                else if(rd_open.isChecked())
-                {
-                    bet="open";
-                }
+                String bet = bet_type;
+//                String bet="Select Type";
+//                if(rd_close.isChecked())
+//                {
+//                    bet="close";
+//                }
+//                else if(rd_open.isChecked())
+//                {
+//                    bet="open";
+//                }
 
                 String dData=editText.getText().toString().trim();
                 if(bet.equals("Select Type"))
@@ -606,61 +629,9 @@ public class CyclePana extends AppCompatActivity {
                         }
 
 
-//                        for (int i = 0; i <= main.length - 1; i++) {
-//                            for (int j = 0; j <= main[i].length - 1; j++) {
-//                                if (main[i][j].contains(d)) {
-//                                    key = i;
-//                                    st = true;
 //
-//                                    break;
-//                                }
-//
-//                                // Toast.makeText(GroupPanelActivity.this,"Data in j: "+main[i][j],Toast.LENGTH_LONG).show();
-//                            }
-//                            if (st == true) {
-//
-//                                //         Toast.makeText(GroupPanelActivity.this,"exist"+key,Toast.LENGTH_LONG).show();
-//
-//
-//                                ArrayList<String> list1 = new ArrayList<String>();
-//                                for (int k = 0; k <= main[key].length - 1; k++) {
-//                                    // progressDialog.show();
-//                                    //list.add(main[key][k].toString());
-////                                 arrayList.add(new SingleDigitObjects(main[key][k].toString(),p,th));
-//                                    // setTableData(main[key][k], p, th);
-//                                    module.addData(CyclePana.this,main[key][k], p, th,list,tableAdaper,list_table,btnSave);
-//                                    editText.setText("");
-//                                    etPoints.setText("");
-//                                    editText.requestFocus();
-//                                    //arrayList.clear();
-//                                }
-//
-//
-//                                // Toast.makeText(GroupPanelActivity.this,"Data in j: "+list,Toast.LENGTH_LONG).show();
-//                                //  progressDialog.dismiss();
-//                                break;
-//
-//                            }
-//
-//
-//                        }
-//                        if (st == false) {
-//                            Toast.makeText(CyclePana.this, "not exist ", Toast.LENGTH_LONG).show();
-//                            //progressDialog.dismiss();
-//                        }
-//
-//                        // arrayList.clear();
-////                    Toast.makeText(GroupPanelActivity.this,"exist"+key,Toast.LENGTH_LONG).show();
-////                    arrayList.add(new SingleDigitObjects(p,d,th));
-////                    adapter1.notifyDataSetChanged();
-//
-//                        editText.setText("");
-//                        etPoints.setText("");
-//
-//                        btnType.setText("Select Type");
                     }
 
-                    //  arrayList.clear();
                 }
             }
         });
@@ -675,8 +646,48 @@ public class CyclePana extends AppCompatActivity {
                 String c=d[0].toString();
                 String w= txtWallet_amount.getText().toString().trim();
 
+                Date date = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 
-                common.setBidsDialog(Integer.parseInt(w),list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
+                String cur_time = format.format(date);
+
+                try {
+                    Date s_date = format.parse(start_time);
+                    Date e_date = format.parse(end_time);
+                    Date c_date = format.parse(cur_time);
+                    long difference = c_date.getTime() - s_date.getTime();
+                    long as=(difference/1000)/60;
+
+                    long diff_close=c_date.getTime()-e_date.getTime();
+                    long curr=(diff_close/1000)/60;
+                    long current_time=c_date.getTime();
+                    if (bet_type.equalsIgnoreCase("open"))
+                    {
+                        if (as < 0) {
+
+                            common.setBidsDialog(Integer.parseInt(w),list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
+
+                        }
+                        else
+                        {
+                            common.errorMessageDialog("Betting is Closed Now");
+                        }
+                    }
+                    else if (bet_type.equalsIgnoreCase("close"))
+                    {
+                        if (curr < 0) {
+                            common.setBidsDialog(Integer.parseInt(w),list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
+
+                        }
+                        else {
+                            common.errorMessageDialog("Betting is Closed Now");
+                        }
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+//                common.setBidsDialog(Integer.parseInt(w),list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
             }
         });
 
@@ -717,35 +728,36 @@ public class CyclePana extends AppCompatActivity {
                     Date c_dat=new Date();
                     SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
                     String s_dt=dateFormat.format(c_dat);
-                    if(e_diff>0)
-                    {
-
-                        btnGameType.setText(s_dt+" Bet Open");
-                    }
-                    else
-                    {
-                        btnGameType.setText(s_dt+" Bet Close");
-
-                    }
-
-                    if(s_diff>0)
-                    {
-                        rd_open.setChecked(true);
-                    }
-                    else if(s_diff<0 && e_diff>0)
-                    {
-                        rd_open.setChecked(false);
-                        rd_open.setEnabled(false);
-                        rd_close.setChecked(true);
-                    }
-                    else
-                    {
-                        rd_open.setChecked(false);
-                        rd_open.setEnabled(false);
-                        rd_close.setChecked(false);
-                        rd_close.setEnabled(false);
-
-                    }
+                    btnGameType.setText(s_dt+" Bet" + bet_type.toUpperCase());
+//                    if(e_diff>0)
+//                    {
+//
+//                        btnGameType.setText(s_dt+" Bet Open");
+//                    }
+//                    else
+//                    {
+//                        btnGameType.setText(s_dt+" Bet Close");
+//
+//                    }
+//
+//                    if(s_diff>0)
+//                    {
+//                        rd_open.setChecked(true);
+//                    }
+//                    else if(s_diff<0 && e_diff>0)
+//                    {
+//                        rd_open.setChecked(false);
+//                        rd_open.setEnabled(false);
+//                        rd_close.setChecked(true);
+//                    }
+//                    else
+//                    {
+//                        rd_open.setChecked(false);
+//                        rd_open.setEnabled(false);
+//                        rd_close.setChecked(false);
+//                        rd_close.setEnabled(false);
+//
+//                    }
 
                     progressDialog.dismiss();
                 }

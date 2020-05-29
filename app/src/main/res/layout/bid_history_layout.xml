@@ -15,10 +15,16 @@
         android:layout_marginStart="10dp"
 
         app:cardElevation="20dp">
-<RelativeLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<LinearLayout
     android:id="@+id/relMain"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    >
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
@@ -151,7 +157,7 @@
             />
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout></ScrollView>
 
 
 

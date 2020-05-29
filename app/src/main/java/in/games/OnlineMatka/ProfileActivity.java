@@ -91,6 +91,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String tz=Prevalent.currentOnlineuser.getTez_no().toString();
         String p=Prevalent.currentOnlineuser.getPaytm_no().toString();
         String mobile = Prevalent.currentOnlineuser.getMobileno();
+        String email = Prevalent.currentOnlineuser.getEmail();
+        String dob = Prevalent.currentOnlineuser.getDob();
+        et_email.setText(email);
+        et_dob.setText(dob);
         et_mobile.setText(mobile);
         et_mobile.setEnabled(false);
 

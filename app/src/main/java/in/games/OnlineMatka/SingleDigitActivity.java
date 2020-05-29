@@ -50,7 +50,7 @@ public class SingleDigitActivity extends MyBaseActivity {
     RadioGroup rd_group;
     LoadingBar progressDialog;
     private String game_id;
-    private String m_id ,end_time,start_time;
+    private String m_id ,end_time,start_time ,bet_type;
     private TextView txtWallet_amount,txt_timer,tv_timer;
     SingleDigitAdapter adapter;
     private Dialog dialog;
@@ -63,6 +63,7 @@ public class SingleDigitActivity extends MyBaseActivity {
         final String dashName=getIntent().getStringExtra("matkaName");
         game_id=getIntent().getStringExtra("game_id");
         m_id=getIntent().getStringExtra("m_id");
+        bet_type=getIntent().getStringExtra("m_type");
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
         list=new ArrayList<>();
@@ -340,35 +341,36 @@ public class SingleDigitActivity extends MyBaseActivity {
                     Date c_dat=new Date();
                     SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy EEEE");
                     String s_dt=dateFormat.format(c_dat);
-                    if(e_diff>0)
-                    {
-
-                        btnGameType.setText(s_dt+" Bet Open");
-                    }
-                    else
-                    {
-                        btnGameType.setText(s_dt+" Bet Close");
-
-                    }
-
-                    if(s_diff>0)
-                    {
-                        rd_open.setChecked(true);
-                    }
-                    else if(s_diff<0 && e_diff>0)
-                    {
-                        rd_open.setChecked(false);
-                        rd_open.setEnabled(false);
-                        rd_close.setChecked(true);
-                    }
-                    else
-                    {
-                        rd_open.setChecked(false);
-                        rd_open.setEnabled(false);
-                        rd_close.setChecked(false);
-                        rd_close.setEnabled(false);
-
-                    }
+                    btnGameType.setText(s_dt+" Bet" +bet_type.toUpperCase());
+//                    if(e_diff>0)
+//                    {
+//
+//                        btnGameType.setText(s_dt+" Bet Open");
+//                    }
+//                    else
+//                    {
+//                        btnGameType.setText(s_dt+" Bet Close");
+//
+//                    }
+//
+//                    if(s_diff>0)
+//                    {
+//                        rd_open.setChecked(true);
+//                    }
+//                    else if(s_diff<0 && e_diff>0)
+//                    {
+//                        rd_open.setChecked(false);
+//                        rd_open.setEnabled(false);
+//                        rd_close.setChecked(true);
+//                    }
+//                    else
+//                    {
+//                        rd_open.setChecked(false);
+//                        rd_open.setEnabled(false);
+//                        rd_close.setChecked(false);
+//                        rd_close.setEnabled(false);
+//
+//                    }
 
                     progressDialog.dismiss();
                 }

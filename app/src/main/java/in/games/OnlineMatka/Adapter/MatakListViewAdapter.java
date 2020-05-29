@@ -2,6 +2,7 @@ package in.games.OnlineMatka.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -17,8 +18,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import in.games.OnlineMatka.Common.Common;
+import in.games.OnlineMatka.HomeActivity;
 import in.games.OnlineMatka.Model.MatkasObjects;
+import in.games.OnlineMatka.NewGameActivity;
 import in.games.OnlineMatka.R;
+import maes.tech.intentanim.CustomIntent;
 
 public class MatakListViewAdapter extends BaseAdapter {
 
@@ -52,7 +57,7 @@ public class MatakListViewAdapter extends BaseAdapter {
 
     @SuppressLint("NewApi")
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
          View view= LayoutInflater.from(context).inflate(R.layout.matks_items_layout,null);
         //MatkasObjects objects=list.get(position);
        TextView txtDess2=(TextView)view.findViewById(R.id.matka_dess2);
@@ -66,6 +71,7 @@ public class MatakListViewAdapter extends BaseAdapter {
         TextView txtStatus=(TextView)view.findViewById(R.id.matkaBettingStatus);
         ImageView  imageGame=(ImageView)view.findViewById(R.id.matka_image);
         TextView  txtMatka_id=(TextView) view.findViewById(R.id.matka_id);
+        RelativeLayout rel_matka = view.findViewById(R.id.rlchange);
 TextView txt_play = view.findViewById(R.id.txt_play);
 
 
@@ -215,6 +221,32 @@ TextView txt_play = view.findViewById(R.id.txt_play);
                     flag = 2;
                     txtStatus.setTextColor( Color.parseColor( "#053004" ) );
                     txtStatus.setText( "BETTING IS RUNNING" );
+                    rel_matka.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            MatkasObjects objects=list.get(position);
+                            String stime = objects.getStart_time();
+                            String etime = objects.getEnd_time();
+                            Date date = new Date();
+                            SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+
+                            String cur_time = format.format(date);
+
+                            String m_id=objects.getId().toString().trim();
+                            String matka_name=objects.getName().toString().trim();
+
+                            // Toast.makeText(context,"Position"+m_id,Toast.LENGTH_LONG).show();
+                            Intent intent=new Intent(context, NewGameActivity.class);
+                            //    intent.putExtra("tim",position);
+                            intent.putExtra("matkaName",matka_name);
+                            intent.putExtra("m_id",m_id);
+                            intent.putExtra("end_time",objects.getBid_end_time());
+                            intent.putExtra("start_time",objects.getBid_start_time());
+                            //  intent.putExtra("bet","cb");
+                            context.startActivity(intent);
+                            CustomIntent.customType(context, "up-to-bottom");
+                        }
+                    });
 
 
                 } else if (c > 0) {
@@ -222,16 +254,34 @@ TextView txt_play = view.findViewById(R.id.txt_play);
 //                    txtStatus.setTextColor( Color.parseColor( "#FFA44546" ) );
                     txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
                     txtStatus.setText( "BETTING IS CLOSED" );
+                    rel_matka.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            new Common(context).errorMessageDialog("Betting is Close");
+                        }
+                    });
                 } else {
                     flag = 1;
                     // viewHolder.txtStatus.setText("a");
                     txtStatus.setVisibility( View.INVISIBLE );
+                    rel_matka.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            new Common(context).errorMessageDialog("Betting is Close for this day");
+                        }
+                    });
                 }
             }
             else
             {
                 txtStatus.setText( "BETTING IS CLOSED" );
                 txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
+                rel_matka.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new Common(context).errorMessageDialog("Betting is Close");
+                    }
+                });
             }
 
         }

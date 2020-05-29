@@ -142,7 +142,7 @@
         android:scrollbars="horizontal"
         android:background="@drawable/outline"
         android:backgroundTint="@android:color/darker_gray"
-        android:weightSum="9"
+        android:weightSum="10"
 
 
         >
@@ -153,11 +153,10 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:padding="5dp"
-            android:background="@drawable/outline"
-            android:backgroundTint="@android:color/darker_gray"
+
             android:text=""
             android:textSize="15dp"
-            android:layout_below="@id/txtStatus"
+
             android:textColor="@color/black"/>
 
         <TextView
@@ -171,22 +170,33 @@
             android:visibility="gone"
 
             android:textColor="@color/colorPrimaryDark"/>
-
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight=".01"/>
 
         <TextView
             android:id="@+id/fund_amount"
             android:layout_width="0dp"
-            android:layout_weight="2"
+            android:layout_weight="2.5"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:padding="5dp"
             android:text=" "
             android:textSize="15dp"
 
-           android:background="@drawable/outline"
-            android:backgroundTint="@android:color/darker_gray"
 
             android:textColor="@color/black"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_weight=".01"/>
 
         <TextView
             android:id="@+id/fund_status"

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -38,7 +39,10 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import in.games.OnlineMatka.Adapter.MatakListViewAdapter;
 
@@ -73,6 +77,7 @@ public class HomeActivity extends MyBaseActivity
     LoadingBar progressDialog;
     Common common;
     public static String mainName="";
+    int flag =0 ;
 
 
     @Override
@@ -238,32 +243,35 @@ public class HomeActivity extends MyBaseActivity
              //matkaAdapter.notifyItemRemoved();
             }
         });
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //String dt=new SimpleDateFormat("EEEE").format(new Date());
-                MatkasObjects objects=matkaList.get(position);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //
-      // Toast.makeText(HomeActivity.this,""+Prevalent.Matka_count,Toast.LENGTH_LONG).show();
-
-                // String st=txtStatus.getText().toString();
-                String m_id=objects.getId().toString().trim();
-                String matka_name=objects.getName().toString().trim();
-
-                    // Toast.makeText(context,"Position"+m_id,Toast.LENGTH_LONG).show();
-                    Intent intent=new Intent(HomeActivity.this, GameActivity.class);
-                //    intent.putExtra("tim",position);
-                    intent.putExtra("matkaName",matka_name);
-                    intent.putExtra("m_id",m_id);
-                    intent.putExtra("end_time",objects.getBid_end_time());
-                    intent.putExtra("start_time",objects.getBid_start_time());
-                  //  intent.putExtra("bet","cb");
-                    startActivity(intent);
-                CustomIntent.customType(HomeActivity.this, "up-to-bottom");
-
-
-            }
-        });
+//                MatkasObjects objects=matkaList.get(position);
+//                String stime = objects.getStart_time();
+//                String etime = objects.getEnd_time();
+//                Date date = new Date();
+//                SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+//
+//                String cur_time = format.format(date);
+//
+//                            String m_id=objects.getId().toString().trim();
+//                            String matka_name=objects.getName().toString().trim();
+//
+//                            // Toast.makeText(context,"Position"+m_id,Toast.LENGTH_LONG).show();
+//                            Intent intent=new Intent(HomeActivity.this, NewGameActivity.class);
+//                            //    intent.putExtra("tim",position);
+//                            intent.putExtra("matkaName",matka_name);
+//                            intent.putExtra("m_id",m_id);
+//                            intent.putExtra("end_time",objects.getBid_end_time());
+//                            intent.putExtra("start_time",objects.getBid_start_time());
+//                            //  intent.putExtra("bet","cb");
+//                            startActivity(intent);
+//                            CustomIntent.customType(HomeActivity.this, "up-to-bottom");
+//
+//
+//            }
+//        });
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -407,7 +415,7 @@ public class HomeActivity extends MyBaseActivity
         }
         else if (id == R.id.nav_history) {
 
-            Intent intent=new Intent(HomeActivity.this, HistoryActivity.class);
+            Intent intent=new Intent(HomeActivity.this, BidActivity.class);
             intent.putExtra("type","game");
             startActivity(intent);
 
@@ -420,13 +428,13 @@ public class HomeActivity extends MyBaseActivity
         }
         else if (id == R.id.nav_funds) {
 
-            Intent intent=new Intent(HomeActivity.this, FundsActivity.class);
+            Intent intent=new Intent(HomeActivity.this, RequestActivity.class);
             intent.putExtra("type","add");
             startActivity(intent);
         }
         else if (id == R.id.nav_withdrw) {
 
-            Intent intent=new Intent(HomeActivity.this, FundsActivity.class);
+            Intent intent=new Intent(HomeActivity.this, WithdrawalActivity.class);
             intent.putExtra("type","withdraw");
             startActivity(intent);
         }

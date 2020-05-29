@@ -2,6 +2,7 @@ package in.games.OnlineMatka;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,6 +40,7 @@ public class BidActivity extends MyBaseActivity {
     private TextView bt_back;
     private String user_id;
     private String matka_id;
+    WebView webView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class BidActivity extends MyBaseActivity {
         common=new Common(BidActivity.this);
         matka_id=getIntent().getStringExtra("matka_id");
         progressDialog=new LoadingBar(BidActivity.this);
-
+        webView = findViewById(R.id.bid_histry_webview);
         recyclerView=(ListView) findViewById(R.id.recyclerView);
         bt_back=(TextView)findViewById(R.id.txtBack);
      //   user_id= "3";
@@ -64,6 +66,12 @@ public class BidActivity extends MyBaseActivity {
 
        // getMatkaData();
         getBidData(user_id,matka_id);
+        webView.loadUrl("https://www.binplus.in/");
+        webView.setHorizontalScrollBarEnabled(true);
+        webView.setVerticalScrollBarEnabled(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.setInitialScale(1);
 
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override

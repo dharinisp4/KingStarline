@@ -78,14 +78,15 @@ public class Withdraw_history extends MyBaseActivity {
         progressDialog.show();
 
         list.clear();
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_wthdraw_req_history, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_req_history, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.d("wdrw_histry",response.toString());
+                Log.d("points_histry",response.toString());
 
                 if(response.equals("empty"))
                 {
                     progressDialog.dismiss();
+
                     Toast.makeText(Withdraw_history.this,"empty",Toast.LENGTH_LONG).show();
 //                        Log.e("Volley",error.toString());
 
@@ -101,11 +102,12 @@ public class Withdraw_history extends MyBaseActivity {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                             Withdraw_requwset_obect matkasObjects = new Withdraw_requwset_obect();
-                            matkasObjects.setId(jsonObject.getString("id"));
-                            matkasObjects.setWithdraw_points(jsonObject.getString("withdraw_points"));
+                            matkasObjects.setId(jsonObject.getString("request_id"));
+                            matkasObjects.setWithdraw_points(jsonObject.getString("request_points"));
                             matkasObjects.setTime(jsonObject.getString("time"));
-                            matkasObjects.setWithdraw_status(jsonObject.getString("withdraw_status"));
+                            matkasObjects.setWithdraw_status(jsonObject.getString("request_status"));
                             matkasObjects.setUser_id(jsonObject.getString("user_id"));
+                            matkasObjects.setType(jsonObject.getString("type"));
 
 
                             list.add(matkasObjects);

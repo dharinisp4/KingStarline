@@ -43,28 +43,34 @@
         android:paddingRight="10dp"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2.4"
             android:layout_height="wrap_content"
             android:text="Digits"
+            android:gravity="center"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
-            android:layout_marginLeft="30dp"/>
+         />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2.4"
             android:layout_height="wrap_content"
             android:text="Points"
+            android:gravity="center"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
-            android:layout_marginLeft="30dp"/>
+           />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2.4"
             android:layout_height="wrap_content"
             android:text="Game Type"
+            android:gravity="center"
             android:layout_gravity="center_vertical"
             android:padding="5dp"
-            android:layout_marginLeft="30dp"/>
+           />
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/relTable"
@@ -198,7 +204,7 @@
                 android:text="Total "/>
             <TextView
                 android:id="@+id/txt2"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_toRightOf="@id/txtCountBids"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
@@ -243,7 +249,7 @@
                 android:text="Total "/>
             <TextView
                 android:id="@+id/txt4"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_toRightOf="@id/txtBeforeAmount"
                 android:layout_height="wrap_content"
                 android:padding="5dp"

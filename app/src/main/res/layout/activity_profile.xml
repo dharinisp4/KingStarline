@@ -578,7 +578,7 @@
                         android:hint="Enter Paytm number"
                         android:inputType="number"
                         android:padding="10dp"
-                        android:textAlignment="center"
+
                         android:textSize="16dp"
 
                         />
@@ -607,7 +607,7 @@
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
                         android:inputType="number"
-                        android:textAlignment="center"
+
 
                         />
                     <TextView
@@ -634,7 +634,6 @@
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
                         android:inputType="number"
-                        android:textAlignment="center"
 
                         />
 

@@ -54,6 +54,7 @@ import in.games.OnlineMatka.Model.MatkasObjects;
 import in.games.OnlineMatka.Model.Starline_Objects;
 import in.games.OnlineMatka.Model.TableModel;
 import in.games.OnlineMatka.Model.WalletObjects;
+import in.games.OnlineMatka.NewGameActivity;
 import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.R;
 import in.games.OnlineMatka.URLs;
@@ -539,6 +540,7 @@ public class Common {
             public void onClick(View v) {
 
                 dialog.dismiss();
+                list.clear();
             }
         });
     }
@@ -1618,7 +1620,7 @@ public class Common {
                     {
 
                         //updateWalletAmount(id,amt,context);
-                        Intent intent=new Intent(context, GameActivity.class);
+                        Intent intent=new Intent(context, NewGameActivity.class);
                         intent.putExtra("matkaName",matka_name);
                         intent.putExtra("m_id",m_id);
                         intent.putExtra("end_time",end_time);

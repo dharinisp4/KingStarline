@@ -210,80 +210,79 @@ import static in.games.OnlineMatka.splash_activity.withdrw_text;
 
 
 
-    private void saveInfoIntoDatabase(final String user_id, final String points, final String st) {
+     private void saveInfoIntoDatabase(final String user_id, final String points, final String st) {
 
-        //progressDialog.show();
+         progressDialog.show();
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_data_insert_with_req, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
+         StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.Url_data_insert_req, new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response) {
+                 try {
 
-                    JSONObject jsonObject=new JSONObject(response);
-                    String status=jsonObject.getString("status");
-                    if(status.equals("success"))
-                    {
-          //              progressDialog.dismiss();
-                    //    onStart();
-                        Toast.makeText(WithdrawalActivity.this,"successfull req",Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(WithdrawalActivity.this,HomeActivity.class);
-                        startActivity(intent);
-                        finish();
+                     JSONObject jsonObject=new JSONObject(response);
+                     String status=jsonObject.getString("status");
+                     if(status.equals("success"))
+                     {
+                         progressDialog.dismiss();
+                         Toast.makeText(WithdrawalActivity.this,"successfull",Toast.LENGTH_LONG).show();
+                         Intent intent=new Intent(WithdrawalActivity.this,HomeActivity.class);
+                         startActivity(intent);
+                         finish();
 
-                        return;
-                    }
-                    else
-                    {
-                        progressDialog.dismiss();
+                         return;
+                     }
+                     else
+                     {
+                         progressDialog.dismiss();
 
-                        Toast.makeText(WithdrawalActivity.this,"Something Wrong",Toast.LENGTH_LONG).show();
-                        return;
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    progressDialog.dismiss();
-
-                    Toast.makeText(WithdrawalActivity.this,"Error :"+ex.getMessage(),Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-            }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        progressDialog.dismiss();
-
-                        Toast.makeText(WithdrawalActivity.this,"Error :"+error.getMessage(),Toast.LENGTH_LONG).show();
-                        return;
-
-                    }
-                }
-        )
-        {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params=new HashMap<>();
-
-                params.put("user_id",user_id);
-                params.put("points",points);
-                params.put("request_status",st);
-
-                // params.put("phonepay",phonepaynumber);
+                         Toast.makeText(WithdrawalActivity.this,"Something Wrong",Toast.LENGTH_LONG).show();
+                         return;
+                     }
 
 
-                return params;
-            }
+                 }
+                 catch (Exception ex)
+                 {
+                     progressDialog.dismiss();
 
-        };
+                     Toast.makeText(WithdrawalActivity.this,"Error :"+ex.getMessage(),Toast.LENGTH_LONG).show();
+                     return;
+                 }
 
-        RequestQueue requestQueue= Volley.newRequestQueue(WithdrawalActivity.this);
-        requestQueue.add(stringRequest);
-    }
+             }
+         },
+                 new Response.ErrorListener() {
+                     @Override
+                     public void onErrorResponse(VolleyError error) {
 
+                         progressDialog.dismiss();
+
+                         Toast.makeText(WithdrawalActivity.this,"Error :"+error.getMessage(),Toast.LENGTH_LONG).show();
+                         return;
+
+                     }
+                 }
+         )
+         {
+
+             @Override
+             protected Map<String, String> getParams() throws AuthFailureError {
+                 Map<String,String> params=new HashMap<>();
+
+                 params.put("user_id",user_id);
+                 params.put("points",points);
+                 params.put("request_status",st);
+                 params.put("type","withdraw");
+
+                 // params.put("phonepay",phonepaynumber);
+
+
+                 return params;
+             }
+
+         };
+
+         RequestQueue requestQueue= Volley.newRequestQueue(WithdrawalActivity.this);
+         requestQueue.add(stringRequest);
+     }
 }
