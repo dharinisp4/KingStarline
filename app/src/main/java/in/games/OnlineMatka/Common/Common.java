@@ -192,7 +192,7 @@ public class Common {
                             walletObjects.setWallet_points(object.getString("wallet_points"));
                             walletObjects.setWallet_id(object.getString("wallet_id"));
                             progressDialog.dismiss();
-                            txt.setText(context.getResources().getString(R.string.rupee)+""+walletObjects.getWallet_points());
+                            txt.setText(walletObjects.getWallet_points());
                         } else if (status.equals("failed")) {
                             progressDialog.dismiss();
                             txt.setText("0");

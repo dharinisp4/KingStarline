@@ -61,7 +61,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="10dp"
                 android:textColor="@android:color/white"
-                android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"
+                android:drawableLeft="@drawable/icons8_rupee_24px"
                 android:drawablePadding="2dp"/>
         </RelativeLayout>
 

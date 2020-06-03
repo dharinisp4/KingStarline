@@ -44,12 +44,12 @@
                         android:textColor="@color/white"
                         android:textSize="16dp"
                         android:gravity="center"
-                        android:drawablePadding="10dp"
+
                         android:padding="5dp"
                         android:layout_centerVertical="true"
-                       android:drawableTint="@color/white"/>
-<!--                        android:drawableLeft="@drawable/ic_account_balance_wallet_black_24dp"-->
-<!--                        />-->
+                       android:drawableTint="@color/white"
+                        android:drawableLeft="@drawable/icons8_rupee_24px"
+                        />
                     <TextView
                         android:id="@+id/txtNotification"
                         android:layout_width="wrap_content"

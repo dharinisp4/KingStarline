@@ -49,7 +49,7 @@
                 android:id="@+id/w_image"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
-                android:background="@drawable/ic_account_balance_wallet_black_24dp"
+                android:background="@drawable/icons8_rupee_24px"
                 android:layout_toLeftOf="@+id/wallet_amount"
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="2dp"/>

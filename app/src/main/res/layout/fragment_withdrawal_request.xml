@@ -39,6 +39,8 @@
                 android:layout_toRightOf="@id/w_img"
                 android:paddingRight="5dp"
                 android:text="200"
+                android:drawableLeft="@drawable/icons8_rupee_24px"
+
                 android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="20dp"/>
