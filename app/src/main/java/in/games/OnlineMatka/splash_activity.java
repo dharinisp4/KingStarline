@@ -27,7 +27,7 @@ public class splash_activity extends AppCompatActivity {
 
    float version_code;
    Common common;
-   public static String home_text ="", withdrw_text="",tagline= "";
+   public static String home_text ="", withdrw_text="",tagline= "" ,min_add_amount="";
    // ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,7 @@ public class splash_activity extends AppCompatActivity {
                     tagline = response.getString("tag_line");
                     withdrw_text = response.getString("withdraw");
                     home_text = response.getString("home_text");
+                    min_add_amount = response.getString("min_amount");
                     float ver_code=Float.parseFloat(response.getString("version"));
 //                    Log.e("chck",ver_code + "\n"+version_code);
 

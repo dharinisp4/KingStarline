@@ -27,7 +27,7 @@
     <string name="tab_digit">Digit</string>
     <string name="tab_pana">Patti</string>
     <string name="tab_jodi">Jodi</string>
-
+    <string name="rupee"> \u20B9</string>
 
     <string name="txt_qr_code" translatable="false">QR Code</string>
     <string name="txt_qr_text" translatable="false">Scan and make payment</string>

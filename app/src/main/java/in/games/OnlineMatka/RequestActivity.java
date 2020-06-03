@@ -27,6 +27,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import static in.games.OnlineMatka.splash_activity.min_add_amount;
+
 public class RequestActivity extends MyBaseActivity {
   Common common;
     EditText etPoints;
@@ -34,6 +36,7 @@ public class RequestActivity extends MyBaseActivity {
     private TextView bt_back,txtMatka;
     Button btnRequest;
     private TextView txtWallet_amount;
+    int min_amount ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class RequestActivity extends MyBaseActivity {
         bt_back=(TextView)findViewById(R.id.txtBack);
         txtWallet_amount=(TextView)findViewById(R.id.wallet_amount);
    common=new Common(RequestActivity.this);
+   min_amount = Integer.parseInt(min_add_amount);
 
         txtMatka.setText("FUNDS");
 
@@ -71,9 +75,9 @@ public class RequestActivity extends MyBaseActivity {
                 }
                 else
                 {
-                    if(points<200)
+                    if(points<min_amount)
                     {
-                        common.errorMessageDialog("Minimum Range for points is 200");
+                        common.errorMessageDialog("Minimum Range for points is "+ min_amount);
 
                     }
                     else

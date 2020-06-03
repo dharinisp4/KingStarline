@@ -165,7 +165,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/dialog_buttons"
             android:backgroundTint="@color/white"
-            android:visibility="gone"
+
             android:layout_centerHorizontal="true"
             android:padding="8dp">
 
@@ -196,7 +196,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/relWallet"
-            android:visibility="gone"
+
             >
 
             <ImageView
@@ -228,7 +228,7 @@
             android:layout_marginRight="10dp"
             android:layout_below="@id/relWallet"
             android:layout_marginTop="10dp"
-            android:visibility="gone"/>
+           />
         <Button
             android:id="@+id/add_Request"
             android:layout_width="match_parent"
@@ -241,7 +241,7 @@
             android:textSize="18dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
+
 
             />
     </RelativeLayout>

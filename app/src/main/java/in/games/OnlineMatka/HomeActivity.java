@@ -142,32 +142,32 @@ public class HomeActivity extends MyBaseActivity
 
         progressDialog=new LoadingBar(HomeActivity.this);
 
-
-        txtWallet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                dialog=new Dialog(HomeActivity.this);
-                dialog.setContentView(R.layout.dialog_wallet_layout);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-                btn_dialog_ok=(Button)dialog.findViewById(R.id.wallet_ok);
-                txtWallet_amount=(TextView)dialog.findViewById(R.id.wallet_amount);
-
-                dialog.setTitle("Wallet Amount");
-                dialog.setCanceledOnTouchOutside(false);
-                dialog.show();
-
-                common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
-
-                btn_dialog_ok.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-            }
-        });
+        common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
+//        txtWallet.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                dialog=new Dialog(HomeActivity.this);
+//                dialog.setContentView(R.layout.dialog_wallet_layout);
+//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+//                btn_dialog_ok=(Button)dialog.findViewById(R.id.wallet_ok);
+//                txtWallet_amount=(TextView)dialog.findViewById(R.id.wallet_amount);
+//
+//                dialog.setTitle("Wallet Amount");
+//                dialog.setCanceledOnTouchOutside(false);
+//                dialog.show();
+//
+//                common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
+//
+//                btn_dialog_ok.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog.dismiss();
+//                    }
+//                });
+//            }
+//        });
 
         txtNotification.setOnClickListener(new View.OnClickListener() {
             @Override

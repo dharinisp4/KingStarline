@@ -37,6 +37,7 @@ public class URLs {
     public static final String Url_OddEven="https://bharatstarline.anshuwap.com/restApi/OddEven/oddeven_insert.php";
     public static final String Url_Wallet_Update="https://bharatstarline.anshuwap.com/restApi/walletamountupdate.php";
     public static final String Url_bid_history="https://bharatstarline.anshuwap.com/restApi/BidHistory.php";
+    public static final String Bid_Histry_Url="http://bharatstarline.anshuwap.com/admin1/app_bid_history/?user_id=";
     public static final String Url_SingleDigit_insert="https://bharatstarline.anshuwap.com/restApi/SaveDataApis/SingleDigit_insert.php";
     public static final String Url_data_insert="https://bharatstarline.anshuwap.com/restApi/SaveDataApis/insert_data.php";
     public static final String Url_matka_with_id="https://bharatstarline.anshuwap.com/restApi/matka_with_id.php";

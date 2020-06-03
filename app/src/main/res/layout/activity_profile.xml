@@ -112,10 +112,10 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+
                         android:hint="mobile number"
                         android:inputType="textEmailAddress"
-                        android:padding="5dp"
+                        android:padding="10dp"
 
                         />
 
@@ -140,11 +140,11 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+
                         android:hint="email "
                         android:textSize="16dp"
                         android:inputType="textEmailAddress"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         />
 
                     <TextView
@@ -167,10 +167,10 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+
                         android:hint="Date of Birth"
                         android:inputType="textEmailAddress"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:textSize="16dp"
 
 
@@ -184,6 +184,8 @@
                         android:layout_margin="@dimen/_10sdp"
                         android:background="@drawable/gradient_button"
                         android:text="Update"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
                         android:textColor="@color/colorPrimaryDark" />
 
 
@@ -252,10 +254,10 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+
                         android:hint="Address"
                         android:inputType="textMultiLine"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:textSize="16dp"
 
 
@@ -283,7 +285,7 @@
                         android:textSize="16dp"
                         android:hint="City"
                         android:inputType="text"
-                        android:padding="5dp"
+                        android:padding="10dp"
 
 
                         />
@@ -312,11 +314,7 @@
                         android:hint="PinCode"
                         android:inputType="number"
                         android:maxLength="6"
-                        android:padding="5dp"
-
-
-
-
+                        android:padding="10dp"
                         />
 
 
@@ -375,14 +373,6 @@
 
                         />
 
-                    <ImageView
-
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/bank"
-                        android:visibility="gone" />
 
                     <TextView
 
@@ -402,10 +392,9 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
 
-                        android:gravity="left"
                         android:hint="Account No."
                         android:inputType="number"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:background="@drawable/shape2"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
@@ -434,7 +423,7 @@
 
                         android:hint="Bank Name"
                         android:inputType="textMultiLine"
-                        android:padding="5dp"
+                        android:padding="10dp"
                         android:background="@drawable/shape2"
                         android:textColor="@color/white"
                         android:textColorHint="@color/white"
@@ -463,7 +452,7 @@
                         android:textSize="16dp"
                         android:hint="IFSC Code"
                         android:inputType="text"
-                        android:padding="5dp"
+                        android:padding="10dp"
 
 
 
@@ -492,7 +481,7 @@
                         android:textSize="16dp"
                         android:hint="Account Holder Name"
                         android:inputType="text"
-                        android:padding="5dp"
+                        android:padding="10dp"
 
 
 
@@ -547,14 +536,7 @@
                         android:textStyle="bold"
 
                         />
-                    <ImageView
-                        android:id="@+id/logo"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="10dp"
-                        android:visibility="gone"
-                        android:background="@drawable/paytm" />
+
 
                     <TextView
 
@@ -574,7 +556,7 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="center"
+
                         android:hint="Enter Paytm number"
                         android:inputType="number"
                         android:padding="10dp"
@@ -602,7 +584,7 @@
                         android:textSize="16dp"
                         android:padding="10dp"
                         android:hint="Enter Phone pay number"
-                        android:gravity="center"
+
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
@@ -630,7 +612,7 @@
                         android:textSize="16dp"
                         android:padding="10dp"
                         android:hint="Enter Google Pay(Tez) number"
-                        android:gravity="center"
+
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
                         android:inputType="number"
@@ -705,10 +687,10 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:hint="mobile number"
                         android:inputType="textPassword"
-                        android:padding="5dp"
+                        android:padding="10dp"
 
                         />
 
@@ -733,7 +715,7 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:hint="email "
                         android:textSize="16dp"
                         android:inputType="textPassword"
@@ -760,7 +742,7 @@
                         android:background="@drawable/shape2"
                         android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:gravity="left"
+                        android:gravity="center"
                         android:hint="Date of Birth"
                         android:inputType="textPassword"
                         android:padding="5dp"

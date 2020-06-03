@@ -49,26 +49,28 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
+
                 android:paddingTop="5dp"
                 android:orientation="vertical"
-                android:paddingRight="20dp">
+              >
                 <RelativeLayout
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:background="@android:color/transparent">
 
                     <TextView
                         android:id="@+id/opensingle"
-
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_margin="5dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:text="Open \nSingle"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
@@ -77,19 +79,35 @@
 
                     <TextView
                         android:id="@+id/closesingle"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:text="Close \n Single"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
+                       android:layout_toRightOf="@+id/opensingle"
+                        android:layout_margin="@dimen/_5sdp"
                         />
+                    <TextView
+                        android:id="@+id/jodi"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:text="Jodi"
+                        android:layout_margin="5dp"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+                       android:layout_toRightOf="@+id/closesingle"
+
+                        android:visibility="visible"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -97,17 +115,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:background="@android:color/transparent">
 
                     <TextView
                         android:id="@+id/opensinglepatti"
-
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+android:layout_margin="5dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:text="Open Single\n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
@@ -116,18 +137,33 @@
 
                     <TextView
                         android:id="@+id/opendoublepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="5dp"
                         android:text="Open Double \n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
+                        android:layout_toRightOf="@id/opensinglepatti"
+                        />
+                    <TextView
+                        android:id="@+id/opentriplepatti"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:text="Open Tripple\n Patti"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@id/opendoublepatti"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
                         />
                 </RelativeLayout>
 
@@ -136,36 +172,56 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/relativeLayout8"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:layout_marginTop="20dp">
 
+
+
                     <TextView
-                        android:id="@+id/opentriplepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Open Tripple\n Patti"
+                        android:id="@+id/opencyclepatti"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:text="Open Cycle\n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:layout_margin="5dp"
+                        android:textColor="@color/white"
+                        android:background="@drawable/circle"
+
+                        />
+                    <TextView
+                        android:id="@+id/closesinglepatti"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="5dp"
+                        android:layout_toRightOf="@id/opencyclepatti"
+                        android:text="Close Single \n Patti"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
                         />
-
                     <TextView
-                        android:id="@+id/opencyclepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Open Cycle\n Patti"
+                        android:id="@+id/closedoublepatti"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:text="Close Double\n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
+                        android:layout_margin="5dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@id/closesinglepatti"
                         />
                 </RelativeLayout>
 
@@ -178,60 +234,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/relativeLayout9">
 
-                    <TextView
-                        android:id="@+id/jodi"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Jodi"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:fontFamily="serif"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:background="@drawable/circle"
-                        android:layout_centerHorizontal="true"
 
-                        android:visibility="visible"/>
 
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/relativeLayout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/relativeLayout1"
-                    android:layout_marginTop="20dp">
-
-                    <TextView
-                        android:id="@+id/closesinglepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Close Single \n Patti"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textSize="18dp"
-                        android:fontFamily="serif"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:background="@drawable/circle"
-                        />
-
-                    <TextView
-                        android:id="@+id/closedoublepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Close Double\n Patti"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textSize="18dp"
-                        android:fontFamily="serif"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
-                        />
                 </RelativeLayout>
 
 
@@ -239,18 +243,20 @@
                     android:id="@+id/relativeLayout5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/relativeLayout2"
+                android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
                     android:layout_marginTop="20dp"
                     android:visibility="visible">
 
                     <TextView
                         android:id="@+id/closetriplepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="5dp"
                         android:text="Close Tripple \n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
@@ -259,18 +265,34 @@
 
                     <TextView
                         android:id="@+id/closecyclepatti"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="5dp"
                         android:text="Close Cycle \n Patti"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
+                        android:layout_toRightOf="@id/closetriplepatti"
+                        />
+                    <TextView
+                        android:id="@+id/halfsangm"
+
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:text="Half \n Sangam"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textSize="16dp"
+                         android:layout_margin="5dp"
+                        android:fontFamily="serif"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_toRightOf="@id/closecyclepatti"
+                        android:background="@drawable/circle"
                         />
                 </RelativeLayout>
 
@@ -279,37 +301,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
                     android:background="@android:color/transparent">
 
-                    <TextView
-                        android:id="@+id/halfsangm"
 
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        android:text="Half \n Sangam"
-                        android:textAlignment="center"
-                        android:gravity="center"
-                        android:textSize="18dp"
-                        android:fontFamily="serif"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:background="@drawable/circle"
-                        />
 
                     <TextView
                         android:id="@+id/fullsangm"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:text="Full \n Sangam"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
+                        android:layout_margin="5dp"
                         android:fontFamily="serif"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:background="@drawable/circle"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dp"
+
                         />
                 </RelativeLayout>
 

@@ -106,7 +106,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         }
         else if (id==R.id.jodi)
         {
-            Intent intent=new Intent(NewGameActivity.this,JodiDigitActivity.class);
+            Intent intent=new Intent(NewGameActivity.this,NewJodi.class);
             intent.putExtra("matkaName",dashName.toString());
             intent.putExtra("game_id","3");
             intent.putExtra("m_id",m_id.toString());
@@ -215,7 +215,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
             //intent.putExtra("m_type",bet_type);
             startActivity(intent);
         }
-        else if (id == R.id.txt_back)
+        else if (id == R.id.txtBack)
         {
             finish();
         }

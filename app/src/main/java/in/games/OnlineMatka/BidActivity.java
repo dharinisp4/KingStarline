@@ -29,6 +29,8 @@ import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.utils.CustomVolleyJsonArrayRequest;
 import in.games.OnlineMatka.utils.LoadingBar;
 
+import static in.games.OnlineMatka.URLs.Bid_Histry_Url;
+
 
 public class BidActivity extends MyBaseActivity {
     Common common;
@@ -65,13 +67,13 @@ public class BidActivity extends MyBaseActivity {
         recyclerView.setAdapter(bidHistoryAdapter);
 
        // getMatkaData();
-        getBidData(user_id,matka_id);
-        webView.loadUrl("https://www.binplus.in/");
+//        getBidData(user_id,matka_id);
+        webView.loadUrl(Bid_Histry_Url+user_id);
         webView.setHorizontalScrollBarEnabled(true);
         webView.setVerticalScrollBarEnabled(true);
         webView.getSettings().setUseWideViewPort(true);
         webView.getSettings().setLoadWithOverviewMode(true);
-        webView.setInitialScale(1);
+//        webView.setInitialScale(1);
 
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override

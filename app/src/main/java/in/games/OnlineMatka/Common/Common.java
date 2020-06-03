@@ -192,7 +192,7 @@ public class Common {
                             walletObjects.setWallet_points(object.getString("wallet_points"));
                             walletObjects.setWallet_id(object.getString("wallet_id"));
                             progressDialog.dismiss();
-                            txt.setText(walletObjects.getWallet_points());
+                            txt.setText(context.getResources().getString(R.string.rupee)+""+walletObjects.getWallet_points());
                         } else if (status.equals("failed")) {
                             progressDialog.dismiss();
                             txt.setText("0");
@@ -493,56 +493,56 @@ public class Common {
         ListItemAdapter listItemAdapter = new ListItemAdapter(list,context);
         TextView txtD1,txtP1,txtT1;
 
-        final Dialog dialog=new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.starline_save_layout);
-        if(dialog.isShowing())
-        {
-            dialog.dismiss();
-        }
-        dialog.show();
-        final TableLayout tableLayout=(TableLayout)dialog.findViewById(R.id.tblLayout1);
-        ListView listView = dialog.findViewById(R.id.list_item);
-        Button btn_dialog_add=(Button)dialog.findViewById(R.id.btnOk);
-        TextView btnDialogCancel=(Button)dialog.findViewById(R.id.btnCancel);
-        TextView txtCountBids=(TextView)dialog.findViewById(R.id.txtCountBids);
-        TextView txtAmount=(TextView)dialog.findViewById(R.id.txtAmount);
-        TextView txtBeforeAmount=(TextView)dialog.findViewById(R.id.txtBeforeAmount);
-        TextView txtAfterAmount=(TextView)dialog.findViewById(R.id.txtAfterAmount);
-        TextView matka_name = dialog.findViewById( R.id.matka_name );
-        matka_name.setText( dashName );
-
-        listView.setAdapter(listItemAdapter);
-
-        int amt=0;
-        for(int j=0;j<list.size();j++)
-        {
-            amt=amt+Integer.parseInt(list.get(j).getPoints());
-        }
-
-        int bid_count=list.size();
-        txtCountBids.setText(String.valueOf(String.valueOf(bid_count)));
-        txtAmount.setText(String.valueOf(amt));
-        int w_a=wallet_amount;
-        int after_amt=w_a-amt;
-        txtBeforeAmount.setText(String.valueOf(w_a));
-        txtAfterAmount.setText(String.valueOf(after_amt));
-        btn_dialog_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        final Dialog dialog=new Dialog(context);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.starline_save_layout);
+//        if(dialog.isShowing())
+//        {
+//            dialog.dismiss();
+//        }
+//        dialog.show();
+//        final TableLayout tableLayout=(TableLayout)dialog.findViewById(R.id.tblLayout1);
+//        ListView listView = dialog.findViewById(R.id.list_item);
+//        Button btn_dialog_add=(Button)dialog.findViewById(R.id.btnOk);
+//        TextView btnDialogCancel=(Button)dialog.findViewById(R.id.btnCancel);
+//        TextView txtCountBids=(TextView)dialog.findViewById(R.id.txtCountBids);
+//        TextView txtAmount=(TextView)dialog.findViewById(R.id.txtAmount);
+//        TextView txtBeforeAmount=(TextView)dialog.findViewById(R.id.txtBeforeAmount);
+//        TextView txtAfterAmount=(TextView)dialog.findViewById(R.id.txtAfterAmount);
+//        TextView matka_name = dialog.findViewById( R.id.matka_name );
+//        matka_name.setText( dashName );
+//
+//        listView.setAdapter(listItemAdapter);
+//
+//        int amt=0;
+//        for(int j=0;j<list.size();j++)
+//        {
+//            amt=amt+Integer.parseInt(list.get(j).getPoints());
+//        }
+//
+//        int bid_count=list.size();
+//        txtCountBids.setText(String.valueOf(String.valueOf(bid_count)));
+//        txtAmount.setText(String.valueOf(amt));
+//        int w_a=wallet_amount;
+//        int after_amt=w_a-amt;
+//        txtBeforeAmount.setText(String.valueOf(w_a));
+//        txtAfterAmount.setText(String.valueOf(after_amt));
+//        btn_dialog_add.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
                 insertData(list,m_id,c,game_id,w,dashName,progressDialog,btnSave,start_time,end_time);
 
-            }
-        });
-
-        btnDialogCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.dismiss();
-                list.clear();
-            }
-        });
+//            }
+//        });
+//
+//        btnDialogCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                dialog.dismiss();
+//                list.clear();
+//            }
+//        });
     }
 
     public void insertData(List<TableModel> list, String m_id, String c, String game_id, String w, String dashName, LoadingBar progressDialog, Button btnSave,final String start_time,final String end_time) {

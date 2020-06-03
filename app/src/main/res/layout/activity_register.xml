@@ -8,9 +8,6 @@
     tools:context=".RegisterActivity"
    >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 <!--        <ImageView-->
 <!--            android:layout_width="match_parent"-->
@@ -52,13 +49,20 @@
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
-
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="fill_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
      <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_centerHorizontal="true"
          android:text="*Note: All Fields Are Mandatory*"
-         android:layout_below="@+id/toolbar"
+
          android:textColor="@color/textColor"
          android:textStyle="italic"
          android:layout_marginTop="15dp"
@@ -436,5 +440,5 @@ android:visibility="gone"
                />
 
         </RelativeLayout>
-    </RelativeLayout>
+    </RelativeLayout></ScrollView>
 </RelativeLayout>
