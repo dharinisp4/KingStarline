@@ -8,6 +8,7 @@
 <!--    <color name="iconColor">#000000</color>-->
     <color name="white">#FFFFFF</color>
     <color name="lowColor">#d82e43</color>
+    <color name="rtr">#43D82E43</color>
     <color name="greenColor">#316D35</color>
     <color name="iconColor">#3D355C</color>
     <color name="black">#000000</color>

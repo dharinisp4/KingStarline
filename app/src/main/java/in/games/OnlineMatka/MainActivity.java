@@ -308,8 +308,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "User does not exist ", Toast.LENGTH_LONG).show();
                 } else {
                     try {
-
-
                         JSONObject object = response;
                         String status = object.getString("status");
                         if (status.equals("success")) {
@@ -319,7 +317,6 @@ public class MainActivity extends AppCompatActivity {
                             users.setName(jsonObject.getString("name"));
                             users.setUsername(jsonObject.getString("username"));
                             users.setMobileno(jsonObject.getString("mobileno"));
-//                            users.setEmail(jsonObject.getString("email"));
                             users.setAddress(jsonObject.getString("address"));
                             users.setCity(jsonObject.getString("city"));
                             users.setPincode(jsonObject.getString("pincode"));
@@ -332,10 +329,6 @@ public class MainActivity extends AppCompatActivity {
                             users.setTez_no(jsonObject.getString("tez_no"));
                             users.setPhonepay_no(jsonObject.getString("phonepay_no"));
                             Prevalent.currentOnlineuser = users;
-//                            0String success=jsonObject.getString("success");
-//                            JSONArray jsonArray=jsonObject.getJSONArray("login");
-//                            if(success.equals("1"))
-//                            {
                             String p = jsonObject.getString("password");
                             if (mPass.equals(p)) {
                                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -349,40 +342,16 @@ public class MainActivity extends AppCompatActivity {
                                 progressDialog.dismiss();
                                 Toast.makeText(MainActivity.this, "Password is not correct ", Toast.LENGTH_LONG).show();
                             }
-//                                for(int i=0;i<jsonArray.length();i++)
-//                                {
-//                                    JSONObject object=jsonArray.getJSONObject(i);
-//                                    String name=object.getString("email").trim();
-//
-//
-//                                    Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-//                                    intent.putExtra("username",name);
-//                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                                    startActivity(intent);
-//                                    progressDialog.dismiss();
-//                                    finish();
-//                                    //  loading.setVisibility(View.GONE);
-//                                    //    btn_reg.setVisibility(View.VISIBLE);
-//
-//                                }
-//
-
-
-                        } else if (status.equals("unsuccessfull")) {
+                        } else if (status.equals("failed")) {
                             progressDialog.dismiss();
                             String message = object.getString("data");
                             Toast.makeText(MainActivity.this, "" + message, Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(MainActivity.this, "Something Went wrong", Toast.LENGTH_LONG).show();
                         }
-                        //Toast.makeText(MainActivity.this,"User "+jsonObject.getString("name").toString(),Toast.LENGTH_LONG).show();
-                        //progressDialog.dismiss();
-                        //Log.d("a",response);
 
                     } catch (Exception ex) {
                         ex.printStackTrace();
-                        //   loading.setVisibility(View.GONE);
-                        // btn_reg.setVisibility(View.VISIBLE);
                         progressDialog.dismiss();
                       }
 
@@ -681,24 +650,6 @@ public class MainActivity extends AppCompatActivity {
                       progressDialog.dismiss();
                       Toast.makeText(MainActivity.this, "Password is not correct ", Toast.LENGTH_LONG).show();
                   }
-//                                for(int i=0;i<jsonArray.length();i++)
-//                                {
-//                                    JSONObject object=jsonArray.getJSONObject(i);
-//                                    String name=object.getString("email").trim();
-//
-//
-//                                    Intent intent=new Intent(MainActivity.this,HomeActivity.class);
-//                                    intent.putExtra("username",name);
-//                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                                    startActivity(intent);
-//                                    progressDialog.dismiss();
-//                                    finish();
-//                                    //  loading.setVisibility(View.GONE);
-//                                    //    btn_reg.setVisibility(View.VISIBLE);
-//
-//                                }
-//
-
 
               }
               else if(status.equals("unsuccessfull"))
@@ -712,14 +663,9 @@ public class MainActivity extends AppCompatActivity {
                   progressDialog.dismiss();
                   Toast.makeText(MainActivity.this,"Something Went wrong",Toast.LENGTH_LONG).show();
               }
-              //Toast.makeText(MainActivity.this,"User "+jsonObject.getString("name").toString(),Toast.LENGTH_LONG).show();
-              //progressDialog.dismiss();
-              //Log.d("a",response);
 
           } catch (JSONException ex) {
               ex.printStackTrace();
-              //   loading.setVisibility(View.GONE);
-              // btn_reg.setVisibility(View.VISIBLE);
               progressDialog.dismiss();
               Toast.makeText(MainActivity.this, "Error :--" + ex.getMessage(), Toast.LENGTH_LONG).show();
           }
@@ -730,49 +676,11 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss(); if(error instanceof NoConnectionError){
-                            ConnectivityManager cm = (ConnectivityManager)getApplicationContext()
-                                    .getSystemService(Context.CONNECTIVITY_SERVICE);
-                            NetworkInfo activeNetwork = null;
-                            if (cm != null) {
-                                activeNetwork = cm.getActiveNetworkInfo();
-                            }
-                            if(activeNetwork != null && activeNetwork.isConnectedOrConnecting()){
-                                Toast.makeText(MainActivity.this, "Server is not connected to internet.",
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(MainActivity.this, "Your device is not connected to internet.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        } else if (error instanceof NetworkError || error.getCause() instanceof ConnectException
-                                || (error.getCause().getMessage() != null
-                                && error.getCause().getMessage().contains("connection"))){
-                            Toast.makeText(MainActivity.this, "Your device is not connected to internet.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else if (error.getCause() instanceof MalformedURLException){
-                            Toast.makeText(MainActivity.this, "Bad Request.", Toast.LENGTH_SHORT).show();
-                        } else if (error instanceof ParseError || error.getCause() instanceof IllegalStateException
-                                || error.getCause() instanceof JSONException
-                                || error.getCause() instanceof XmlPullParserException){
-                            Toast.makeText(MainActivity.this, "Parse Error (because of invalid json or xml).",
-                                    Toast.LENGTH_SHORT).show();
-                        } else if (error.getCause() instanceof OutOfMemoryError){
-                            Toast.makeText(MainActivity.this, "Out Of Memory Error.", Toast.LENGTH_SHORT).show();
-                        }else if (error instanceof AuthFailureError){
-                            Toast.makeText(MainActivity.this, "server couldn't find the authenticated request.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else if (error instanceof ServerError || error.getCause() instanceof ServerError) {
-                            Toast.makeText(MainActivity.this, "Server is not responding.", Toast.LENGTH_SHORT).show();
-                        }else if (error instanceof TimeoutError || error.getCause() instanceof SocketTimeoutException
-                                || error.getCause() instanceof ConnectTimeoutException
-                                || error.getCause() instanceof SocketException
-                                || (error.getCause().getMessage() != null
-                                && error.getCause().getMessage().contains("Connection timed out"))) {
-                            Toast.makeText(MainActivity.this, "Connection timeout error",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(MainActivity.this, "An unknown error occurred.",
-                                    Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        String msg=common.VolleyErrorMessage(error);
+                        if(!msg.isEmpty())
+                        {
+                            common.showToast(""+msg);
                         }
                     }
                 })

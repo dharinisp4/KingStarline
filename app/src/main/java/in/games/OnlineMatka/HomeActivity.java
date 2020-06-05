@@ -10,12 +10,16 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -24,9 +28,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +59,7 @@ import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.Model.MatkaObject;
 import in.games.OnlineMatka.Model.MatkasObjects;
 import in.games.OnlineMatka.Prevalent.Prevalent;
+import in.games.OnlineMatka.fragments.HomeFragment;
 import in.games.OnlineMatka.utils.LoadingBar;
 import maes.tech.intentanim.CustomIntent;
 
@@ -59,21 +68,17 @@ import static in.games.OnlineMatka.splash_activity.tagline;
 
 public class HomeActivity extends MyBaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    FrameLayout frame_home;
     private TextView txtWallet,txtNotification ,txt_tagline ,txt_game_name;
     ArrayList<MatkaObject> list;
+    LinearLayout lin_container;
     TextView user_profile_name;
-    SwipeRefreshLayout swipe;
-    private  MatkaAdapter matkaAdapter;
-    private MatakListViewAdapter matakListViewAdapter;
     private Dialog dialog;
-    private Button btn_dialog_ok ,btn_add ,btn_withdrw;
+    private Button btn_dialog_ok ,btn_add;
     private CardView pgCard,callCard,cardReload;
     private String name="";
     private TextView txtWallet_amount;
     private TextView txtUserName,txtNumber;
-    private ArrayList<MatkasObjects> matkaList;
-    private ListView listView;
     LoadingBar progressDialog;
     Common common;
     public static String mainName="";
@@ -90,10 +95,9 @@ public class HomeActivity extends MyBaseActivity
         txt_game_name = findViewById(R.id.game_name);
         txt_tagline = findViewById(R.id.tagline);
         btn_add = findViewById(R.id.add_points);
-        btn_withdrw = findViewById(R.id.withdrw_points);
+        lin_container = findViewById(R.id.lin_container);
+        frame_home = findViewById(R.id.frame_home);
        common=new Common(HomeActivity.this);
-        //setSupportActionBar(toolbar);
-
         txt_tagline.setText(tagline);
         txt_game_name.setText(home_text);
         boolean sdfff=common.isConnected();
@@ -131,11 +135,8 @@ public class HomeActivity extends MyBaseActivity
 
         list=new ArrayList<>();
 
-         matkaList=new ArrayList();
          pgCard=(CardView)findViewById(R.id.cardView3);
         callCard=(CardView)findViewById(R.id.cardView4);
-        listView=findViewById(R.id.listView);
-        swipe=findViewById(R.id.swipe_layout);
         txtNumber=(TextView)findViewById(R.id.txtNumber);
 
         common.setMobileNumber(txtNumber);
@@ -143,31 +144,6 @@ public class HomeActivity extends MyBaseActivity
         progressDialog=new LoadingBar(HomeActivity.this);
 
         common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
-//        txtWallet.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//                dialog=new Dialog(HomeActivity.this);
-//                dialog.setContentView(R.layout.dialog_wallet_layout);
-//                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-//                btn_dialog_ok=(Button)dialog.findViewById(R.id.wallet_ok);
-//                txtWallet_amount=(TextView)dialog.findViewById(R.id.wallet_amount);
-//
-//                dialog.setTitle("Wallet Amount");
-//                dialog.setCanceledOnTouchOutside(false);
-//                dialog.show();
-//
-//                common.setWallet_Amount(txtWallet_amount,progressDialog,Prevalent.currentOnlineuser.getId());
-//
-//                btn_dialog_ok.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//            }
-//        });
 
         txtNotification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,25 +157,7 @@ public class HomeActivity extends MyBaseActivity
 
         //txtUserName.setText(name.toUpperCase());
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-       // lstView=findViewById(R.id.listView);
-       // cardReload=findViewById(R.id.cardView1);
 
-            btn_withdrw.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(HomeActivity.this,WithdrawalActivity.class);
-                    startActivity(intent);
-
-                }
-            });
             btn_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -210,22 +168,10 @@ public class HomeActivity extends MyBaseActivity
             });
 
 
-              swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-                  @Override
-                  public void onRefresh() {
 
-                      onStart();
-                      swipe.setRefreshing(false);
-                  }
-              });
         callCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-//Toast.makeText(HomeActivity.this,sd,Toast.LENGTH_LONG).show();
-//
                 Intent intent=new Intent(Intent.ACTION_DIAL);
                 String number=txtNumber.getText().toString().trim();
                 intent.setData(Uri.parse("tel: "+number));
@@ -243,36 +189,6 @@ public class HomeActivity extends MyBaseActivity
              //matkaAdapter.notifyItemRemoved();
             }
         });
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//
-//                MatkasObjects objects=matkaList.get(position);
-//                String stime = objects.getStart_time();
-//                String etime = objects.getEnd_time();
-//                Date date = new Date();
-//                SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
-//
-//                String cur_time = format.format(date);
-//
-//                            String m_id=objects.getId().toString().trim();
-//                            String matka_name=objects.getName().toString().trim();
-//
-//                            // Toast.makeText(context,"Position"+m_id,Toast.LENGTH_LONG).show();
-//                            Intent intent=new Intent(HomeActivity.this, NewGameActivity.class);
-//                            //    intent.putExtra("tim",position);
-//                            intent.putExtra("matkaName",matka_name);
-//                            intent.putExtra("m_id",m_id);
-//                            intent.putExtra("end_time",objects.getBid_end_time());
-//                            intent.putExtra("start_time",objects.getBid_start_time());
-//                            //  intent.putExtra("bet","cb");
-//                            startActivity(intent);
-//                            CustomIntent.customType(HomeActivity.this, "up-to-bottom");
-//
-//
-//            }
-//        });
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -291,6 +207,13 @@ public class HomeActivity extends MyBaseActivity
        else {
            txtUserName.setText(Prevalent.currentOnlineuser.getName());
        }
+        HomeFragment fm=new HomeFragment();
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_home, fm)
+                .addToBackStack(null)
+                .commit();
+
 
 
     }
@@ -309,7 +232,8 @@ public class HomeActivity extends MyBaseActivity
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            HomeActivity.super.onBackPressed();
+//                            HomeActivity.super.onBackPressed();
+                            finishAffinity();
 
                         }
                     })
@@ -325,22 +249,7 @@ public class HomeActivity extends MyBaseActivity
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
 
-
- // setSessionTimeOut(HomeActivity.this);
-
-
-        getMatkaData();
-        matakListViewAdapter=new MatakListViewAdapter(HomeActivity.this,matkaList);
-        listView.setAdapter(matakListViewAdapter);
-       // listView.setSmoothScrollbarEnabled(true);
-
-
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -479,79 +388,6 @@ public class HomeActivity extends MyBaseActivity
 
 
 
-    public void getMatkaData()
-    {
-        progressDialog.show();
-
-        final JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URLs.URL_Matka, new
-                Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        //   matkaAdapter.notifyDataSetChanged();
-
-                        Log.d("matka",String.valueOf(response));
-
-                        matkaList.clear();
-
-                        for(int i=0; i<response.length();i++)
-                        {
-                            try
-                            {
-                                JSONObject jsonObject=response.getJSONObject(i);
-
-                                MatkasObjects matkasObjects=new MatkasObjects();
-                                matkasObjects.setId(jsonObject.getString("id"));
-                                matkasObjects.setName(jsonObject.getString("name"));
-                                matkasObjects.setStart_time(jsonObject.getString("start_time"));
-                                matkasObjects.setEnd_time(jsonObject.getString("end_time"));
-                                matkasObjects.setStarting_num(jsonObject.getString("starting_num"));
-                                matkasObjects.setNumber(jsonObject.getString("number"));
-                                matkasObjects.setEnd_num(jsonObject.getString("end_num"));
-                                matkasObjects.setBid_start_time(jsonObject.getString("bid_start_time"));
-                                matkasObjects.setBid_end_time(jsonObject.getString("bid_end_time"));
-                                matkasObjects.setCreated_at(jsonObject.getString("created_at"));
-                                matkasObjects.setUpdated_at(jsonObject.getString("updated_at"));
-                                matkasObjects.setSat_start_time(jsonObject.getString("sat_start_time"));
-                                matkasObjects.setSat_end_time(jsonObject.getString("sat_end_time"));
-                                matkasObjects.setStatus(jsonObject.getString("status"));
-                                matkaList.add(matkasObjects);
-                                matakListViewAdapter.notifyDataSetChanged();
-
-
-                            }
-                            catch (Exception ex)
-                            {
-                                progressDialog.dismiss();
-                                Toast.makeText(HomeActivity.this,"Error :"+ex.getMessage(),Toast.LENGTH_LONG).show();
-
-                                return;
-                            }
-                        }
-
-                        progressDialog.dismiss();
-
-
-                    }
-
-                },
-
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progressDialog.dismiss();
-                      String msg=common.VolleyErrorMessage(error);
-                      if(!msg.isEmpty())
-                      {
-                          common.showToast(""+msg);
-                      }
-                    }
-                });
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
-
-
-
-    }
 
 
 

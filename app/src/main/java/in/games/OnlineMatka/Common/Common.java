@@ -266,6 +266,7 @@ public class Common {
             final Date s_time = parseFormat.parse(cur_time.trim());
             Date e_time = parseFormat.parse(time.trim());
             diff_e_s = e_time.getTime() - s_time.getTime();
+            Log.e("dddddd","curr - "+s_time.toString()+" -end - "+e_time.toString());
         } catch (Exception ex) {
             ex.printStackTrace();
         }

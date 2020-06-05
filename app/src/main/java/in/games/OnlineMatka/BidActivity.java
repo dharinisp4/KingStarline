@@ -1,8 +1,13 @@
 package in.games.OnlineMatka;
 
+import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,8 +47,9 @@ public class BidActivity extends MyBaseActivity {
     private TextView bt_back;
     private String user_id;
     private String matka_id;
-    WebView webView ;
+    WebView browser ;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,14 +57,11 @@ public class BidActivity extends MyBaseActivity {
         common=new Common(BidActivity.this);
         matka_id=getIntent().getStringExtra("matka_id");
         progressDialog=new LoadingBar(BidActivity.this);
-        webView = findViewById(R.id.bid_histry_webview);
+        browser = findViewById(R.id.bid_histry_webview);
         recyclerView=(ListView) findViewById(R.id.recyclerView);
         bt_back=(TextView)findViewById(R.id.txtBack);
      //   user_id= "3";
         user_id= Prevalent.currentOnlineuser.getId().toString().trim();
-//        recyclerView.setHasFixedSize(false);
-//        layoutManager= new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
         list=new ArrayList();
 
         //user_id= Prevalent.currentOnlineuser.getId().toString().trim();
@@ -68,11 +71,13 @@ public class BidActivity extends MyBaseActivity {
 
        // getMatkaData();
 //        getBidData(user_id,matka_id);
-        webView.loadUrl(Bid_Histry_Url+user_id);
-        webView.setHorizontalScrollBarEnabled(true);
-        webView.setVerticalScrollBarEnabled(true);
-        webView.getSettings().setUseWideViewPort(true);
-        webView.getSettings().setLoadWithOverviewMode(true);
+        String url=Bid_Histry_Url+user_id;
+        Log.e("asdasd",""+url);
+        browser.loadUrl(url);
+        browser.getSettings().setLoadsImagesAutomatically(true);
+        browser.getSettings().setJavaScriptEnabled(true);
+        browser.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        browser.setWebViewClient(new myWebViewClient());
 //        webView.setInitialScale(1);
 
         bt_back.setOnClickListener(new View.OnClickListener() {
@@ -251,6 +256,27 @@ public class BidActivity extends MyBaseActivity {
 
     }
 
+    private class myWebViewClient extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String Url) {
+            view.loadUrl(Url);
+//            txt.setText(Url);
+            return true;
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+//            progressDialog.show();
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+//            progressDialog.dismiss();
+        }
+    }
 
 
 }
