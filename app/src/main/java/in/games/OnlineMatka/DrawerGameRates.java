@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
@@ -50,12 +51,12 @@ RecyclerView.LayoutManager layoutManager,layoutManager1;
 
       getNotice();
       getStarnotice();
-      layoutManager=new GridLayoutManager(DrawerGameRates.this,2);
-      layoutManager1=new GridLayoutManager(DrawerGameRates.this,2);
-      jannat_recycler.setLayoutManager(layoutManager);
-        jannat_recycler.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(1), true));
-       starline_recycler.setLayoutManager(layoutManager1);
-        starline_recycler.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(1), true));
+//      layoutManager=new GridLayoutManager(DrawerGameRates.this,2);
+//      layoutManager1=new GridLayoutManager(DrawerGameRates.this,2);
+      jannat_recycler.setLayoutManager(new LinearLayoutManager(this));
+//        jannat_recycler.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(1), true));
+       starline_recycler.setLayoutManager(new LinearLayoutManager(this));
+//        starline_recycler.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(1), true));
 
 
         bt_back.setOnClickListener(new View.OnClickListener() {

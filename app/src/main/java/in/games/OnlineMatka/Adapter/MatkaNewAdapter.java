@@ -56,7 +56,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
         String dt=new SimpleDateFormat("EEEE").format(new Date());
 
-        holder.txtMatkaName.setText(postion.getName());
+        holder.txtMatkaName.setText(" - "+postion.getName()+" - ");
         String s_time=null;
         String e_time=null;
         String s=null;
@@ -197,13 +197,13 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                 if (as < 0) {
                     flag = 2;
                     holder.txtStatus.setTextColor( Color.parseColor( "#053004" ) );
-                    holder.txtStatus.setText( "BETTING IS RUNNING" );
+                    holder.txtStatus.setText( "Bid Is Running" );
 
                 } else if (c > 0) {
                     flag = 3;
 //                    txtStatus.setTextColor( Color.parseColor( "#FFA44546" ) );
                     holder.txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
-                    holder.txtStatus.setText( "BETTING IS CLOSED" );
+                    holder.txtStatus.setText( "Bid Closed For Today" );
 
                 } else {
                     flag = 1;
@@ -213,7 +213,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             }
             else
             {
-                holder.txtStatus.setText( "BETTING IS CLOSED" );
+                holder.txtStatus.setText( "Bid Closed For Today" );
                 holder.txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
 
             }
@@ -300,7 +300,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
                 if(endDiff<0)
                 {
-                 common.errorMessageDialog("Betting is closed for today");
+                 common.errorMessageDialog("Bid Closed For Today");
                 }
                 else
                 {

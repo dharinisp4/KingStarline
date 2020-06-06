@@ -231,6 +231,7 @@
                     android:textSize="14dp"/>
                 <AutoCompleteTextView
                     android:id="@+id/etSingleDigit"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:layout_width="180dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
@@ -277,6 +278,8 @@
                     android:layout_centerVertical="true"
                     android:textAlignment="center"
                     android:inputType="number"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:textColorHint="@color/textColor"
                     android:maxLength="5"
                     android:textSize="14dp"

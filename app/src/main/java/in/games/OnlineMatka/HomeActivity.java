@@ -98,8 +98,8 @@ public class HomeActivity extends MyBaseActivity
         lin_container = findViewById(R.id.lin_container);
         frame_home = findViewById(R.id.frame_home);
        common=new Common(HomeActivity.this);
-        txt_tagline.setText(tagline);
-        txt_game_name.setText(home_text);
+        txt_tagline.setText(tagline.toUpperCase());
+        txt_game_name.setText(home_text.toUpperCase());
         boolean sdfff=common.isConnected();
         if(sdfff==true)
         {

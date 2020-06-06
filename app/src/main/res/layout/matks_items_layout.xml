@@ -28,11 +28,8 @@
                 android:layout_height="wrap_content"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_centerVertical="true"
-
-                app:cardCornerRadius="30dp"
+                app:cardCornerRadius="2dp"
                 app:cardElevation="20dp">
-
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,16 +46,20 @@
                         android:paddingLeft="0dp">
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp">
 
                             <RelativeLayout
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
+                                android:layout_centerHorizontal="true"
                                 android:id="@+id/rLayoutBidsTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
 
                                 <TextView
+                                    android:visibility="gone"
                                     android:id="@+id/matka_txt_open_bid_Time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -68,17 +69,28 @@
                                     android:textSize="10dp" />
 
                                 <TextView
+                                    android:layout_centerVertical="true"
                                     android:id="@+id/matka_open_bid_Time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerHorizontal="true"
                                     android:layout_toRightOf="@id/matka_txt_open_bid_Time"
                                     android:paddingLeft="2dp"
                                     android:text="12:28 am"
                                     android:textColor="@color/iconColor"
-                                    android:textSize="10dp" />
+                                    android:textSize="14dp" />
+                                <TextView
+                                    android:id="@+id/matkaName"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:text="MORNING KUBER"
+                                    android:layout_toRightOf="@+id/matka_open_bid_Time"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="18dp"
+                                    android:textStyle="bold" />
 
                                 <TextView
+                                    android:visibility="gone"
                                     android:id="@+id/matka_txt_close_bid_Time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -88,33 +100,24 @@
                                     android:textSize="10dp" />
 
                                 <TextView
+                                    android:layout_centerVertical="true"
                                     android:id="@+id/matka_close_bid_Time"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_toRightOf="@id/matka_txt_close_bid_Time"
+                                    android:layout_toRightOf="@id/matkaName"
                                     android:paddingLeft="2dp"
                                     android:text="12:28 am"
                                     android:textColor="@color/iconColor"
-                                    android:textSize="10dp" />
+                                    android:textSize="14dp" />
                             </RelativeLayout>
 
-                            <TextView
-                                android:id="@+id/matkaName"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/rLayoutBidsTime"
-                                android:layout_centerHorizontal="true"
-                                android:text="MORNING KUBER"
-                                android:textStyle="bold"
-                                android:textColor="@color/colorAccent"
-                                android:textSize="18dp" />
+
 
                             <RelativeLayout
                                 android:id="@+id/rLayoutNumbers"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/matkaName"
+                                android:layout_below="@id/rLayoutBidsTime"
                                 android:layout_centerHorizontal="true">
 
                                 <TextView
@@ -211,13 +214,14 @@
 
 
       <ImageView
-                            android:id="@+id/matka_image"
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
+          android:visibility="gone"
+          android:id="@+id/matka_image"
+          android:layout_width="100dp"
+          android:layout_height="80dp"
           android:tint="@color/iconColor"
-
-                            android:src="@drawable/poker" />
+          android:src="@drawable/poker" />
     <TextView
+        android:visibility="gone"
         android:id="@+id/txt_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

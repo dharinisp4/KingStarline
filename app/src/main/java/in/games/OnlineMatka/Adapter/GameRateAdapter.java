@@ -25,7 +25,7 @@ public class GameRateAdapter extends RecyclerView.Adapter<GameRateAdapter.ViewHo
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from( context ).inflate( R.layout.row_rates ,null);
+        View view = LayoutInflater.from( context ).inflate( R.layout.row_game_rates ,null);
         ViewHolder viewHolder = new ViewHolder( view );
         return  viewHolder;
 
@@ -34,7 +34,7 @@ public class GameRateAdapter extends RecyclerView.Adapter<GameRateAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
       GameRateModel rlist = ratelist.get( i );
-      viewHolder.game_rate.setText(rlist.getRate_range()+" : " +rlist.getRate());
+      viewHolder.game_rate.setText(rlist.getRate_range()+" KA " +rlist.getRate());
        viewHolder.game_name.setText( rlist.getName() );
 
     }
@@ -48,8 +48,8 @@ public class GameRateAdapter extends RecyclerView.Adapter<GameRateAdapter.ViewHo
         TextView game_name ,game_range ,game_rate ;
         public ViewHolder(@NonNull View itemView) {
             super( itemView );
-            game_name = itemView.findViewById( R.id.gamename );
-            game_rate=itemView.findViewById( R.id.gamerate );
+            game_name = itemView.findViewById( R.id.tv_name );
+            game_rate=itemView.findViewById( R.id.tv_rate );
         }
     }
 }

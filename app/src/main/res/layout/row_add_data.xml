@@ -50,17 +50,15 @@
 
    <Button
        android:id="@+id/txtDelete"
-       android:layout_width="50dp"
-       android:text="Delete"
-
+       android:layout_width="32dp"
        android:backgroundTintMode="multiply"
        android:textColor="@color/white"
        android:layout_marginRight="10dp"
        android:textAllCaps="false"
        android:padding="5dp"
        android:textSize="13dp"
-       android:background="@drawable/gradient_back"
-       android:layout_height="match_parent"/>
+       android:background="@drawable/remove"
+       android:layout_height="28dp"/>
     </LinearLayout>
         <View
             android:layout_width="match_parent"

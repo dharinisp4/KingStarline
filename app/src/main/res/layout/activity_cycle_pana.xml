@@ -159,6 +159,7 @@
                     android:inputType="number"
                     android:maxLength="3"
                     android:textSize="14dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:hint="@string/cycle_pana"
                     android:textColorHint="@color/textColor"
                     android:textColor="@color/textColor"
@@ -196,6 +197,8 @@
                     android:inputType="number"
                     android:textColorHint="@color/textColor"
                     android:maxLength="5"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:textSize="14dp"
                     android:hint="Points"
                     android:textColor="@color/textColor"

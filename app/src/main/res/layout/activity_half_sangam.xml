@@ -143,6 +143,8 @@
                 android:id="@+id/etSingleDigit"
                 android:layout_width="180dp"
                 android:layout_height="30dp"
+                android:textCursorDrawable="@drawable/cursor_color"
+
                 android:layout_marginRight="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -180,6 +182,8 @@
                 <AutoCompleteTextView
                     android:id="@+id/et_c_openpanna"
                     android:layout_width="180dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
@@ -222,6 +226,8 @@
                     android:textSize="14dp"/>
 
                 <AutoCompleteTextView
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:id="@+id/et_ClosePanna"
                     android:layout_width="180dp"
                     android:layout_height="30dp"
@@ -266,6 +272,8 @@
                 <EditText
                     android:id="@+id/et_c_closedigit"
                     android:layout_width="180dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
@@ -303,6 +311,8 @@
                     android:textSize="14dp"/>
                 <EditText
                     android:id="@+id/etPoints"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:layout_width="180dp"
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"

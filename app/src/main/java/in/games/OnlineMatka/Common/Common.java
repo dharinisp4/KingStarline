@@ -476,7 +476,7 @@ public class Common {
         int points = Integer.parseInt(point);
         int tot_pnt = Integer.parseInt(getSumOfPoints(list));
 
-        btnSave.setText("(BIDS=" + we + ")(Points=" + tot_pnt + ")");
+//        btnSave.setText("(BIDS=" + we + ")(Points=" + tot_pnt + ")");
     }
 
     public String getSumOfPoints(List<TableModel> list) {

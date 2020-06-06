@@ -99,7 +99,7 @@
                 android:background="@drawable/gradient_button"
                 android:backgroundTint="@color/white"
                 android:textAllCaps="false"
-                android:text="Save"
+                android:text="@string/btn_submit"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="20dp"
                 android:textStyle="bold|italic"/>

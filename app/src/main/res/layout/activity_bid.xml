@@ -28,7 +28,7 @@
                 android:id="@+id/board"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:text="BID History"
+                android:text="Game History"
                 android:layout_toRightOf="@id/txtBack"
                 android:layout_marginLeft="10dp"
 

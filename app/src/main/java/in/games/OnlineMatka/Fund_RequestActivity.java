@@ -100,8 +100,6 @@ public class Fund_RequestActivity extends MyBaseActivity {
                                 matkasObjects.setTime(jsonObject.getString("time"));
                                 matkasObjects.setRequest_status(jsonObject.getString("request_status"));
                                 matkasObjects.setUser_id(jsonObject.getString("user_id"));
-
-
                                 list.add(matkasObjects);
 
 

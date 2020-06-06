@@ -84,10 +84,12 @@
         android:title="Game Rates" />
     </group>
     <group
+        android:visible="false"
         android:id="@+id/nav_group_play"
         android:checkableBehavior="single">
 
         <item
+            android:visible="false"
             android:id="@+id/nav_how_toPlay"
             android:icon="@drawable/icons8_play_128px"
 
@@ -95,9 +97,11 @@
             />
     </group>
     <group
+        android:visible="false"
         android:id="@+id/nav_group_notice"
         android:checkableBehavior="single">
     <item
+        android:visible="false"
         android:id="@+id/nav_noticeBoard"
         android:icon="@drawable/icons8_bulleted_list_128px"
 

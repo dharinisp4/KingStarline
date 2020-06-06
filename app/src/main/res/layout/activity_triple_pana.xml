@@ -238,6 +238,7 @@
                     android:inputType="number"
                     android:maxLength="3"
                     android:hint="@string/triple_pana"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:textColorHint="@color/textColor"
                     android:textSize="14dp"
                     android:textColor="@color/textColor"
@@ -270,6 +271,8 @@
                     android:id="@+id/etPoints"
                     android:layout_width="180dp"
                     android:layout_height="30dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"

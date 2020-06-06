@@ -148,6 +148,8 @@
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:textAlignment="center"
                     android:inputType="number"
                     android:textColor="@color/textColor"
@@ -184,6 +186,7 @@
                 <AutoCompleteTextView
                     android:id="@+id/et_ClosePanna"
                     android:layout_width="180dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"
@@ -221,6 +224,8 @@
                 <EditText
                     android:id="@+id/etPoints"
                     android:layout_width="180dp"
+                    android:textCursorDrawable="@drawable/cursor_color"
+
                     android:layout_height="30dp"
                     android:layout_marginRight="20dp"
                     android:layout_alignParentRight="true"

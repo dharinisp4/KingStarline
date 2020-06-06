@@ -98,7 +98,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            app:cardCornerRadius="@dimen/_20sdp"
+            app:cardCornerRadius="2dp"
             android:background="@color/homebg"
             android:elevation="16dp">
 
@@ -118,6 +118,7 @@
                     android:paddingLeft="5dp"
                     android:paddingRight="10dp"
                     android:text="Welcome to : KING STARLINE"
+                    android:textAllCaps="true"
                     android:textSize="18dp"
 
                     android:textStyle="italic|bold"/>
@@ -147,7 +148,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardCornerRadius="2dp"
                 android:background="@color/homebg"
                 android:elevation="16dp">
 

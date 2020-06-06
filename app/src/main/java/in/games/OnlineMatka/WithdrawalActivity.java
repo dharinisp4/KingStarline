@@ -56,7 +56,7 @@ import static in.games.OnlineMatka.splash_activity.withdrw_text;
         txt_withdrw_instrctions = findViewById(R.id.withdrw_msg);
        // details.setMobileNumber(WithdrawalActivity.this,txtMobile);
         progressDialog=new LoadingBar(WithdrawalActivity.this);
-        txt_withdrw_instrctions.setText(withdrw_text);
+        txt_withdrw_instrctions.setText(withdrw_text.toUpperCase());
         txtback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
