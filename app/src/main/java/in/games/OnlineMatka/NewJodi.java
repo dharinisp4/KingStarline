@@ -106,21 +106,25 @@ List<String> digit_list ;
 
             if (c_date.before(s_date))
             {
-                if(txt_timer.getVisibility()==View.VISIBLE)
+                if(tv_timer.getVisibility()==View.VISIBLE)
                 {
-                    txt_timer.setVisibility(View.GONE);
+                    tv_timer.setVisibility(View.GONE);
                 }
-                tv_timer.setVisibility(View.VISIBLE);
+                txt_timer.setVisibility(View.VISIBLE);
 //                txt_timer.setVisibility(View.VISIBLE);
 
             }
             else if (c_date.before(e_date) && c_date.after(s_date))
             {
-                if(txt_timer.getVisibility()==View.VISIBLE)
+                if(tv_timer.getVisibility()==View.VISIBLE)
                 {
-                    txt_timer.setVisibility(View.GONE);
+                    tv_timer.setVisibility(View.GONE);
+
                 }
-                tv_timer.setVisibility(View.VISIBLE);
+
+                txt_timer.setVisibility(View.VISIBLE);
+                txt_timer.setText("Bid closed");
+
 //                txt_timer.setVisibility(View.GONE);
 
             }
@@ -212,6 +216,7 @@ List<String> digit_list ;
                         long diff_close = c_date.getTime() - e_date.getTime();
                         long curr = (diff_close / 1000) / 60;
                         long current_time = c_date.getTime();
+//                       Log.e("timmmmmmm",""+common.getTimeDifference(start_time)) ;
 
 //                            if (as < 0) {
 //
@@ -230,7 +235,16 @@ List<String> digit_list ;
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    common.setBidsDialog(Integer.parseInt(w), jodi_list, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
+                    long bidTime=common.getTimeDifference(start_time);
+if(bidTime>0)
+{
+    common.setBidsDialog(Integer.parseInt(w), jodi_list, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
+
+}
+else
+{
+  common.errorMessageDialog("BID IS CLOSED");
+}
 
 //                    list.clear();
                 }

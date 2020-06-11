@@ -31,11 +31,12 @@ import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
 import in.games.OnlineMatka.utils.LoadingBar;
 
+import static in.games.OnlineMatka.splash_activity.withdrw_no;
 import static in.games.OnlineMatka.splash_activity.withdrw_text;
 
  public class WithdrawalActivity extends MyBaseActivity {
     Common common;
-    private TextView txtback,txtWalletAmount,txtMobile ,txt_withdrw_instrctions;
+    private TextView txtback,txtWalletAmount,txtMobile ,txt_withdrw_instrctions,tv_number;
     private LoadingBar progressDialog;
     private EditText etPoint;
     private Button btnSave;
@@ -49,6 +50,7 @@ import static in.games.OnlineMatka.splash_activity.withdrw_text;
         setContentView(R.layout.activity_withdrawal);
         common=new Common(WithdrawalActivity.this);
         txtback=(TextView)findViewById(R.id.txtBack);
+        tv_number=(TextView)findViewById(R.id.tv_number);
         txtWalletAmount=(TextView)findViewById(R.id.wallet_amount);
         etPoint=(EditText)findViewById(R.id.etRequstPoints);
         btnSave=(Button)findViewById(R.id.add_Request);
@@ -57,6 +59,7 @@ import static in.games.OnlineMatka.splash_activity.withdrw_text;
        // details.setMobileNumber(WithdrawalActivity.this,txtMobile);
         progressDialog=new LoadingBar(WithdrawalActivity.this);
         txt_withdrw_instrctions.setText(withdrw_text.toUpperCase());
+        tv_number.setText(withdrw_no.toUpperCase());
         txtback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

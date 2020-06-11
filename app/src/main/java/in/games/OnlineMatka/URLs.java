@@ -38,7 +38,7 @@ public class URLs {
     public static final String Url_OddEven=BASE_URL+"OddEven/oddeven_insert.php";
     public static final String Url_Wallet_Update=BASE_URL+"walletamountupdate.php";
     public static final String Url_bid_history=BASE_URL+"BidHistory.php";
-    public static final String Bid_Histry_Url="http://bharatstarline.anshuwap.com/admin1/app_bid_history/?user_id=";
+    public static final String Bid_Histry_Url="https://www.kingstarline.com/admin/app_bid_history?user_id=";
     public static final String Url_SingleDigit_insert=BASE_URL+"SaveDataApis/SingleDigit_insert.php";
     public static final String Url_data_insert=BASE_URL+"SaveDataApis/insert_data.php";
     public static final String Url_matka_with_id=BASE_URL+"matka_with_id.php";

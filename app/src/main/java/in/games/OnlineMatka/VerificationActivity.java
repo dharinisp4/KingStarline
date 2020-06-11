@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
 import maes.tech.intentanim.CustomIntent;
 
+import static in.games.OnlineMatka.splash_activity.msg_status;
+
 
 public class VerificationActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,9 +40,10 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
     String type="";
     String otp="",mobile="";
     Common common;
+    ImageView iv_back;
     ProgressDialog loadingBar;
-    String str="";
-
+    String strOtp="";
+   CountDownTimer countDownTimer;
    Activity ctx=VerificationActivity.this;
 
     @Override
@@ -50,6 +54,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void initViews() {
+        iv_back=findViewById(R.id.iv_back);
         rel_gen=findViewById(R.id.rel_gen);
         rel_verify=findViewById(R.id.rel_verify);
         rel_timer=findViewById(R.id.rel_timer);
@@ -67,12 +72,17 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
         btn_send.setOnClickListener(this);
         btn_verify.setOnClickListener(this);
         btn_resend.setOnClickListener(this);
+        iv_back.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
-
-        if(view.getId() ==R.id.btn_send)
+        if(view.getId() == R.id.iv_back)
+        {
+            finish();
+        }
+        else if(view.getId() ==R.id.btn_send)
         {
            mobile=et_phone.getText().toString();
            otp=common.getRandomKey(6);
@@ -181,7 +191,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void sendOtpforPass(final String mobile, String otp,String url) {
+    private void sendOtpforPass(final String mobile, final String otp, String url) {
         loadingBar.show();
         HashMap<String,String> params=new HashMap<>();
         params.put("mobile",mobile);
@@ -202,7 +212,27 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                             rel_verify.setVisibility(View.VISIBLE);
 
                         }
+                        if(btn_verify.getVisibility()==View.GONE)
+                        {
+                            btn_verify.setVisibility(View.VISIBLE);
+                        }
                         rel_gen.setVisibility(View.GONE);
+                        if(msg_status.equals("0"))
+                        {
+                            strOtp=otp;
+                            countDownTimer=new CountDownTimer(5000,1000) {
+                                @Override
+                                public void onTick(long l) {
+
+                                }
+
+                                @Override
+                                public void onFinish() {
+                                 et_otp.setText(strOtp);
+                                }
+                            };
+                            countDownTimer.start();
+                        }
                         setCounterTimer(120000,tv_timer);
                         common.showToast(response.getString("message"));
                     }
@@ -252,6 +282,10 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                 otp="";
                 txt_timer.setText("Timeout");
                 txt_timer.setTextColor(getResources().getColor(R.color.lowColor));
+                if(btn_verify.getVisibility()==View.VISIBLE)
+                {
+                    btn_verify.setVisibility(View.GONE);
+                }
                 if(btn_resend.getVisibility() == View.GONE)
                 {
                     btn_resend.setVisibility(View.VISIBLE);

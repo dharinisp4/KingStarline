@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
+import android.text.Html;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -98,8 +99,8 @@ public class HomeActivity extends MyBaseActivity
         lin_container = findViewById(R.id.lin_container);
         frame_home = findViewById(R.id.frame_home);
        common=new Common(HomeActivity.this);
-        txt_tagline.setText(tagline.toUpperCase());
-        txt_game_name.setText(home_text.toUpperCase());
+        txt_tagline.setText(Html.fromHtml(tagline.toString()).toString().toUpperCase());
+        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
         boolean sdfff=common.isConnected();
         if(sdfff==true)
         {
@@ -143,7 +144,6 @@ public class HomeActivity extends MyBaseActivity
 
         progressDialog=new LoadingBar(HomeActivity.this);
 
-        common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
 
         txtNotification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -296,6 +296,14 @@ public class HomeActivity extends MyBaseActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        common.setWallet_Amount(txtWallet,progressDialog,Prevalent.currentOnlineuser.getId());
+
+
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -385,11 +393,6 @@ public class HomeActivity extends MyBaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
-
 
 }
 

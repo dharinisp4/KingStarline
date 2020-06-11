@@ -85,7 +85,7 @@
                                     android:layout_centerHorizontal="true"
                                     android:text="MORNING KUBER"
                                     android:layout_toRightOf="@+id/matka_open_bid_Time"
-                                    android:textColor="@color/colorPrimary"
+                                    android:textColor="@color/black"
                                     android:textSize="18dp"
                                     android:textStyle="bold" />
 
@@ -127,7 +127,7 @@
                                     android:text="578"
 
 
-                                    android:textColor="@color/iconColor"
+                                    android:textColor="@color/black"
                                     android:textSize="16dp"
                                     android:textStyle="bold" />
 
@@ -139,7 +139,7 @@
 
                                     android:paddingLeft="2dp"
                                     android:text="-"
-                                    android:textColor="@color/iconColor"
+                                    android:textColor="@color/black"
                                     android:textSize="16dp"
                                     android:textStyle="bold" />
 
@@ -150,7 +150,7 @@
                                     android:layout_toRightOf="@id/matka_dess1"
 
                                     android:text="578"
-                                    android:textColor="@color/iconColor"
+                                    android:textColor="@color/black"
                                     android:textSize="16dp"
                                     android:textStyle="bold" />
 
@@ -162,7 +162,7 @@
 
                                     android:paddingLeft="2dp"
                                     android:text="-"
-                                    android:textColor="@color/iconColor"
+                                    android:textColor="@color/black"
                                     android:textSize="16dp"
                                     android:textStyle="bold" />
 
@@ -173,7 +173,7 @@
                                     android:layout_toRightOf="@id/matka_dess2"
 
                                     android:text="578"
-                                    android:textColor="@color/iconColor"
+                                    android:textColor="@color/black"
                                     android:textSize="16dp"
                                     android:textStyle="bold" />
 

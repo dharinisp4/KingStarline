@@ -27,7 +27,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
-
+   String mob="";
     private Button btnRegister;
     TextView txt_back ;
     private EditText txtName,txtMobile,txtPass,txtConPass,txtUserName;
@@ -48,11 +48,21 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister=(Button)findViewById(R.id.btnRegister);
         progressDialog=new ProgressDialog(RegisterActivity.this);
         progressDialog.setMessage("Loading...");
+        mob=getIntent().getStringExtra("mobile");
+        txtMobile.setText(mob);
+        txtMobile.setEnabled(false);
       //  progressDialog.setMessage("Please wait for a moment");
         txt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 finish();
+
+
             }
         });
 

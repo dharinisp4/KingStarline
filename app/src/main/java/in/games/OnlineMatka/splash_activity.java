@@ -27,7 +27,8 @@ public class splash_activity extends AppCompatActivity {
 
    float version_code;
    Common common;
-   public static String home_text ="", withdrw_text="",tagline= "" ,min_add_amount="";
+   public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",
+           msg_status="",app_link="",share_link="";
    // ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,40 +51,44 @@ public class splash_activity extends AppCompatActivity {
 
         String json_tag="json_splash_request";
         HashMap<String,String> params=new HashMap<String, String>();
-
         CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.GET, URLs.URL_INDEX, params, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(final JSONObject response) {
-   Log.d("index",response.toString());
+                Log.e("asdasd",""+response.toString());
                 try
                 {
-                    String text=response.getString("api");
-                    tagline = response.getString("tag_line");
-                    withdrw_text = response.getString("withdraw");
-                    home_text = response.getString("home_text");
-                    min_add_amount = response.getString("min_amount");
-                    float ver_code=Float.parseFloat(response.getString("version"));
-//                    Log.e("chck",ver_code + "\n"+version_code);
-
-                    if(version_code==ver_code)
+                    boolean resp=response.getBoolean("responce");
+                    float ver_code=0;
+                    String msg="";
+                    if(resp)
                     {
-                        if(text.equals("welcome"))
-                        {
-                            Intent intent = new Intent(splash_activity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                        }
-                        else
-                        {
-                            Intent intent = new Intent(splash_activity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
-                            Toast.makeText(splash_activity.this,"Something went wrong",Toast.LENGTH_LONG).show();
-                        }
+                        JSONObject dataObj=response.getJSONObject("data");
+                        tagline = dataObj.getString("tag_line");
+                        withdrw_text = dataObj.getString("withdraw_text").toLowerCase();
+                        withdrw_no = dataObj.getString("withdraw_no");
+                        home_text = dataObj.getString("home_text").toString();
+                        min_add_amount = dataObj.getString("min_amount");
+                        msg_status = dataObj.getString("msg_status");
+                        app_link = dataObj.getString("app_link");
+                        share_link = dataObj.getString("share_link");
+                        ver_code=Float.parseFloat(dataObj.getString("version"));
+                        msg=dataObj.getString("message");
+
                     }
                     else
                     {
-                         String msg=response.getString("message");
+                        common.showToast(response.getString("message"));
+                    }
+
+                    if(version_code==ver_code)
+                    {
+                            Intent intent = new Intent(splash_activity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+
+                    }
+                    else
+                    {
                         AlertDialog.Builder builder=new AlertDialog.Builder(splash_activity.this);
                         builder.setTitle("Version Information");
                         builder.setMessage(msg);
@@ -94,8 +99,8 @@ public class splash_activity extends AppCompatActivity {
 
                                 String url = null;
                                 try {
-                                    url = response.getString("link");
-                                } catch (JSONException e) {
+                                    url = app_link;
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
 
@@ -112,28 +117,21 @@ public class splash_activity extends AppCompatActivity {
                                 finishAffinity();
                             }
                         });
-
-
                         AlertDialog alertDialog=builder.create();
                         alertDialog.show();
                     }
-
                 }
                 catch (Exception ex)
                 {
+                    ex.printStackTrace();
                     Toast.makeText(splash_activity.this,"Something went wrong",Toast.LENGTH_LONG).show();
                 }
-
-
-              //  Toast.makeText(splash_activity.this,""+response,Toast.LENGTH_LONG).show();
-
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
                 error.printStackTrace();
-                Log.e("Volly Error", error.toString());
                 String msg=common.VolleyErrorMessage(error);
                 if(!msg.isEmpty())
                 {
