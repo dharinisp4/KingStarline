@@ -1,17 +1,14 @@
 package in.games.OnlineMatka;
 
 import android.app.Dialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +21,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import in.games.OnlineMatka.Adapter.PointsAdapter;
-import in.games.OnlineMatka.Adapter.TableAdaper;
 import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.Intefaces.VolleyCallBack;
 import in.games.OnlineMatka.Model.TableModel;
@@ -89,6 +85,7 @@ List<String> digit_list ;
         btnReset.setOnClickListener(this);
        digit_list =  Arrays.asList(group_jodi_digits);
         pointsAdapter = new PointsAdapter(digit_list,NewJodi.this);
+        rv_digits.setNestedScrollingEnabled(false);
         rv_digits.setLayoutManager(new GridLayoutManager(this,2));
         rv_digits.setAdapter(pointsAdapter);
 

@@ -1717,6 +1717,40 @@ public class Common {
     }
 
 
+    public String changeTimeFormat(String time)
+    {
+        //14:15:16
+        int hour=0;
+        String timeFormat="";
+        String[] arrTime24=time.split(":");
+        int h24=Integer.parseInt(arrTime24[0].toString());
+        if(h24==12)
+        {
+            hour=h24;
+            timeFormat="PM";
+        }
+        else if(h24<12)
+        {
+            hour=h24;
+            timeFormat="AM";
+        }
+        else
+        {
+            hour=h24-12;
+            timeFormat="PM";
+        }
+        String strTime=hourForamt(hour)+":"+arrTime24[1].toString()+" "+timeFormat;
+        return strTime;
+    }
+    public String hourForamt(int hour)
+    {
+        String h=String.valueOf(hour);
+        if(h.length()<2)
+        {
+            h="0"+h;
+        }
+        return h;
+    }
 }
 
 

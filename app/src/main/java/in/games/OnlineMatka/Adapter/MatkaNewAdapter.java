@@ -4,9 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -196,13 +196,13 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             if (status.equals( "active" )) {
                 if (as < 0) {
                     flag = 2;
-                    holder.txtStatus.setTextColor( Color.parseColor( "#053004" ) );
+                    holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
                     holder.txtStatus.setText( "BID IS RUNNING" );
 
                 } else if (c > 0) {
                     flag = 3;
 //                    txtStatus.setTextColor( Color.parseColor( "#FFA44546" ) );
-                    holder.txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
+                    holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
                     holder.txtStatus.setText( "BID IS CLOSED" );
 
                 } else {
@@ -214,7 +214,7 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             else
             {
                 holder.txtStatus.setText( "BID IS CLOSED" );
-                holder.txtStatus.setTextColor( Color.parseColor( "#b31109" ) );
+                holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
 
             }
 

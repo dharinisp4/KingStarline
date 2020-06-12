@@ -1,9 +1,9 @@
 package in.games.OnlineMatka.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.Model.Withdraw_requwset_obect;
 import in.games.OnlineMatka.R;
 
@@ -18,6 +19,8 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
 
     Context context;
     private ArrayList<Withdraw_requwset_obect> list;
+    Common common;
+
 
     public Withdraw_request_Adapter(Context context, ArrayList<Withdraw_requwset_obect> list) {
         this.context = context;
@@ -40,31 +43,33 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
 
         viewHolder.txtId.setText(postion.getId());
 
-        viewHolder.txtdate.setText(postion.getTime());
+        String[] arrTime=postion.getTime().toString().split(" ");
+        viewHolder.txtdate.setText(arrTime[0].toString()+" "+common.changeTimeFormat(arrTime[1].toString()));
 
         String type = postion.getType().trim();
         if (type.equals("Add"))
         {
-            viewHolder.txtAmount.setText("+ "+postion.getWithdraw_points());
+            viewHolder.txtAmount.setText(postion.getWithdraw_points());
         }
-        else if (type.equals("Withdraw"))
+        else if (type.equals("Withdrawal"))
         {
-            viewHolder.txtAmount.setText("- "+postion.getWithdraw_points());
+            viewHolder.txtAmount.setText(postion.getWithdraw_points());
         }
+        viewHolder.txtStatus.setText(type);
 
-        String st=postion.getWithdraw_status().toString().trim();
-        if(st.equals("pending"))
-        {
-            viewHolder.txtStatus.setTextColor(Color.parseColor("#FFA44546"));
-            viewHolder.txtStatus.setText(st);
-        }
-        else if(st.equals("approved"))
-        {
-            viewHolder.txtStatus.setTextColor(Color.parseColor("#316D35"));
-            viewHolder.txtStatus.setText(st);
-
-
-        }
+//        String st=postion.getWithdraw_status().toString().trim();
+//        if(st.equals("pending"))
+//        {
+//            viewHolder.txtStatus.setTextColor(Color.parseColor("#FFA44546"));
+//            viewHolder.txtStatus.setText(st);
+//        }
+//        else if(st.equals("approved"))
+//        {
+//            viewHolder.txtStatus.setTextColor(Color.parseColor("#316D35"));
+//            viewHolder.txtStatus.setText(st);
+//
+//
+//        }
 
     }
 
@@ -82,6 +87,7 @@ public class Withdraw_request_Adapter extends RecyclerView.Adapter<Withdraw_requ
             txtAmount=(TextView)itemView.findViewById(R.id.fund_amount);
             txtStatus=(TextView)itemView.findViewById(R.id.fund_status);
             txtdate=(TextView)itemView.findViewById(R.id.fund_Date);
+            common=new Common(context);
         }
     }
 }

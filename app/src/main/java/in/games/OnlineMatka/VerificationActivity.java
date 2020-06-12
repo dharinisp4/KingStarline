@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.CountDownTimer;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,15 +13,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import in.games.OnlineMatka.Common.Common;
@@ -36,7 +42,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout rel_gen,rel_verify,rel_timer;
     EditText et_phone,et_otp;
     Button btn_send,btn_verify,btn_resend;
-    TextView tv_timer;
+    TextView tv_timer,tv_number;
     String type="";
     String otp="",mobile="";
     Common common;
@@ -45,6 +51,8 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
     String strOtp="";
    CountDownTimer countDownTimer;
    Activity ctx=VerificationActivity.this;
+   String user_name="",name="",user_mobile="",pass="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +72,46 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
         btn_verify=findViewById(R.id.btn_verify);
         btn_resend=findViewById(R.id.btn_resend);
         tv_timer=findViewById(R.id.tv_timer);
+        tv_number=findViewById(R.id.tv_number);
         common=new Common(ctx);
         loadingBar=new ProgressDialog(ctx);
         loadingBar.setMessage("Loading...");
         loadingBar.setCanceledOnTouchOutside(false);
         type=getIntent().getStringExtra("type");
+        mobile=getIntent().getStringExtra("mobile");
+        tv_number.setText("We have sent an OTP to your number \n"+mobile);
+        if(type.equalsIgnoreCase("r"))
+        {
+            rel_gen.setVisibility(View.GONE);
+            rel_verify.setVisibility(View.VISIBLE);
+            user_name=getIntent().getStringExtra("user_name");
+            name=getIntent().getStringExtra("name");
+            user_mobile=getIntent().getStringExtra("mobile");
+            pass=getIntent().getStringExtra("pass");
+            strOtp=getIntent().getStringExtra("otp");
+            setCounterTimer(120000,tv_timer);
+            if(msg_status.equalsIgnoreCase("0"))
+            {
+
+                countDownTimer=new CountDownTimer(5000,1000) {
+                    @Override
+                    public void onTick(long l) {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        et_otp.setText(strOtp);
+                        otp=strOtp;
+                    }
+                };
+                countDownTimer.start();
+            }
+        }
+        else
+        {
+
+        }
         btn_send.setOnClickListener(this);
         btn_verify.setOnClickListener(this);
         btn_resend.setOnClickListener(this);
@@ -144,14 +187,8 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                        }
                        else
                        {
-                           Intent intent=new Intent(ctx,RegisterActivity.class);
-                           intent.putExtra("mobile",mobile);
-                           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                           intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                           startActivity(intent);
-                           CustomIntent.customType(VerificationActivity.this, "up-to-bottom");
-                           finish();
+                           register(user_name,name,mobile,pass);
+
                        }
                   }
                   else
@@ -165,7 +202,16 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
         }
         else if(view.getId() == R.id.btn_resend)
         {
-            mobile=et_phone.getText().toString();
+            et_otp.setText("");
+            if(type.equalsIgnoreCase("r"))
+            {
+             mobile=user_mobile;
+            }
+            else
+            {
+                mobile=et_phone.getText().toString();
+            }
+
             otp=common.getRandomKey(6);
             if(mobile.isEmpty())
             {
@@ -217,6 +263,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                             btn_verify.setVisibility(View.VISIBLE);
                         }
                         rel_gen.setVisibility(View.GONE);
+                        tv_number.setText("We have sent an OTP to your number \n"+mobile);
                         if(msg_status.equals("0"))
                         {
                             strOtp=otp;
@@ -280,6 +327,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onFinish() {
                 otp="";
+                et_otp.setText("");
                 txt_timer.setText("Timeout");
                 txt_timer.setTextColor(getResources().getColor(R.color.lowColor));
                 if(btn_verify.getVisibility()==View.VISIBLE)
@@ -293,6 +341,88 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
             }
         }.start();
 
+    }
+
+    private void register(String user_name,String name,String mobile,String pass) {
+
+        loadingBar.show();
+        final String uname=user_name;
+        final String fname=name;
+        final String fmobile=mobile;
+        final String fpass=pass;
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.URL_REGIST,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try
+                        {
+                            JSONObject jsonObject=new JSONObject(response);
+                            String success=jsonObject.getString("status");
+                            if(success.equals("success"))
+                            {
+                                loadingBar.dismiss();
+                                Toast.makeText(ctx, "Register successfull!!!", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(ctx,MainActivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                CustomIntent.customType(VerificationActivity.this, "up-to-bottom");
+                                finish();
+
+                            }
+                            else if(success.equals("unsuccessful"))
+                            {
+                                loadingBar.dismiss();
+                                String msg=jsonObject.getString("message");
+
+                                Toast.makeText(ctx, ""+msg, Toast.LENGTH_SHORT).show();
+
+                            }
+                         }
+                        catch (Exception e)
+                        {
+                            e.printStackTrace();
+                            loadingBar.dismiss();
+
+                        }
+
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        loadingBar.dismiss();
+                        String msg=common.VolleyErrorMessage(error);
+                        if(!msg.isEmpty())
+                        {
+                            common.showToast(""+msg);
+                        }
+
+                        // pb.setVisibility(View.GONE);
+
+                    }
+                }
+        )
+        {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> params=new HashMap<>();
+                params.put("key","1");
+                params.put("username",uname);
+                params.put("name",fname);
+                params.put("mobile",fmobile);
+//                params.put("email","");
+                params.put("password",fpass);
+
+                return params;
+            }
+
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
 
 }

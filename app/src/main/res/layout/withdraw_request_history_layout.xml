@@ -137,7 +137,7 @@
 <!--</android.support.v7.widget.CardView>-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:scrollbars="horizontal"
         android:background="@drawable/outline"
@@ -149,13 +149,13 @@
         <TextView
             android:id="@+id/fund_Date"
             android:layout_width="0dp"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:padding="5dp"
 
             android:text=""
-            android:textSize="15dp"
+            android:textSize="13dp"
 
             android:textColor="@color/black"/>
 
@@ -181,12 +181,13 @@
         <TextView
             android:id="@+id/fund_amount"
             android:layout_width="0dp"
-            android:layout_weight="2.5"
+            android:layout_weight="2"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
+
             android:padding="5dp"
             android:text=" "
-            android:textSize="15dp"
+            android:textSize="13dp"
 
 
             android:textColor="@color/black"/>
@@ -203,11 +204,11 @@
             android:layout_width="0dp"
             android:layout_weight="3"
             android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:padding="5dp"
 
             android:text=" "
-            android:textSize="15dp"
+            android:textSize="13dp"
 
             android:textColor="@color/black"/>
 

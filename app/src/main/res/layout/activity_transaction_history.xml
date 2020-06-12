@@ -14,7 +14,7 @@
 
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -39,18 +39,18 @@
             android:singleLine="true"
             android:textSize="17dp"
             android:textColor="@color/textColor"/>
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            ></android.support.v7.widget.RecyclerView>
+            ></androidx.recyclerview.widget.RecyclerView>
     </RelativeLayout>
 
     </RelativeLayout>

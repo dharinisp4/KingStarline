@@ -28,6 +28,11 @@
     <string name="tab_pana">Patti</string>
     <string name="tab_jodi">Jodi</string>
     <string name="rupee"> \u20B9</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="received_message">Received Message</string>
+    <string name="verify_otp">Verify OTP</string>
+
 
     <string name="txt_qr_code" translatable="false">QR Code</string>
     <string name="txt_qr_text" translatable="false">Scan and make payment</string>

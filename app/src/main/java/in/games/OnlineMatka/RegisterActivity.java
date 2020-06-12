@@ -1,10 +1,13 @@
 package in.games.OnlineMatka;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,20 +28,26 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.games.OnlineMatka.Common.Common;
+import in.games.OnlineMatka.utils.CustomJsonRequest;
+
+import static in.games.OnlineMatka.splash_activity.msg_status;
+
 public class RegisterActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
-   String mob="";
+    String mob="",otp="";
     private Button btnRegister;
     TextView txt_back ;
+    Common common;
     private EditText txtName,txtMobile,txtPass,txtConPass,txtUserName;
-//    static String URL_REGIST="http://anshuwap.com/AddaApp/register.php";
-
     ProgressBar pb;
+    Activity ctx=RegisterActivity.this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         txt_back = findViewById(R.id.txt_back);
+        common=new Common(ctx);
         txtName=(EditText)findViewById(R.id.etName);
 //        txtEmail=(EditText)findViewById(R.id.etEmail);
         txtMobile=(EditText)findViewById(R.id.etMobile);
@@ -50,8 +59,6 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog.setMessage("Loading...");
         mob=getIntent().getStringExtra("mobile");
         txtMobile.setText(mob);
-        txtMobile.setEnabled(false);
-      //  progressDialog.setMessage("Please wait for a moment");
         txt_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
       btnRegister.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-//              String em=txtEmail.getText().toString().trim();
+              otp=common.getRandomKey(6);
               if(TextUtils.isEmpty(txtUserName.getText().toString()))
               {
                   txtUserName.setError("Please Enter User name");
@@ -82,19 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
                   txtName.requestFocus();
                   return;
               }
-//              else  if(TextUtils.isEmpty(txtEmail.getText().toString()))
-//              {
-//                  txtEmail.setError("Please Enter Email address");
-//                  txtEmail.requestFocus();
-//                  return;
-//              }
-
-//              else  if(!em.contains("@"))
-//              {
-//                  txtEmail.setError("Please Enter valid Email address");
-//                  txtEmail.requestFocus();
-//                  return;
-//              }
               else  if(TextUtils.isEmpty(txtMobile.getText().toString()))
               {
                   txtMobile.setError("Please enter mobile number");
@@ -131,7 +125,10 @@ public class RegisterActivity extends AppCompatActivity {
                       String conpass=txtConPass.getText().toString().trim();
                       if(pass.equals(conpass))
                       {
-                          register(phone_value);
+                          String mobile=txtMobile.getText().toString();
+                          String user_name=txtUserName.getText().toString();
+                          String name=txtName.getText().toString();
+                          sendOtpforPass(URLs.URL_VERIFICATION,user_name,name,mobile,otp,pass);
                       }
                       else
                       {
@@ -176,7 +173,6 @@ public class RegisterActivity extends AppCompatActivity {
                 value="invalid";
 
         }
-
         return value;
     }
 
@@ -187,15 +183,12 @@ public class RegisterActivity extends AppCompatActivity {
         final String uname=txtUserName.getText().toString().trim();
         final String fname=txtName.getText().toString().trim();
         final String fmobile=phone_value;
-//        final String femail=txtEmail.getText().toString().trim();
         final String fpass=txtPass.getText().toString().trim();
         final String fconpass=txtConPass.getText().toString().trim();
-
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URLs.URL_REGIST,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
                         try
                         {
                             JSONObject jsonObject=new JSONObject(response);
@@ -203,8 +196,13 @@ public class RegisterActivity extends AppCompatActivity {
                             if(success.equals("success"))
                             {
                                 progressDialog.dismiss();
-                                Toast.makeText(RegisterActivity.this, "Register successfull!!!", Toast.LENGTH_SHORT).show();
-                                Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
+//                                Toast.makeText(RegisterActivity.this, "Register successfull!!!", Toast.LENGTH_SHORT).show();
+                                Intent intent=new Intent(RegisterActivity.this,VerificationActivity.class);
+                                intent.putExtra("user_name",uname);
+                                intent.putExtra("name",fname);
+                                intent.putExtra("mobile",fmobile);
+                                intent.putExtra("pass",fpass);
+                                intent.putExtra("type","r");
                                 startActivity(intent);
                                 finish();
 
@@ -220,11 +218,8 @@ public class RegisterActivity extends AppCompatActivity {
                                     txtMobile.requestFocus();
                                 }
                                 else if(msg.equals("Email already exists"))
-                            {
-//                                txtEmail.setText("");
-//                                txtEmail.setError("Enter valid email");
-//                                txtEmail.requestFocus();
-                            }
+                                 {
+                                     }
                                 Toast.makeText(RegisterActivity.this, ""+msg, Toast.LENGTH_SHORT).show();
 
 
@@ -277,4 +272,57 @@ public class RegisterActivity extends AppCompatActivity {
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
+
+    private void sendOtpforPass(String url,final String user_name, final String name,final String mobile,final String otp,final String pass) {
+        progressDialog.show();
+        HashMap<String,String> params=new HashMap<>();
+        params.put("mobile",mobile);
+        params.put("otp",otp);
+
+        CustomJsonRequest customJsonRequest=new CustomJsonRequest(Request.Method.POST, url, params, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                Log.e("gen",""+response.toString());
+                progressDialog.dismiss();
+                try
+                {
+                    String res=response.getString("status");
+                    if(res.equalsIgnoreCase("success"))
+                    {
+                        common.showToast(response.getString("message"));
+                        Intent intent=new Intent(RegisterActivity.this,VerificationActivity.class);
+                        intent.putExtra("user_name",user_name);
+                        intent.putExtra("name",name);
+                        intent.putExtra("mobile",mobile);
+                        intent.putExtra("pass",pass);
+                        intent.putExtra("otp",otp);
+                        intent.putExtra("type","r");
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        common.showToast(response.getString("message"));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                    common.showToast("Something went wrong");
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressDialog.dismiss();
+                String msg=common.VolleyErrorMessage(error);
+                if(!msg.isEmpty())
+                {
+                    common.showToast(""+msg);
+                }
+            }
+        });
+        AppController.getInstance().addToRequestQueue(customJsonRequest);
+
+    }
+
 }

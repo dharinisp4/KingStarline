@@ -7,58 +7,32 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.CardView;
+import androidx.annotation.RequiresApi;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.cardview.widget.CardView;
 import android.text.Html;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.navigation.NavigationView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-import in.games.OnlineMatka.Adapter.MatakListViewAdapter;
-
-import in.games.OnlineMatka.Adapter.MatkaAdapter;
 import in.games.OnlineMatka.Common.Common;
 import in.games.OnlineMatka.Model.MatkaObject;
-import in.games.OnlineMatka.Model.MatkasObjects;
 import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.fragments.HomeFragment;
 import in.games.OnlineMatka.utils.LoadingBar;

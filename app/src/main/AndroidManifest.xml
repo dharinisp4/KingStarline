@@ -21,6 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".NewJodi"></activity>
         <activity android:name=".NewSingleDigit" />
         <activity android:name=".NewGameActivity" />
