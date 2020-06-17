@@ -8,16 +8,6 @@
     tools:context=".RegisterActivity"
    >
 
-
-<!--        <ImageView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@drawable/gradients_background"-->
-<!--            android:alpha=".4"-->
-<!--          />-->
-
-
-
         <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
