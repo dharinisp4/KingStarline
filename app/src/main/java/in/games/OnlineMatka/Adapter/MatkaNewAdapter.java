@@ -61,53 +61,51 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
         String e_time=null;
         String s=null;
         String e=null;
+        int day_flag=0;
         if(dt.equals("Sunday"))
         {
-            String s_n=postion.getStart_time().toString();
-            if(s_n.isEmpty() && s_n.equals("null"))
+            if(postion.getStart_time().toString().equals("00:00:00") &&postion.getEnd_time().toString().equals("00:00:00"))
             {
-
-
-                s ="null";
-                e = "null";
-            }
-            else {
-                s = postion.getStart_time().toString();
-                e = postion.getEnd_time().toString();
-            }
-        }
-        else if(dt.equals("Saturday"))
-        {
-            String s_n=postion.getSat_start_time().toString();
-
-            if(s_n.isEmpty() && s_n.equals("null"))
-            {
-                s="null";
-                e="null";
+                day_flag=1;
+                s=postion.getBid_start_time().toString();
+                e=postion.getBid_end_time().toString();
             }
             else
             {
+                day_flag=2;
+                s=postion.getStart_time().toString();
+                e=postion.getEnd_time().toString();
+
+            }
+
+        }
+        else if(dt.equals("Saturday"))
+        {
+
+            if(postion.getSat_start_time().toString().equals("00:00:00") && postion.getSat_end_time().toString().equals("00:00:00"))
+            {
+                day_flag=3;
+                s=postion.getBid_start_time().toString();
+                e=postion.getBid_end_time().toString();
+            }
+            else
+            {
+                day_flag=4;
                 s=postion.getSat_start_time().toString();
                 e=postion.getSat_end_time().toString();
+
             }
 
         }
         else
         {
+            day_flag=5;
             s=postion.getBid_start_time().toString();
             e=postion.getBid_end_time().toString();
         }
 
 
-        if(s.equals("null") && e.equals("null"))
-        {
-            list.remove(position);
-            notifyDataSetChanged();
-
-        }
-        else
-        {
-            try {
+          try {
                 Date date=new SimpleDateFormat("HH:mm:ss").parse(s);
                 Date date1=new SimpleDateFormat("HH:mm:ss").parse(e);
                 s_time=new SimpleDateFormat("h:mm a").format(date);
@@ -120,8 +118,6 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
 
             holder.txtmatkaBid_openTime.setText(String.valueOf(s_time));
-            // viewHolder.txtmatkaBid_openTime.setText(stat_time.toString());
-            //viewHolder.txtmatkaBid_closeTime.setText(postion.getBid_end_time());
             holder.txtmatkaBid_closeTime.setText(String.valueOf(e_time));
 
             holder.txtMatka_resNo.setText(postion.getNumber());
@@ -196,19 +192,36 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
             if (status.equals( "active" )) {
                 if (as < 0) {
                     flag = 2;
-                    holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
-                    holder.txtStatus.setText( "BID IS RUNNING" );
+                    if(day_flag==1 || day_flag == 3)
+                    {
+                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setText( "BID IS CLOSED" );
+
+                    }
+                    else
+                    {
+                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setText( "BID IS RUNNING" );
+
+                    }
 
                 } else if (c > 0) {
                     flag = 3;
-//                    txtStatus.setTextColor( Color.parseColor( "#FFA44546" ) );
                     holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
                     holder.txtStatus.setText( "BID IS CLOSED" );
 
                 } else {
                     flag = 1;
-                    // viewHolder.txtStatus.setText("a");
-                    holder.txtStatus.setVisibility( View.INVISIBLE );
+                    if(day_flag==1 || day_flag == 3)
+                    {
+                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.txtStatus.setText( "BID IS CLOSED" );
+                    }
+                    else
+                    {
+                        holder.txtStatus.setVisibility( View.INVISIBLE );
+                    }
+
                 }
             }
             else
@@ -218,69 +231,69 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
             }
 
-        }
 
 
-//        String s=postion.getBid_start_time().toString();
-//        String e=postion.getBid_end_time().toString();
-        // viewHolder.txtMatka_resNo.setText(postion.getName());
-
-        //String openTime=postion.getBid_start_time();
-        // viewHolder.txtTime.setText(postion.getTime());
-
-        // viewHolder.txtNumber.setText(postion.getNumber());
-        // viewHolder.txtStatus.setText(postion.getStatus());
-        //imageGame.setImageResource(R.drawable.pll);
 
 
         int cl=position%4;
         switch (cl)
         {
             case 0:
-//                rl.setBackgroundColor(context.getResources().getColor(R.color.play1));
                 holder.imageGame.setImageTintList(context.getColorStateList(R.color.play1));
                 holder.txt_play.setTextColor(context.getResources().getColor(R.color.play1));
-                // imageGame.setBackgroundResource(R.drawable.play_game_1);
                 break;
 
             case 1:
-//                rl.setBackgroundColor(context.getResources().getColor(R.color.play2));
                 holder.imageGame.setImageTintList(context.getColorStateList(R.color.play2));
                 holder.txt_play.setTextColor(context.getResources().getColor(R.color.play2));
                 break;
 
             case 2:
-//                rl.setBackgroundColor(context.getResources().getColor(R.color.play3));
                 holder.imageGame.setImageTintList(context.getColorStateList(R.color.play3));
                 holder.txt_play.setTextColor(context.getResources().getColor(R.color.play3));
                 break;
 
             case 3:
-//                rl.setBackgroundColor(context.getResources().getColor(R.color.play4));
                 holder.imageGame.setImageTintList(context.getColorStateList(R.color.play4));
                 holder.txt_play.setTextColor(context.getResources().getColor(R.color.play4));
                 break;
-
-//            default:rl.setBackgroundColor(GRAY);
         }
 
         holder.rel_matka.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String dy=new SimpleDateFormat("EEEE").format(new Date());
-                Log.e("asda",""+dy);
                 MatkasObjects objects=list.get(position);
                 String stime ="";
                 String etime ="";
+                int i=0;
                 if(dy.equalsIgnoreCase("Sunday"))
                 {
-                    stime=objects.getStart_time().toString();
-                    etime=objects.getEnd_time().toString();
-                }
+                    if(objects.getStart_time().toString().equals("00:00:00") && objects.getEnd_time().toString().equals("00:00:00"))
+                    {
+                       i=1;
+                    }
+                    else
+                    {
+                        i=2;
+                        stime=objects.getStart_time().toString();
+                        etime=objects.getEnd_time().toString();
+
+                    }
+                    }
                 else if(dy.equalsIgnoreCase("Saturday"))
                 {
-                    stime=objects.getSat_start_time().toString();
-                    etime=objects.getSat_end_time().toString();
+                    if(objects.getSat_start_time().toString().equals("00:00:00") && objects.getSat_end_time().toString().equals("00:00:00"))
+                    {
+                        i=3;
+                    }
+                    else
+                    {
+                        i=4;
+                        stime=objects.getSat_start_time().toString();
+                        etime=objects.getSat_end_time().toString();
+                    }
+
                 }
                 else
                 {
@@ -289,7 +302,6 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                 }
 
                 long endDiff=common.getTimeDifference(etime);
-                Log.e("time_differrrr"," - e : "+common.getTimeDifference(etime)+" - "+objects.getName()+" -- "+etime.toString());
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
 
@@ -304,15 +316,37 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                 }
                 else
                 {
-                    Intent intent=new Intent(context, NewGameActivity.class);
-                    //    intent.putExtra("tim",position);
-                    intent.putExtra("matkaName",matka_name);
-                    intent.putExtra("m_id",m_id);
-                    intent.putExtra("end_time",objects.getBid_end_time());
-                    intent.putExtra("start_time",objects.getBid_start_time());
-                    //  intent.putExtra("bet","cb");
-                    context.startActivity(intent);
-                    CustomIntent.customType(context, "up-to-bottom");
+                    if(i==1 || i==3)
+                    {
+//                     common.errorMessageDialog("BID IS CLOSED FOR TODAY");
+                    }
+                    else {
+                        Intent intent = new Intent(context, NewGameActivity.class);
+                        //    intent.putExtra("tim",position);
+                        intent.putExtra("matkaName", matka_name);
+                        intent.putExtra("m_id", m_id);
+                        if(dy.equalsIgnoreCase("Sunday"))
+                        {
+                            intent.putExtra("end_time", objects.getEnd_time());
+                            intent.putExtra("start_time", objects.getStart_time());
+
+                        }
+                        else if(dy.equalsIgnoreCase("Saturday"))
+                        {
+                            intent.putExtra("end_time", objects.getSat_end_time());
+                            intent.putExtra("start_time", objects.getSat_start_time());
+
+                        }
+                        else
+                        {
+                            intent.putExtra("end_time", objects.getBid_end_time());
+                            intent.putExtra("start_time", objects.getBid_start_time());
+
+                        }
+                        //  intent.putExtra("bet","cb");
+                        context.startActivity(intent);
+                        CustomIntent.customType(context, "up-to-bottom");
+                    }
                 }
                 // Toast.makeText(context,"Position"+m_id,Toast.LENGTH_LONG).show();
 

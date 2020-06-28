@@ -1,12 +1,15 @@
 package in.games.OnlineMatka;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +18,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.cardview.widget.CardView;
+
+import android.telephony.PhoneNumberUtils;
 import android.text.Html;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
@@ -28,6 +33,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -37,17 +43,18 @@ import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.fragments.HomeFragment;
 import in.games.OnlineMatka.utils.LoadingBar;
 import maes.tech.intentanim.CustomIntent;
+import okhttp3.internal.Util;
 
 import static in.games.OnlineMatka.splash_activity.home_text;
 import static in.games.OnlineMatka.splash_activity.tagline;
 
 public class HomeActivity extends MyBaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener {
     FrameLayout frame_home;
-    private TextView txtWallet,txtNotification ,txt_tagline ,txt_game_name;
+    private TextView txtWallet,txtNotification ,txt_tagline;
     ArrayList<MatkaObject> list;
     LinearLayout lin_container;
-    TextView user_profile_name;
+    TextView user_profile_name,txt_admin,tv_admin,txt_coadmin,tv_coadmin;
     private Dialog dialog;
     private Button btn_dialog_ok ,btn_add;
     private CardView pgCard,callCard,cardReload;
@@ -67,14 +74,26 @@ public class HomeActivity extends MyBaseActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         txtNotification=(TextView)findViewById(R.id.txtNotification);
         txtWallet=(TextView)findViewById(R.id.txtWallet);
-        txt_game_name = findViewById(R.id.game_name);
+        tv_coadmin = findViewById(R.id.tv_coadmin);
         txt_tagline = findViewById(R.id.tagline);
         btn_add = findViewById(R.id.add_points);
         lin_container = findViewById(R.id.lin_container);
         frame_home = findViewById(R.id.frame_home);
+        txt_admin=findViewById(R.id.txt_admin);
+        tv_admin=findViewById(R.id.tv_admin);
+        txt_coadmin=findViewById(R.id.txt_coadmin);
+        tv_coadmin=findViewById(R.id.tv_coadmin);
        common=new Common(HomeActivity.this);
         txt_tagline.setText(Html.fromHtml(tagline.toString()).toString().toUpperCase());
-        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
+//        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
+        tv_admin.setPaintFlags(tv_admin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tv_coadmin.setPaintFlags(tv_coadmin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        txt_admin.setText(common.getNumbers(home_text.toString())[0]);
+        tv_admin.setText(common.getNumbers(home_text.toString())[1]);
+        txt_coadmin.setText(common.getNumbers(home_text.toString())[2]);
+        tv_coadmin.setText(common.getNumbers(home_text.toString())[3]);
+        tv_admin.setOnClickListener(this);
+        tv_coadmin.setOnClickListener(this);
         boolean sdfff=common.isConnected();
         if(sdfff==true)
         {
@@ -129,6 +148,8 @@ public class HomeActivity extends MyBaseActivity
             }
         });
 
+
+
         //txtUserName.setText(name.toUpperCase());
 
 
@@ -163,7 +184,6 @@ public class HomeActivity extends MyBaseActivity
              //matkaAdapter.notifyItemRemoved();
             }
         });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -368,6 +388,42 @@ public class HomeActivity extends MyBaseActivity
         return true;
     }
 
+    @SuppressLint("NewApi")
+    public void whatsapp( String phone,String message) {
+        String formattedNumber = PhoneNumberUtils.formatNumber(phone);
+        try{
+            Intent sendIntent =new Intent(Intent.ACTION_SEND);
+            sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
+            sendIntent.setPackage("com.whatsapp");
+            sendIntent.setType("text/plain");
+            sendIntent.putExtra(Intent.EXTRA_TEXT,message);
+            startActivity(Intent.createChooser(sendIntent, "Share with"));
+//            startActivity(sendIntent);
+        }
+        catch(Exception e)
+        {
+            Toast.makeText(HomeActivity.this,"Error/n"+ e.toString(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+   if(v.getId()==R.id.tv_admin)
+   {
+       if(!(common.getNumbers(home_text.toString())[1].toString().isEmpty()))
+       {
+           whatsapp("91"+common.getNumbers(home_text.toString())[1].toString(),"Hello, Admin!");
+       }
+
+   }
+   else if(v.getId()==R.id.tv_coadmin)
+   {
+       if(!(common.getNumbers(home_text.toString())[3].toString().isEmpty()))
+       {
+           whatsapp("91"+common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
+       }
+   }
+    }
 }
 
 

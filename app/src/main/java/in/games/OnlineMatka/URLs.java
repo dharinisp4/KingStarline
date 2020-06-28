@@ -28,6 +28,7 @@ public class URLs {
     public static final String URL_GENERATE_OTP=BASE_URL+BASE_URL2+"generate_otp";
     public static final String URL_VERIFICATION=BASE_URL+BASE_URL2+"mobile_verification";
 
+
     public static String URL_MPIN="https://www.kingstarline.com/restApi/randstring.php";
 
    public static final String URL_Login = BASE_URL+"users/usersdata.php";
@@ -56,8 +57,6 @@ public class URLs {
     public static final String Url_notification=BASE_URL+"Notification/notifications.php";
     public static final String Url_transaction_history=BASE_URL+"Transaction/transaction.php";
     public static final String Url_forgot_mpin=BASE_URL+"forgotmpin.php";
-
-//    public static String ADMIN_ACC_DETALS = "https://dpbosssai.com/restApi/index.php/api/get_account_details";
     public static String ADMIN_ACC_DETALS = BASE_URL+"get_account_details";
     public static String ADMIN_SS_URL = "https://bharatstarline.anshuwap.com/uploads/";
     public static String API_SERVER_URL = "https://bharatstarline.anshuwap.com/restApi/";

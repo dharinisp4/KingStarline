@@ -4,10 +4,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +20,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
@@ -31,6 +37,7 @@ import com.android.volley.VolleyError;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -42,6 +49,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import in.games.OnlineMatka.Adapter.ListItemAdapter;
 import in.games.OnlineMatka.Adapter.TableAdaper;
@@ -1716,6 +1725,27 @@ public class Common {
         return stringBuilder.toString();
     }
 
+    public void setBackTint(TextView mView)
+    {
+        final int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            mView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.gray_circle));
+        } else {
+            mView.setBackground(context.getResources().getDrawable(R.drawable.gray_circle));
+        }
+        mView.setEnabled(false);
+    }
+    public void setNormalTint(TextView mView)
+    {
+        final int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            mView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.circle));
+        } else {
+            mView.setBackground(context.getResources().getDrawable(R.drawable.circle));
+        }
+        mView.setEnabled(true);
+    }
+
 
     public String changeTimeFormat(String time)
     {
@@ -1750,6 +1780,36 @@ public class Common {
             h="0"+h;
         }
         return h;
+    }
+
+    public String[] getNumbers(String str)
+    {
+        String[] numbers=new String[4];
+        String[] subStr=str.split("<br>");
+        numbers[0]=subStr[0].toString().substring(0,6).toString().trim();
+        numbers[1]=getNumberFromMessage(subStr[0].toString().trim());
+        numbers[2]=subStr[1].toString().substring(0,9).toString().trim();
+        numbers[3]=getNumberFromMessage(subStr[1].toString().trim());
+        return numbers;
+    }
+
+    public String getNumberFromMessage(String message) {
+        // This will match any 6 digit number in the message
+        String strNumber="";
+        Pattern pattern = Pattern.compile("(|^)\\d{10}");
+        Matcher matcher = pattern.matcher(message);
+        if (matcher.find()) {
+           strNumber=matcher.group(0);
+        }
+        return strNumber;
+    }
+
+    public SpannableString underlineString(String str)
+    {
+        String mystring=new String(str);
+        SpannableString content = new SpannableString(mystring);
+        content.setSpan(new UnderlineSpan(), 0, mystring.length(), 0);
+        return content;
     }
 }
 

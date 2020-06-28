@@ -72,7 +72,7 @@ public class splash_activity extends AppCompatActivity {
                         share_link = dataObj.getString("share_link");
                         ver_code=Float.parseFloat(dataObj.getString("version"));
                         msg=dataObj.getString("message");
-
+                        common.getNumbers(home_text.toString());
                     }
                     else
                     {

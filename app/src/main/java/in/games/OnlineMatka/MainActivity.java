@@ -224,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                   etName.setText("8178624292");
+//                   etName.setText("8081031624");
 //                   etPassword.setText("123456");
                     String mName=etName.getText().toString().trim();
                     String mPass=etPassword.getText().toString().trim();

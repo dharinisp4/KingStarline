@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import in.games.OnlineMatka.Common.Common;
+
 public class NewGameActivity extends AppCompatActivity implements View.OnClickListener {
     TextView open_single_p , close_single_p , open_double,close_double ,open_triple , close_triple,open_cylce,close_cylce,halfsngm,fullsngm,jodi ,open_single,close_single;
     TextView bt_back ,txtMatkaName;
     private String dashName;
 
+    Common common;
     private Toolbar toolbar;
 
     private String m_id ,start_time ,end_time;
@@ -24,9 +27,7 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         dashName=getIntent().getStringExtra("matkaName");
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
-        //   bet_type=getIntent().getStringExtra("bet");
-        Log.e("game",m_id+"\n"+dashName);
-
+        common=new Common(NewGameActivity.this);
         bt_back=(TextView)findViewById(R.id.txtBack);
         open_cylce = findViewById(R.id.opencyclepatti);
         open_double = findViewById(R.id.opendoublepatti);
@@ -41,14 +42,29 @@ public class NewGameActivity extends AppCompatActivity implements View.OnClickLi
         halfsngm = findViewById(R.id.halfsangm);
         fullsngm= findViewById(R.id.fullsangm);
         jodi = findViewById(R.id.jodi);
-
         toolbar=findViewById(R.id.toolbar);
         txtMatkaName=findViewById(R.id.board);
-
-
         txtMatkaName.setText(dashName+ " DASHBOARD");
         txtMatkaName.setSelected(true);
 
+       long t= common.getTimeDifference(start_time);
+       if(t<=0)
+       {
+         common.setBackTint(open_single);
+         common.setBackTint(jodi);
+         common.setBackTint(open_single_p);
+         common.setBackTint(open_double);
+         common.setBackTint(open_triple);
+         common.setBackTint(open_cylce);
+         common.setBackTint(open_single);
+         common.setBackTint(halfsngm);
+         common.setBackTint(fullsngm);
+         common.setNormalTint(close_single_p);
+         common.setNormalTint(close_single);
+         common.setNormalTint(close_double);
+         common.setNormalTint(close_triple);
+         common.setNormalTint(close_cylce);
+       }
         bt_back.setOnClickListener(this);
         open_double.setOnClickListener(this);
         open_cylce.setOnClickListener(this);

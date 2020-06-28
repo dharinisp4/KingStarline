@@ -111,18 +111,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
-                        //   matkaAdapter.notifyDataSetChanged();
-
-                        Log.d("matka",String.valueOf(response));
-
+                        Log.e("matka",String.valueOf(response));
                         matkaList.clear();
-
                         for(int i=0; i<response.length();i++)
                         {
                             try
                             {
                                 JSONObject jsonObject=response.getJSONObject(i);
-
                                 MatkasObjects matkasObjects=new MatkasObjects();
                                 matkasObjects.setId(jsonObject.getString("id"));
                                 matkasObjects.setName(jsonObject.getString("name"));
