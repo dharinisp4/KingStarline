@@ -26,7 +26,7 @@ public class splash_activity extends AppCompatActivity {
 
    float version_code;
    Common common;
-   public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",
+   public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",message="",
            msg_status="",app_link="",share_link="";
    // ProgressBar progressBar;
     @Override
@@ -63,6 +63,7 @@ public class splash_activity extends AppCompatActivity {
                     {
                         JSONObject dataObj=response.getJSONObject("data");
                         tagline = dataObj.getString("tag_line");
+                        message = dataObj.getString("message");
                         withdrw_text = dataObj.getString("withdraw_text").toLowerCase();
                         withdrw_no = dataObj.getString("withdraw_no");
                         home_text = dataObj.getString("home_text").toString();

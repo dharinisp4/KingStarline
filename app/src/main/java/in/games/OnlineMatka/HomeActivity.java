@@ -46,6 +46,7 @@ import maes.tech.intentanim.CustomIntent;
 import okhttp3.internal.Util;
 
 import static in.games.OnlineMatka.splash_activity.home_text;
+import static in.games.OnlineMatka.splash_activity.message;
 import static in.games.OnlineMatka.splash_activity.tagline;
 
 public class HomeActivity extends MyBaseActivity
@@ -84,7 +85,7 @@ public class HomeActivity extends MyBaseActivity
         txt_coadmin=findViewById(R.id.txt_coadmin);
         tv_coadmin=findViewById(R.id.tv_coadmin);
        common=new Common(HomeActivity.this);
-        txt_tagline.setText(Html.fromHtml(tagline.toString()).toString().toUpperCase());
+        txt_tagline.setText(Html.fromHtml(message.toString()).toString().toUpperCase());
 //        txt_game_name.setText(Html.fromHtml(home_text.toString()).toString().toUpperCase());
         tv_admin.setPaintFlags(tv_admin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tv_coadmin.setPaintFlags(tv_coadmin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -397,8 +398,8 @@ public class HomeActivity extends MyBaseActivity
             sendIntent.setPackage("com.whatsapp");
             sendIntent.setType("text/plain");
             sendIntent.putExtra(Intent.EXTRA_TEXT,message);
-            startActivity(Intent.createChooser(sendIntent, "Share with"));
-//            startActivity(sendIntent);
+//            startActivity(Intent.createChooser(sendIntent, "Share with"));
+            startActivity(sendIntent);
         }
         catch(Exception e)
         {
