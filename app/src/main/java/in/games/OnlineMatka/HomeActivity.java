@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -21,6 +22,7 @@ import androidx.cardview.widget.CardView;
 
 import android.telephony.PhoneNumberUtils;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import com.google.android.material.navigation.NavigationView;
 import androidx.core.view.GravityCompat;
@@ -35,6 +37,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import in.games.OnlineMatka.Common.Common;
@@ -391,19 +394,34 @@ public class HomeActivity extends MyBaseActivity
 
     @SuppressLint("NewApi")
     public void whatsapp( String phone,String message) {
-        String formattedNumber = PhoneNumberUtils.formatNumber(phone);
-        try{
-            Intent sendIntent =new Intent(Intent.ACTION_SEND);
-            sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
-            sendIntent.setPackage("com.whatsapp");
-            sendIntent.setType("text/plain");
-            sendIntent.putExtra(Intent.EXTRA_TEXT,message);
-//            startActivity(Intent.createChooser(sendIntent, "Share with"));
-            startActivity(sendIntent);
-        }
-        catch(Exception e)
-        {
-            Toast.makeText(HomeActivity.this,"Error/n"+ e.toString(),Toast.LENGTH_SHORT).show();
+//        String formattedNumber = PhoneNumberUtils.formatNumber(phone);
+//        try{
+//            Log.e("fdsfsdfsd",""+formattedNumber+" - "+message);
+//            Intent sendIntent =new Intent(Intent.ACTION_SEND);
+//            sendIntent.putExtra("jid", formattedNumber +"@s.whatsapp.net");
+//            sendIntent.setPackage("com.whatsapp");
+//            sendIntent.setType("text/plain");
+//            sendIntent.putExtra(Intent.EXTRA_TEXT,message);
+////            startActivity(Intent.createChooser(sendIntent, "Share with"));
+//            startActivity(sendIntent);
+//        }
+//        catch(Exception e)
+//        {
+//            Toast.makeText(HomeActivity.this,"Error/n"+ e.toString(),Toast.LENGTH_SHORT).show();
+//        }
+
+        PackageManager packageManager = getPackageManager();
+        Intent i = new Intent(Intent.ACTION_VIEW);
+
+        try {
+            String url = "https://api.whatsapp.com/send?phone=+91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
+            i.setPackage("com.whatsapp");
+            i.setData(Uri.parse(url));
+            if (i.resolveActivity(packageManager) != null) {
+                startActivity(i);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -413,7 +431,7 @@ public class HomeActivity extends MyBaseActivity
    {
        if(!(common.getNumbers(home_text.toString())[1].toString().isEmpty()))
        {
-           whatsapp("91"+common.getNumbers(home_text.toString())[1].toString(),"Hello, Admin!");
+           whatsapp(common.getNumbers(home_text.toString())[1].toString(),"Hello, Admin!");
        }
 
    }
@@ -421,7 +439,7 @@ public class HomeActivity extends MyBaseActivity
    {
        if(!(common.getNumbers(home_text.toString())[3].toString().isEmpty()))
        {
-           whatsapp("91"+common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
+           whatsapp(common.getNumbers(home_text.toString())[3].toString(),"Hello, Co-Admin!");
        }
    }
     }

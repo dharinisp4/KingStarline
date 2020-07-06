@@ -27,7 +27,7 @@ public class splash_activity extends AppCompatActivity {
    float version_code;
    Common common;
    public static String home_text ="", withdrw_text="",tagline= "",withdrw_no="" ,min_add_amount="",message="",
-           msg_status="",app_link="",share_link="";
+           msg_status="",app_link="",share_link="",update_msg="";
    // ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,7 @@ public class splash_activity extends AppCompatActivity {
                         msg_status = dataObj.getString("msg_status");
                         app_link = dataObj.getString("app_link");
                         share_link = dataObj.getString("share_link");
+                        update_msg = dataObj.getString("update_msg");
                         ver_code=Float.parseFloat(dataObj.getString("version"));
                         msg=dataObj.getString("message");
                         common.getNumbers(home_text.toString());
@@ -91,7 +92,7 @@ public class splash_activity extends AppCompatActivity {
                     {
                         AlertDialog.Builder builder=new AlertDialog.Builder(splash_activity.this);
                         builder.setTitle("Version Information");
-                        builder.setMessage(msg);
+                        builder.setMessage(update_msg);
                         builder.setCancelable(false);
                          builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
