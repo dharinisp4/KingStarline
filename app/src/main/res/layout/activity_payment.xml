@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PaymentActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txtBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_keyboard_backspace_black_24dp"/>
+
+            <TextView
+                android:id="@+id/board"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Dhani Night -Single Digits Board"
+                android:layout_toRightOf="@id/txtBack"
+                android:layout_marginLeft="10dp"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:textSize="17dp"
+                android:textColor="@color/textColor"/>
+
+            <ImageView
+                android:id="@+id/w_image"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:background="@drawable/icons8_rupee_24px"
+                android:layout_toLeftOf="@+id/wallet_amount"
+                android:backgroundTint="@color/textColor"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="2dp"/>
+            <TextView
+                android:id="@+id/wallet_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:gravity="center"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/textColor"/>
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_margin="@dimen/_20sdp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/et_amt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageViewUserIcon"
+                android:padding="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@id/imageViewUserIcon"
+                android:background="@drawable/gradient_button"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                android:drawablePadding="10dp"
+                android:hint="Amount"
+                android:textSize="16dp"
+                android:inputType="number"
+                android:maxLength="10"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"/>
+            <EditText
+                android:id="@+id/et_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageViewUserIcon"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imageViewUserIcon"
+                android:background="@drawable/gradient_button"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                android:drawablePadding="10dp"
+                android:hint="Note"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"/>
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageViewUserIcon"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imageViewUserIcon"
+                android:background="@drawable/gradient_button"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                android:drawablePadding="10dp"
+                android:hint="Name"
+                android:textSize="16dp"
+
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"/>
+            <EditText
+                android:id="@+id/et_upi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/imageViewUserIcon"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@id/imageViewUserIcon"
+                android:background="@drawable/gradient_button"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
+                android:drawableTint="@color/colorPrimaryDark"
+                android:drawablePadding="10dp"
+                android:hint="UPI"
+                android:textSize="16dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimaryDark"/>
+            <Button
+                android:id="@+id/btn_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pay Now"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/gradient_button"
+
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:layout_below="@id/relativeLayout3"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

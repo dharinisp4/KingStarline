@@ -28,4 +28,5 @@
     <color name="green">#053004</color>
 <!--    <color name="background">#f6e1c4</color>-->
     <color name="rates_color">#AE0324</color>
+    <color name="play_color">#FB483A</color>
 </resources>

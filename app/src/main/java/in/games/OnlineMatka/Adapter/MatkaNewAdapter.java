@@ -194,40 +194,90 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
                     flag = 2;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
-                        holder.txtStatus.setText( "BID IS CLOSED" );
+                        if(holder.relStatus.getVisibility()==View.VISIBLE)
+                        {
+                            holder.relStatus.setVisibility(View.GONE);
+                        }
+                        if(holder.tv_status.getVisibility()==View.GONE)
+                        {
+                            holder.tv_status.setVisibility(View.VISIBLE);
+                        }
+                        holder.tv_status.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.tv_status.setText( "BID IS CLOSED FOR TODAY" );
+//                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+//                        holder.txtStatus.setText( "BID IS CLOSED" );
 
                     }
                     else
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
-                        holder.txtStatus.setText( "BID IS RUNNING" );
+                        if(holder.relStatus.getVisibility()==View.GONE)
+                        {
+                            holder.relStatus.setVisibility(View.VISIBLE);
+                        }
+                        if(holder.tv_status.getVisibility()==View.VISIBLE)
+                        {
+                            holder.tv_status.setVisibility(View.GONE);
+                        }
+//                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+//                        holder.txtStatus.setText( "BID IS RUNNING" );
 
                     }
 
                 } else if (c > 0) {
                     flag = 3;
-                    holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
-                    holder.txtStatus.setText( "BID IS CLOSED" );
+                    if(holder.relStatus.getVisibility()==View.VISIBLE)
+                    {
+                        holder.relStatus.setVisibility(View.GONE);
+                    }
+                    if(holder.tv_status.getVisibility()==View.GONE)
+                    {
+                        holder.tv_status.setVisibility(View.VISIBLE);
+                    }
+                    holder.tv_status.setTextColor( Color.parseColor( "#000000" ) );
+                    holder.tv_status.setText( "BID IS CLOSED FOR TODAY" );
 
                 } else {
                     flag = 1;
                     if(day_flag==1 || day_flag == 3)
                     {
-                        holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
-                        holder.txtStatus.setText( "BID IS CLOSED" );
+                        if(holder.relStatus.getVisibility()==View.VISIBLE)
+                        {
+                            holder.relStatus.setVisibility(View.GONE);
+                        }
+                        if(holder.tv_status.getVisibility()==View.GONE)
+                        {
+                            holder.tv_status.setVisibility(View.VISIBLE);
+                        }
+                        holder.tv_status.setTextColor( Color.parseColor( "#000000" ) );
+                        holder.tv_status.setText( "BID IS CLOSED FOR TODAY" );
                     }
                     else
                     {
-                        holder.txtStatus.setVisibility( View.INVISIBLE );
+                        if(holder.relStatus.getVisibility()==View.GONE)
+                        {
+                            holder.relStatus.setVisibility(View.VISIBLE);
+                        }
+                        if(holder.tv_status.getVisibility()==View.VISIBLE)
+                        {
+                            holder.tv_status.setVisibility(View.GONE);
+                        }
                     }
 
                 }
             }
             else
             {
-                holder.txtStatus.setText( "BID IS CLOSED" );
-                holder.txtStatus.setTextColor( Color.parseColor( "#000000" ) );
+                if(holder.relStatus.getVisibility()==View.VISIBLE)
+                {
+                    holder.relStatus.setVisibility(View.GONE);
+                }
+                if(holder.tv_status.getVisibility()==View.GONE)
+                {
+                    holder.tv_status.setVisibility(View.VISIBLE);
+                }
+                holder.tv_status.setTextColor( Color.parseColor( "#000000" ) );
+                holder.tv_status.setText( "BID IS CLOSED FOR TODAY" );
+
 
             }
 
@@ -364,8 +414,8 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtDess2,txtmatkaBid_openTime,txtmatkaBid_closeTime,txtMatkaName,txtMatka_startingNo,
-                txtMatka_resNo,txtMatka_endNo,txtStatus,txtMatka_id,txt_play;
-        RelativeLayout rl,rel_matka;
+                txtMatka_resNo,txtMatka_endNo,txtMatka_id,txt_play,tv_status;
+        RelativeLayout rl,rel_matka,relStatus;
         ImageView imageGame;
         public ViewHolder(@NonNull View view) {
             super(view);
@@ -377,10 +427,11 @@ public class MatkaNewAdapter extends RecyclerView.Adapter<MatkaNewAdapter.ViewHo
              txtMatka_resNo=(TextView)view.findViewById(R.id.matka_res_Number);
              txtMatka_endNo=(TextView)view.findViewById(R.id.matka_end_Number);
              rl=(RelativeLayout) view.findViewById(R.id.rlchange);
-             txtStatus=(TextView)view.findViewById(R.id.matkaBettingStatus);
+             relStatus=(RelativeLayout)view.findViewById(R.id.matkaBettingStatus);
              imageGame=(ImageView)view.findViewById(R.id.matka_image);
              txtMatka_id=(TextView) view.findViewById(R.id.matka_id);
              rel_matka = view.findViewById(R.id.rlchange);
+            tv_status = view.findViewById(R.id.tv_status);
             txt_play = view.findViewById(R.id.txt_play);
           common=new Common(context);
         }

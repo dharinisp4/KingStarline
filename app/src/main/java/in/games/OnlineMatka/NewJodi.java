@@ -38,6 +38,7 @@ public class NewJodi extends AppCompatActivity implements View.OnClickListener {
     List<TableModel> list;
 List<String> digit_list ;
     private int val_p=0;
+    public static ArrayList<TableModel> bet_list,tempList;
     private Button btnSubmit,btnReset,btnGameType;
     TextView bt_back;
     TextView txtMatka;
@@ -45,7 +46,7 @@ List<String> digit_list ;
     String matName="";
     private EditText etPoints;
     LoadingBar progressDialog;
-    private TextView txtWallet_amount;
+    public static TextView txtWallet_amount,total;
     private String game_id;
     private String m_id ,end_time,start_time ,bet_type;
     private Dialog dialog;
@@ -67,7 +68,10 @@ List<String> digit_list ;
         end_time = getIntent().getStringExtra("end_time");
         start_time= getIntent().getStringExtra("start_time");
         list=new ArrayList<>();
+        bet_list=new ArrayList<>();
+        tempList=new ArrayList<>();
        rv_digits = findViewById(R.id.jodi_points);
+        total = findViewById(R.id.total);
         etPoints=(EditText)findViewById(R.id.etPoints);
         txt_timer = findViewById(R.id.timer);
         tv_timer= findViewById(R.id.tv_timer);
@@ -187,12 +191,18 @@ List<String> digit_list ;
             finish();
         }
         else if (id == R.id.btn_sbmit) {
-            if (is_empty) {
-                Toast.makeText(NewJodi.this, "Please enter some points", Toast.LENGTH_LONG).show();
-            } else {
-                if (is_error) {
-                    Toast.makeText(NewJodi.this, "Minimum bid amount is 10", Toast.LENGTH_LONG).show();
-                } else {
+            tempList.clear();
+            for(int k=0; k<bet_list.size();k++)
+            {
+                if(bet_list.get(k).getPoints().toString().equals("0") || bet_list.get(k).getPoints().toString().equals(""))
+                { }
+                else
+                {
+
+                    tempList.add(bet_list.get(k));
+                }
+            }
+
                     String dt = btnGameType.getText().toString().trim();
                     String d[] = dt.split(" ");
 
@@ -235,7 +245,7 @@ List<String> digit_list ;
                     long bidTime=common.getTimeDifference(start_time);
 if(bidTime>0)
 {
-    common.setBidsDialog(Integer.parseInt(w), jodi_list, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
+    common.setBidsDialog(Integer.parseInt(w), tempList, m_id, c, game_id, w, dashName, progressDialog, btnSubmit, start_time, end_time);
 
 }
 else
@@ -245,9 +255,8 @@ else
 
 //                    list.clear();
                 }
-            }
 
-        }
+
         else if (id == R.id.btnreset)
         {
 

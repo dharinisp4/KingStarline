@@ -67,6 +67,7 @@ import in.games.OnlineMatka.NewGameActivity;
 import in.games.OnlineMatka.Prevalent.Prevalent;
 import in.games.OnlineMatka.R;
 import in.games.OnlineMatka.URLs;
+import in.games.OnlineMatka.networkconnectivity.NoInternetConnection;
 import in.games.OnlineMatka.utils.CustomJsonRequest;
 import in.games.OnlineMatka.utils.LoadingBar;
 import in.games.OnlineMatka.utils.Module;
@@ -1810,6 +1811,19 @@ public class Common {
         SpannableString content = new SpannableString(mystring);
         content.setSpan(new UnderlineSpan(), 0, mystring.length(), 0);
         return content;
+    }
+
+    public void updatePoints(ArrayList<TableModel> list,int pos,String points,String betType)
+    {
+        TableModel tableModel=list.get(pos);
+        tableModel.setPoints(points);
+        tableModel.setType(betType);
+    }
+
+    public void noIntenetActivity()
+    {
+        Intent intent=new Intent(context, NoInternetConnection.class);
+        context.startActivity(intent);
     }
 }
 

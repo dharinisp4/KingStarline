@@ -21,8 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".NewJodi"></activity>
+        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".NewJodi" />
+        <activity android:name=".networkconnectivity.NoInternetConnection" />
         <activity android:name=".NewSingleDigit" />
         <activity android:name=".NewGameActivity" />
         <activity android:name=".ProfileActivity" />

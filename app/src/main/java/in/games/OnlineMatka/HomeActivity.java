@@ -392,7 +392,6 @@ public class HomeActivity extends MyBaseActivity
         return true;
     }
 
-    @SuppressLint("NewApi")
     public void whatsapp( String phone,String message) {
 //        String formattedNumber = PhoneNumberUtils.formatNumber(phone);
 //        try{
@@ -414,8 +413,9 @@ public class HomeActivity extends MyBaseActivity
         Intent i = new Intent(Intent.ACTION_VIEW);
 
         try {
-            String url = "https://api.whatsapp.com/send?phone=+91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
-            i.setPackage("com.whatsapp");
+            String url = "whatsapp://send?phone=91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
+//            String url = "https://api.whatsapp.com/send?phone=91"+ phone +"&text=" + URLEncoder.encode(message, "UTF-8");
+//            i.setPackage("com.whatsapp");
             i.setData(Uri.parse(url));
             if (i.resolveActivity(packageManager) != null) {
                 startActivity(i);
